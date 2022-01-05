@@ -23,6 +23,7 @@ passage_two = Location("")
 passage_two.item = "bloodstained spurred boots"
 passage_two.item2 = "rusted sword"
 passage_three = Location("")
+passage_three.item = "nature's blessing"
 passage_four = Location("")
 passage_five = Location("")
 kitsune_lair = Location("")
@@ -35,3 +36,9 @@ puca_lair = Location("")
 noxx_lair = Location("")
 sphinx_lair = Location("")
 leave_maze = Location("")
+
+passage_one.path = passage_two
+passage_one.follow_spider = kitsune_lair
+passage_two.path = puca_lair
+passage_three.path = naga_lair
+passage_three.follow_spider = naga_lair
