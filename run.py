@@ -120,4 +120,43 @@ anansi = Monster("Anansi", "West-African", "Anansi is most well known\
  his use of cunning, creativity and wit.\nHe often takes the shape of a spider\
  and is sometimes considered to be a god of all knowledge of stories")
 
-print(anansi.description())
+
+Location = entrance
+
+
+def display_intro():
+    """
+    Displays the opening / introductory text of the game
+    """
+    intro_done = False
+    while intro_done is False:
+        player_input = input("Welcome to the Mythos Maze, would you like to try and traverse\
+ its perils?")
+        affirmative = ["yes", "y", "definitely", "let's go", "bring it",
+                       "hell yes", "absolutely"]
+        negative = ["no", "n", "no way", "hell no", "absolutely not", "never"]
+        if player_input.lower().strip() in affirmative:
+            player_input2 = input("Are you sure?")
+            if player_input2.lower().strip() in affirmative:
+                print("Very well then, it's your funeral. Good luck mortal...")
+                intro_done = True
+            else:
+                print("Indecision is the thief of opportunity you know...\n")
+        elif player_input.lower().strip() in negative:
+            print("A wise choice.")
+            time.sleep(1.5)
+            print("However, please don't hesitate to visit\
+ me again should you change your mind.\n")
+        else:
+            print("Such confidence, best run back and hide behind your\
+ mother's skirts child.\n")
+
+
+def main():
+    """
+    Fires up all active functions, in correct order, that make the game run
+    """
+    display_intro()
+
+
+main()
