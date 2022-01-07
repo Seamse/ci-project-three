@@ -131,12 +131,13 @@ def display_intro():
     intro_done = False
     while intro_done is False:
         player_input = input("Welcome to the Mythos Maze, would you like to try and traverse\
- its perils?")
+ its perils?\n")
         affirmative = ["yes", "y", "definitely", "let's go", "bring it",
                        "hell yes", "absolutely"]
-        negative = ["no", "n", "no way", "hell no", "absolutely not", "never"]
+        negative = ["no", "n", "no way", "hell no", "absolutely not", "never",
+                    "nope"]
         if player_input.lower().strip() in affirmative:
-            player_input2 = input("Are you sure?")
+            player_input2 = input("Are you sure?\n")
             if player_input2.lower().strip() in affirmative:
                 print("Very well then, it's your funeral. Good luck mortal...")
                 intro_done = True
@@ -144,7 +145,7 @@ def display_intro():
                 print("Indecision is the thief of opportunity you know...\n")
         elif player_input.lower().strip() in negative:
             print("A wise choice.")
-            time.sleep(1.5)
+            time.sleep(1)
             print("However, please don't hesitate to visit\
  me again should you change your mind.\n")
         else:
