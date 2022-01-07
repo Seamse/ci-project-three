@@ -8,12 +8,10 @@ class Location:
     """
     class used for the different locations within the Maze.
     """
-    def __init__(self, arrival_description, go_back_description):
-        self.arrival_description = arrival_description
-        self.go_back_description = go_back_description
+    def __init__(self, description):
+        self.description = description
         self.path = None
         self.follow_spider = None
-        self.go_back = None
         self.item = None
         self.item2 = None
 
@@ -29,44 +27,36 @@ entrance = Location("Darkness...\nA herbal scent assaults your senses,\
  you see a large stone archway, weathered by time, leading the way deeper\
  into the darkness of the maze.\nAs you turn your head to look at what's\
  behind you, you hear a twig snap loudly.\nYou freeze before you can\
- see what lies in that direction, a shiver running down your spine..\n", "a\
- large stone archway looms over you.")
-passage_one = Location("Test passage_one\n", "hedges confine you on both sides, the path is dark")
+ see what lies in that direction, a shiver running down your spine..\n")
+passage_one = Location("hedges confine you on both sides, the path is dark")
 passage_one.item = "hoshi no tama"
-passage_two = Location("Test passage_two\n", "a brighter path, filled with pieces of old masonry")
+passage_two = Location("a brighter path, filled with pieces of old masonry")
 passage_two.item = "bloodstained spurred boots"
 passage_two.item2 = "rusted sword"
-passage_three = Location("", "a muddy swamp, twinkling lights lure you forward")
+passage_three = Location("a muddy swamp, twinkling lights lure you forward")
 passage_three.item = "nature's blessing"
-passage_four = Location("", "a dry area, the hedges are little more than thorns")
-passage_five = Location("", "a forest, the smell of pine surrounds you")
-kitsune_lair = Location("", "a twisting path leading to a beautiful inari shrine")
+passage_four = Location("a dry area, the hedges are little more than thorns")
+passage_five = Location("a forest, the smell of pine surrounds you")
+kitsune_lair = Location("a twisting path leading to a beautiful inari shrine")
 kitsune_lair.item = "milk"
-naga_lair = Location("", "a stream with a tall dark cave on its opposite bank")
+naga_lair = Location("a stream with a tall dark cave on its opposite bank")
 naga_lair.item = "gem"
-dragon_lair = Location("", "volcanic rock seems to glow in the darkness")
-surale_lair = Location("", "massive pine trees obscure the moonlight")
-puca_lair = Location("Puca test\n", "ancient ruins lie in pieces around you")
-nokk_lair = Location("", "a pond of silver, the large water lilies glowing pink")
-sphinx_lair = Location("", "glittering sand swirls as the wind rises")
-leave_maze = Location("", "the air clears, the maze's hedges disintegrate")
+dragon_lair = Location("volcanic rock seems to glow in the darkness")
+surale_lair = Location("massive pine trees obscure the moonlight")
+puca_lair = Location("ancient ruins lie in pieces around you")
+nokk_lair = Location("a pond of silver, the large water lilies glowing pink")
+sphinx_lair = Location("glittering sand swirls as the wind rises")
+leave_maze = Location("the air clears, the maze's hedges disintegrate")
 
 entrance.path = passage_one
 passage_one.path = passage_two
 passage_one.follow_spider = kitsune_lair
-passage_one.go_back = entrance
 passage_two.path = puca_lair
-passage_two.go_back = passage_one
 passage_three.path = naga_lair
 passage_three.follow_spider = naga_lair
-passage_three.go_back = kitsune_lair
 passage_four.path = sphinx_lair
-passage_four.go_back = nokk_lair
 passage_five.path = surale_lair
 passage_five.follow_spider = leave_maze
-passage_five.go_back = dragon_lair
-dragon_lair.go_back = naga_lair
-nokk_lair.go_back = puca_lair
 
 
 class Monster:
@@ -147,9 +137,12 @@ affirmative = ["yes", "y", "definitely", "let's go", "bring it",
 negative = ["no", "n", "no way", "hell no", "absolutely not", "never",
             "nope"]
 follow_path = ["path", "follow path", "straight", "straight ahead",
-               "keep going"]
+               "keep going", "go into the maze", "enter maze", "go into maze",
+               "head deeper into maze", "run away"]
 follow_spider = ["follow spider", "spider", "after spider", "side passage"]
-stop_game = ["quit", "go home", "leave maze"]
+stop_game = ["quit", "go home", "leave maze", "exit"]
+seal_your_doom = ["help!", "investigate noise", "investigate",
+                  "investigate sound", "go back", "turn back", "hide", "shout"]
 
 
 def display_intro():
@@ -186,13 +179,26 @@ def location_first_arrival():
     """
     You are at a certain location for the first time.
     """
+    global LOCATION
     time.sleep(2)
-    print(LOCATION.arrival_description)
+    print(LOCATION.description)
     player_input3 = input("What will you do?\n")
     while player_input3.lower().strip() not in stop_game:
         if player_input3.lower().strip() in follow_path:
             validate_location()
             player_input3 = input("What will you do?\n")
+        elif player_input3.lower().strip() in seal_your_doom:
+            print("you have died\n")
+            player_input4 = input("would you like to try again,\
+ start over or stop playing?\n")
+            if player_input4.lower().strip() == "try again":
+                location_first_arrival()
+            elif player_input4.lower().strip() == "start over":
+                LOCATION = entrance
+                main()
+            elif player_input4.lower().strip() == "stop playing":
+                print("bye bye")
+                break
 
 
 def validate_location():
@@ -203,14 +209,14 @@ def validate_location():
     """
     global LOCATION
     LOCATION = LOCATION.path
-    if hasattr(LOCATION, "arrival_description") is False:
+    if hasattr(LOCATION, "description") is False:
         print("Although the path is ahead, you cannot see\
  a way to pass by the creature without putting yourself in harm's way\n")
         LOCATION = visited[-1]
     else:
         visited.append(LOCATION)
         time.sleep(2)
-        print(LOCATION.arrival_description)
+        print(LOCATION.description)
 
 
 def main():
