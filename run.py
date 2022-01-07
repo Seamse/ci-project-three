@@ -8,34 +8,47 @@ class Location:
     """
     class used for the different locations within the Maze
     """
-    def __init__(self, description):
-        self.description = description
+    def __init__(self, arrival_description, go_back_description):
+        self.arrival_description = arrival_description
+        self.go_back_description = go_back_description
         self.path = None
         self.follow_spider = None
         self.item = None
         self.item2 = None
 
 
-entrance = Location("a large stone archway looms before you.")
-passage_one = Location("hedges confine you on both sides, the path is dark")
+entrance = Location("Darkness...\nA herbal scent assaults your senses,\
+ sage? Or maybe thyme?\n 'you're running out of time...'\nThe sensation\
+ of falling jerks you awake, your eyes opening to a sea of stars as your\
+ erratic heartbeat tries to stabilize.\nA sliver of a crescent moon\
+ shines down on you like an unnatural, mocking grin.\nA warm breeze\
+ moves the grass in a tickling sensation against your skin as you take in\
+ your surroundings.\nYou sit up slowly, craning your neck to take in the\
+ tall black hedges rising ominously on either side of you.\nAhead,\
+ you see a large stone archway, weathered by time, leading the way deeper\
+ into the darkness of the maze.\nAs you turn your head to look at what's\
+ behind you, you hear a twig snap loudly.\nYou freeze before you can\
+ see what lies in that direction, a shiver running down your spine..\n", "a\
+ large stone archway looms over you.")
+passage_one = Location("Test passage_one\n", "hedges confine you on both sides, the path is dark")
 passage_one.item = "hoshi no tama"
-passage_two = Location("a brighter path, filled with pieces of old masonry")
+passage_two = Location("Test passage_two\n", "a brighter path, filled with pieces of old masonry")
 passage_two.item = "bloodstained spurred boots"
 passage_two.item2 = "rusted sword"
-passage_three = Location("a muddy swamp, twinkling lights lure you forward")
+passage_three = Location("", "a muddy swamp, twinkling lights lure you forward")
 passage_three.item = "nature's blessing"
-passage_four = Location("a dry area, the hedges are little more than thorns")
-passage_five = Location("a forest, the smell of pine surrounds you")
-kitsune_lair = Location("a twisting path leading to a beautiful inari shrine")
+passage_four = Location("", "a dry area, the hedges are little more than thorns")
+passage_five = Location("", "a forest, the smell of pine surrounds you")
+kitsune_lair = Location("", "a twisting path leading to a beautiful inari shrine")
 kitsune_lair.item = "milk"
-naga_lair = Location("a stream with a tall dark cave on its opposite bank")
+naga_lair = Location("", "a stream with a tall dark cave on its opposite bank")
 naga_lair.item = "gem"
-dragon_lair = Location("volcanic rock seems to glow in the darkness")
-surale_lair = Location("massive pine trees obscure the moonlight")
-puca_lair = Location("ancient ruins lie in pieces around you")
-nokk_lair = Location("a pond of silver, the large water lilies glowing pink")
-sphinx_lair = Location("glittering sand swirls as the wind rises")
-leave_maze = Location("the air clears, the maze's hedges disintegrate")
+dragon_lair = Location("", "volcanic rock seems to glow in the darkness")
+surale_lair = Location("", "massive pine trees obscure the moonlight")
+puca_lair = Location("", "ancient ruins lie in pieces around you")
+nokk_lair = Location("", "a pond of silver, the large water lilies glowing pink")
+sphinx_lair = Location("", "glittering sand swirls as the wind rises")
+leave_maze = Location("", "the air clears, the maze's hedges disintegrate")
 
 entrance.path = passage_one
 passage_one.path = passage_two
@@ -121,7 +134,14 @@ anansi = Monster("Anansi", "West-African", "Anansi is most well known\
  and is sometimes considered to be a god of all knowledge of stories")
 
 
-Location = entrance
+affirmative = ["yes", "y", "definitely", "let's go", "bring it",
+               "hell yes", "absolutely"]
+negative = ["no", "n", "no way", "hell no", "absolutely not", "never",
+            "nope"]
+follow_path = ["path", "follow path", "straight", "straight ahead",
+               "keep going"]
+follow_spider = ["follow spider", "spider", "after spider", "side passage"]
+stop_game = ["quit", "go home", "leave maze"]
 
 
 def display_intro():
@@ -132,14 +152,10 @@ def display_intro():
     while intro_done is False:
         player_input = input("Welcome to the Mythos Maze, would you like to try and traverse\
  its perils?\n")
-        affirmative = ["yes", "y", "definitely", "let's go", "bring it",
-                       "hell yes", "absolutely"]
-        negative = ["no", "n", "no way", "hell no", "absolutely not", "never",
-                    "nope"]
         if player_input.lower().strip() in affirmative:
             player_input2 = input("Are you sure?\n")
             if player_input2.lower().strip() in affirmative:
-                print("Very well then, it's your funeral. Good luck mortal...")
+                print("Very well then, it's your funeral. Good luck mortal\n")
                 intro_done = True
             else:
                 print("Indecision is the thief of opportunity you know...\n")
@@ -153,11 +169,31 @@ def display_intro():
  mother's skirts child.\n")
 
 
+LOCATION = entrance
+
+
+def location_first_arrival():
+    """
+    You are at a certain location for the first time
+    """
+    global LOCATION
+    time.sleep(2)
+    print(LOCATION.arrival_description)
+    player_input3 = input("What will you do?\n")
+    while player_input3.lower().strip() not in stop_game:
+        if player_input3.lower().strip() in follow_path:
+            LOCATION = LOCATION.path
+            time.sleep(2)
+            print(LOCATION.arrival_description)
+            player_input3 = input("What will you do?\n")
+
+
 def main():
     """
     Fires up all active functions, in correct order, that make the game run
     """
     display_intro()
+    location_first_arrival()
 
 
 main()
