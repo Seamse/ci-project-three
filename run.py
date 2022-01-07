@@ -1,18 +1,19 @@
 """
-Mythos Maze: an adventure game
+Mythos Maze: an adventure game.
 """
 import time
 
 
 class Location:
     """
-    class used for the different locations within the Maze
+    class used for the different locations within the Maze.
     """
     def __init__(self, arrival_description, go_back_description):
         self.arrival_description = arrival_description
         self.go_back_description = go_back_description
         self.path = None
         self.follow_spider = None
+        self.go_back = None
         self.item = None
         self.item2 = None
 
@@ -45,7 +46,7 @@ naga_lair = Location("", "a stream with a tall dark cave on its opposite bank")
 naga_lair.item = "gem"
 dragon_lair = Location("", "volcanic rock seems to glow in the darkness")
 surale_lair = Location("", "massive pine trees obscure the moonlight")
-puca_lair = Location("", "ancient ruins lie in pieces around you")
+puca_lair = Location("Puca test", "ancient ruins lie in pieces around you")
 nokk_lair = Location("", "a pond of silver, the large water lilies glowing pink")
 sphinx_lair = Location("", "glittering sand swirls as the wind rises")
 leave_maze = Location("", "the air clears, the maze's hedges disintegrate")
@@ -53,18 +54,25 @@ leave_maze = Location("", "the air clears, the maze's hedges disintegrate")
 entrance.path = passage_one
 passage_one.path = passage_two
 passage_one.follow_spider = kitsune_lair
+passage_one.go_back = entrance
 passage_two.path = puca_lair
+passage_two.go_back = passage_one
 passage_three.path = naga_lair
 passage_three.follow_spider = naga_lair
+passage_three.go_back = kitsune_lair
 passage_four.path = sphinx_lair
+passage_four.go_back = nokk_lair
 passage_five.path = surale_lair
 passage_five.follow_spider = leave_maze
+passage_five.go_back = dragon_lair
+dragon_lair.go_back = naga_lair
+nokk_lair.go_back = puca_lair
 
 
 class Monster:
     """
     class to define the mythical creatures
-    you can run into in the Maze
+    you can run into in the Maze.
     """
 
     definition = "a mythical creature is a monster that is\
@@ -146,7 +154,7 @@ stop_game = ["quit", "go home", "leave maze"]
 
 def display_intro():
     """
-    Displays the opening / introductory text of the game
+    Displays the opening / introductory text of the game.
     """
     intro_done = False
     while intro_done is False:
@@ -170,22 +178,39 @@ def display_intro():
 
 
 LOCATION = entrance
+visited = ["entrance"]
+inventory = []
 
 
 def location_first_arrival():
     """
-    You are at a certain location for the first time
+    You are at a certain location for the first time.
     """
-    global LOCATION
     time.sleep(2)
     print(LOCATION.arrival_description)
     player_input3 = input("What will you do?\n")
     while player_input3.lower().strip() not in stop_game:
         if player_input3.lower().strip() in follow_path:
-            LOCATION = LOCATION.path
+            validate_location()
             time.sleep(2)
             print(LOCATION.arrival_description)
             player_input3 = input("What will you do?\n")
+
+
+def validate_location():
+    """
+    Checks if user is allowed to leave / move to a new
+    location, or if they have to do something here before
+    being allowed to move on.
+    """
+    global LOCATION
+    LOCATION = LOCATION.path
+    if hasattr(LOCATION, "arrival_description") is False:
+        print("Although the path is ahead, you cannot see\
+ a way to pass by the creature without putting yourself in harm's way\n")
+        LOCATION = visited[-1]
+    else:
+        visited.append(LOCATION)
 
 
 def main():
