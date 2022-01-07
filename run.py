@@ -46,7 +46,7 @@ naga_lair = Location("", "a stream with a tall dark cave on its opposite bank")
 naga_lair.item = "gem"
 dragon_lair = Location("", "volcanic rock seems to glow in the darkness")
 surale_lair = Location("", "massive pine trees obscure the moonlight")
-puca_lair = Location("Puca test", "ancient ruins lie in pieces around you")
+puca_lair = Location("Puca test\n", "ancient ruins lie in pieces around you")
 nokk_lair = Location("", "a pond of silver, the large water lilies glowing pink")
 sphinx_lair = Location("", "glittering sand swirls as the wind rises")
 leave_maze = Location("", "the air clears, the maze's hedges disintegrate")
@@ -192,8 +192,6 @@ def location_first_arrival():
     while player_input3.lower().strip() not in stop_game:
         if player_input3.lower().strip() in follow_path:
             validate_location()
-            time.sleep(2)
-            print(LOCATION.arrival_description)
             player_input3 = input("What will you do?\n")
 
 
@@ -211,6 +209,8 @@ def validate_location():
         LOCATION = visited[-1]
     else:
         visited.append(LOCATION)
+        time.sleep(2)
+        print(LOCATION.arrival_description)
 
 
 def main():
