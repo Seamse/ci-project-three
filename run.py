@@ -36,7 +36,8 @@ passage_three = Location("a muddy swamp, twinkling lights lure you forward\n")
 passage_three.gift = "nature's blessing"
 passage_four = Location("a dry area, the hedges are little more than thorns\n")
 passage_five = Location("a forest, the smell of pine surrounds you\n")
-kitsune_lair = Location("a twisting path leading to a beautiful inari shrine\n")
+kitsune_lair = Location("a twisting path leading to a beautiful inari\
+ shrine\n")
 kitsune_lair.gift = "milk"
 naga_lair = Location("a stream with a tall dark cave on its opposite bank\n")
 naga_lair.gift = "gem"
@@ -57,6 +58,10 @@ passage_three.follow_spider = naga_lair
 passage_four.path = sphinx_lair
 passage_five.path = surale_lair
 passage_five.follow_spider = leave_maze
+
+
+monster_locations = [kitsune_lair, naga_lair, dragon_lair, surale_lair,
+                     puca_lair, nokk_lair, sphinx_lair]
 
 
 class Monster:
@@ -132,6 +137,10 @@ anansi = Monster("Anansi", "West-African", "Anansi is most well known\
  and is sometimes considered to be a god of all knowledge of stories")
 
 
+kitsune_conversation = ["'hello human'", "I'm just testing this",
+                        "I hope this works"]
+
+
 affirmative = ["yes", "y", "definitely", "let's go", "bring it",
                "hell yes", "absolutely"]
 negative = ["no", "n", "no way", "hell no", "absolutely not", "never",
@@ -146,6 +155,7 @@ seal_your_doom = ["help!", "investigate noise", "investigate",
 pickup_items = ["search pocket", "search pockets", "pick up", "pick up item",
                 "take", "take item", "take boots", "take sword",
                 "pick up boots", "pick up sword", "investigate"]
+talk = ["hello", "can I help you?", "what are you?"]
 
 
 def display_intro():
@@ -199,6 +209,9 @@ def location_arrival():
         elif player_input3.lower().strip() in seal_your_doom:
             game_over()
             break
+        else:
+            print("I'm afraid I don't quite catch your meaning")
+            player_input3 = input("What will you do?\n")
 
 
 def take_items():
@@ -253,6 +266,23 @@ def validate_spider_path():
         print(LOCATION.description)
 
 
+def conversation():
+    """
+    Handles conversation between player and
+    the creature they've encountered
+    """
+    global LOCATION
+    LOCATION = kitsune_lair
+    if LOCATION is monster_locations[0]:
+        player_talk = input("speak:\n")
+        if player_talk.lower().strip() in talk:
+            print(kitsune_conversation[0])
+        else:
+            print("it's not working")
+    else:
+        print("location error")
+
+
 def game_over():
     """
     Game over sequence for when the player dies
@@ -278,4 +308,5 @@ def main():
     location_arrival()
 
 
-main()
+#main()
+conversation()
