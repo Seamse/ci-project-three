@@ -195,23 +195,41 @@ def location_arrival():
     """
     time.sleep(1)
     print(LOCATION.description)
-    player_input3 = input("What will you do?\n")
-    while player_input3.lower().strip() not in stop_game:
-        if player_input3.lower().strip() in pickup_items:
-            take_items()
-            player_input3 = input("What will you do?\n")
-        elif player_input3.lower().strip() in follow_path:
-            validate_path()
-            player_input3 = input("What will you do?\n")
-        elif player_input3.lower().strip() in follow_spider:
-            validate_spider_path()
-            player_input3 = input("What will you do?\n")
-        elif player_input3.lower().strip() in seal_your_doom:
-            game_over()
-            break
+    if LOCATION in monster_locations:
+        conversation()
+    else:
+        player_input3 = input("What will you do?\n")
+        while player_input3.lower().strip() not in stop_game:
+            if player_input3.lower().strip() in pickup_items:
+                take_items()
+                player_input3 = input("What will you do?\n")
+            elif player_input3.lower().strip() in follow_path:
+                validate_path()
+                player_input3 = input("What will you do?\n")
+            elif player_input3.lower().strip() in follow_spider:
+                validate_spider_path()
+                player_input3 = input("What will you do?\n")
+            elif player_input3.lower().strip() in seal_your_doom:
+                game_over()
+                break
+            else:
+                print("I'm afraid I don't quite catch your meaning")
+                player_input3 = input("What will you do?\n")
+
+
+def conversation():
+    """
+    Handles conversation between player and
+    the creature they've encountered
+    """
+    if LOCATION is monster_locations[0]:
+        player_talk = input("speak:\n")
+        if player_talk.lower().strip() in talk:
+            print(kitsune_conversation[0])
         else:
-            print("I'm afraid I don't quite catch your meaning")
-            player_input3 = input("What will you do?\n")
+            print("it's not working")
+    else:
+        print("location error")
 
 
 def take_items():
@@ -266,23 +284,6 @@ def validate_spider_path():
         print(LOCATION.description)
 
 
-def conversation():
-    """
-    Handles conversation between player and
-    the creature they've encountered
-    """
-    global LOCATION
-    LOCATION = kitsune_lair
-    if LOCATION is monster_locations[0]:
-        player_talk = input("speak:\n")
-        if player_talk.lower().strip() in talk:
-            print(kitsune_conversation[0])
-        else:
-            print("it's not working")
-    else:
-        print("location error")
-
-
 def game_over():
     """
     Game over sequence for when the player dies
@@ -308,5 +309,4 @@ def main():
     location_arrival()
 
 
-#main()
-conversation()
+main()
