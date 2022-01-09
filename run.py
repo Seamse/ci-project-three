@@ -258,6 +258,7 @@ def display_intro():
 LOCATION = entrance
 visited = ["entrance"]
 inventory = []
+monsters_met = []
 
 
 def location_arrival():
@@ -312,6 +313,7 @@ def kitsune_encounter():
             print(kitsune_conversation[1])
             time.sleep(10)
             take_items('gift')
+            monsters_met.append(which_monster())
             LOCATION = LOCATION.move_on
         elif player_talk2.lower().strip() in negative:
             print(kitsune_conversation[2])
@@ -324,6 +326,7 @@ def kitsune_encounter():
             print(kitsune_conversation[1])
             time.sleep(10)
             take_items('gift')
+            monsters_met.append(which_monster())
             LOCATION = LOCATION.move_on
         elif player_talk2.lower().strip() in negative:
             print(kitsune_conversation[2])
