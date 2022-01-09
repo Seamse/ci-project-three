@@ -1,6 +1,8 @@
 """
 Mythos Maze: an adventure game.
 """
+
+
 import time
 
 
@@ -8,6 +10,7 @@ class Location:
     """
     class used for the different locations within the Maze.
     """
+
     def __init__(self, description):
         self.description = description
         self.path = None
@@ -97,7 +100,6 @@ puca_lair.move_on = nokk_lair
 nokk_lair.move_on = passage_four
 sphinx_lair.move_on = leave_maze
 
-
 monster_locations = [kitsune_lair, naga_lair, dragon_lair, surale_lair,
                      puca_lair, nokk_lair, sphinx_lair]
 
@@ -163,8 +165,8 @@ nokk = Monster("Nøkk", "Scandinavian", "The Nøkken are fair male water spirits
 sphinx = Monster("Sphinx", "Greek", "The Sphinx is a female monster\
  with the body of a lion, the head and breast of a woman, eagle's wings\
  and a serpent's tail.\nShe devours all who fail to solve her riddle")
-chupacabra = Monster("Chupacabra", "Latin-American", "The chupacabra is a monstrous\
- creature that attacks animals and consumes their blood.\nPhysical\
+chupacabra = Monster("Chupacabra", "Latin-American", "The chupacabra is a\
+ monstrous creature that attacks animals and consumes their blood.\nPhysical\
  descriptions of the Chupacabra vary, with some describing it as more dog-like\
  while most others describe it as reptilian and alien-like.\nSome report\
  it as being a heavy creature the size of a small bear, with a row of spines\
@@ -175,11 +177,11 @@ anansi = Monster("Anansi", "West-African", "Anansi is most well known\
  and is sometimes considered to be a god of all knowledge of stories")
 
 
-kitsune_conversation = ["'Are you certain? It's easy to spot, it glows and it's\
- very pretty.'", "Tentatively she holds her shaking hands out towards you. The\
- girl appears almost nervous, as if you might change your mind at the last\
- second.\nWhen you drop the small glowing orb into her outstretched hands\
- a ripple of relief seems to wash over her.\nShe clasps the little ball\
+kitsune_conversation = ["'Are you certain? It's easy to spot, it glows and\
+ it's very pretty.'", "Tentatively she holds her shaking hands out towards\
+ you.\nThe girl appears almost nervous, as if you might change your mind at\
+ the last second.\nWhen you drop the small glowing orb into her outstretched\
+ hands a ripple of relief seems to wash over her.\nShe clasps the little ball\
  tightly to her chest and beneath her lowered bangs you see a grin\
  unfurl.\n'Thank you, human.'\nShe looks up suddenly, her slit pupils\
  belying her human disguise.\n'A favour for a favour is in order\
@@ -200,7 +202,7 @@ kitsune_conversation = ["'Are you certain? It's easy to spot, it glows and it's\
  afraid that means you are no longer of use to me human. No hard\
  feelings.'\n", "'No?' The girl sighs, suddenly all measure of sadness\
  seems to have left her.\nHer pupils slit as she regards you in a kind of\
- measured boredom.\n'I'm afraid you've outstayed your usefuleness, human.'\n"]
+ measured boredom.\n'I'm afraid you've outstayed your usefulness, human.'\n"]
 
 
 affirmative = ["yes", "y", "definitely", "let's go", "bring it",
@@ -209,7 +211,7 @@ negative = ["no", "n", "no way", "hell no", "absolutely not", "never",
             "nope"]
 follow_path = ["path", "follow path", "straight", "straight ahead",
                "keep going", "go into the maze", "enter maze", "go into maze",
-               "head deeper into maze", "run away", "run"]
+               "head deeper into maze", "run away", "run", "forward"]
 follow_spider = ["follow spider", "spider", "after spider", "side passage"]
 stop_game = ["quit", "go home", "leave maze", "exit"]
 seal_your_doom = ["help!", "investigate noise", "investigate",
@@ -217,7 +219,8 @@ seal_your_doom = ["help!", "investigate noise", "investigate",
                   "scream"]
 pickup_items = ["search pocket", "search pockets", "pick up", "pick up item",
                 "take", "take item", "take boots", "take sword",
-                "pick up boots", "pick up sword", "investigate"]
+                "pick up boots", "pick up sword", "investigate", "grab sword",
+                "grab item", "pickup sword", "pickup item"]
 talk = ["hello", "can I help you?", "what are you?"]
 avoid = ["leave", "don't help", "don't listen", "go away", "sneak past"]
 
@@ -228,8 +231,8 @@ def display_intro():
     """
     intro_done = False
     while intro_done is False:
-        player_input = input("Welcome to the Mythos Maze, would you like to try and traverse\
- its perils?\n")
+        player_input = input("Welcome to the Mythos Maze, would you like to "
+                             "\try and traverse its perils?\n")
         if player_input.lower().strip() in affirmative:
             player_input2 = input("Are you sure?\n")
             if player_input2.lower().strip() in affirmative:
@@ -261,7 +264,7 @@ def location_arrival():
     print(LOCATION.description)
     player_input3 = input("What will you do?\n")
     if player_input3.lower().strip() in stop_game:
-        stop_playing()
+        print("")
     while player_input3.lower().strip() not in stop_game:
         if LOCATION is monster_locations[0] and player_input3 not in avoid:
             kitsune_encounter()
@@ -278,7 +281,7 @@ def location_arrival():
             validate_path()
             player_input3 = input("What will you do?\n")
         elif player_input3.lower().strip() in follow_spider:
-            validate_spider_path()
+            validate_path('spider')
             player_input3 = input("What will you do?\n")
         elif player_input3.lower().strip() in seal_your_doom:
             game_over()
@@ -296,8 +299,8 @@ def kitsune_encounter():
     global LOCATION
     print("'I lost my marble, have you seen it?'")
     player_talk = input("What will you say?\n")
-    if player_talk.lower().strip() in negative and\
-       "hoshi no tama" in inventory:
+    if player_talk.lower().strip() in negative and \
+            "hoshi no tama" in inventory:
         print(kitsune_conversation[0])
         player_talk2 = input("Will you hand over the hoshi no tama?\n")
         if player_talk2.lower().strip() in affirmative:
@@ -307,7 +310,8 @@ def kitsune_encounter():
         elif player_talk2.lower().strip() in negative:
             print(kitsune_conversation[2])
             game_over()
-    elif player_talk.lower().strip() in affirmative and "hoshi no tama" in inventory:
+    elif player_talk.lower().strip() in affirmative and "hoshi no tama" in \
+            inventory:
         print(kitsune_conversation[3])
         player_talk2 = input("Will you hand over the hoshi no tama?\n")
         if player_talk2.lower().strip() in affirmative:
@@ -317,10 +321,12 @@ def kitsune_encounter():
         elif player_talk2.lower().strip() in negative:
             print(kitsune_conversation[2])
             game_over()
-    elif player_talk.lower().strip() in affirmative and "hoshi no tama" not in inventory:
+    elif player_talk.lower().strip() in affirmative and "hoshi no tama" not \
+            in inventory:
         print(kitsune_conversation[4])
         game_over()
-    elif player_talk.lower().strip() in negative and "hoshi no tama" not in inventory:
+    elif player_talk.lower().strip() in negative and "hoshi no tama" not in \
+            inventory:
         print(kitsune_conversation[5])
         game_over()
     else:
@@ -341,34 +347,17 @@ def take_items():
         print("There's nothing to pick up")
 
 
-def validate_path():
+def validate_path(follow='path'):
     """
     Checks if player is allowed to leave / move to a new
     location, or if they have to do something here before
     being allowed to move on.
     """
     global LOCATION
-    LOCATION = LOCATION.path
-
-    if hasattr(LOCATION, "description") is False:
-        print("Although the path is ahead, you cannot see\
- a way to pass by the creature without putting yourself in harm's way\n")
-        LOCATION = visited[-1]
-    else:
-        visited.append(LOCATION)
-        time.sleep(1)
-        print(LOCATION.description)
-
-
-def validate_spider_path():
-    """
-    Checks if player is allowed to leave / move to a new
-    location, or if they have to do something here before
-    being allowed to move on.
-    """
-    global LOCATION
-    LOCATION = LOCATION.follow_spider
-
+    if follow == 'spider':
+        LOCATION = LOCATION.follow_spider
+    elif follow == 'path':
+        LOCATION = LOCATION.path
     if hasattr(LOCATION, "description") is False:
         print("Although the path is ahead, you cannot see\
  a way to pass by the creature without putting yourself in harm's way\n")
@@ -394,19 +383,6 @@ def game_over():
         main()
     elif player_input4.lower().strip() == "stop playing":
         print("bye bye")
-
-
-def stop_playing():
-    """
-    Allows player to stop the game
-    """
-    global LOCATION
-    player_input5 = input("Would you like to quit or start over?\n")
-    if player_input5.lower().strip() == "quit":
-        print("bye bye")
-    elif player_input5.lower().strip() == "start over":
-        LOCATION = entrance
-        main()
 
 
 def main():
