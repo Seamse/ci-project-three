@@ -260,10 +260,13 @@ def location_arrival():
     time.sleep(1)
     print(LOCATION.description)
     player_input3 = input("What will you do?\n")
+    if player_input3.lower().strip() in stop_game:
+        stop_playing()
     while player_input3.lower().strip() not in stop_game:
         if LOCATION is monster_locations[0] and player_input3 not in avoid:
             kitsune_encounter()
             location_arrival()
+            break
         elif LOCATION in monster_locations and player_input3 in avoid:
             print("Though you want to leave, your fear and uncertainty keep\
  you rooted to the spot.")
@@ -391,6 +394,19 @@ def game_over():
         main()
     elif player_input4.lower().strip() == "stop playing":
         print("bye bye")
+
+
+def stop_playing():
+    """
+    Allows player to stop the game
+    """
+    global LOCATION
+    player_input5 = input("Would you like to quit or start over?\n")
+    if player_input5.lower().strip() == "quit":
+        print("bye bye")
+    elif player_input5.lower().strip() == "start over":
+        LOCATION = entrance
+        main()
 
 
 def main():
