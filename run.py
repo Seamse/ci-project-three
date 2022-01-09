@@ -237,7 +237,7 @@ follow_spider = ["follow spider", "spider", "after spider", "side passage",
 stop_game = ["quit", "go home", "leave maze", "exit"]
 seal_your_doom = ["help!", "investigate noise", "investigate",
                   "investigate sound", "go back", "turn back", "hide", "shout",
-                  "scream"]
+                  "scream", "attack", "use sword"]
 pickup_items = ["search pocket", "search pockets", "pick up", "pick up item",
                 "take", "take item", "take boots", "take sword",
                 "pick up boots", "pick up sword", "investigate", "grab sword",
