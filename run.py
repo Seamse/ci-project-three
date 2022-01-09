@@ -264,7 +264,6 @@ def location_arrival():
         if LOCATION is monster_locations[0] and player_input3 not in avoid:
             kitsune_encounter()
             location_arrival()
-            break
         elif LOCATION in monster_locations and player_input3 in avoid:
             print("Though you want to leave, your fear and uncertainty keep\
  you rooted to the spot.")
