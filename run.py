@@ -8,47 +8,48 @@ class Location:
     """
     class used for the different locations within the Maze.
     """
-    def __init__(self, name, description):
-        self.name = name
+    def __init__(self, description):
         self.description = description
         self.path = None
         self.follow_spider = None
+        self.move_on = None
         self.item = None
         self.gift = None
 
 
-entrance = Location("entrance", "Darkness...\nA herbal scent assaults your senses,\
+entrance = Location("Darkness...\nA herbal scent assaults your senses,\
  sage? Or maybe thyme?\n 'you're running out of time...'\nThe sensation\
  of falling jerks you awake, your eyes opening to a sea of stars as your\
  erratic heartbeat tries to stabilize.\nA sliver of a crescent moon\
- shines down on you like an unnatural, mocking grin.\nA warm breeze\
- moves the grass in a tickling sensation against your skin as you take in\
- your surroundings.\nYou sit up slowly, craning your neck to take in the\
+ shines down on you like an unnatural, mocking grin.\nIts weak silvery\
+ light glints off the edge of a rusted sword lying in the grass beside\
+ you.\nYou sit up slowly, craning your neck to take in the\
  tall black hedges rising ominously on either side of you.\nAhead,\
  you see a large stone archway, weathered by time, leading the way deeper\
  into the darkness of the maze.\nAs you turn your head to look at what's\
  behind you, you hear a twig snap loudly.\nYou freeze before you can\
  see what lies in that direction, a shiver running down your spine..\n")
-passage_one = Location("passage_one", "hedges confine you on both sides, the path is dark\n")
+entrance.item = "rusted sword"
+passage_one = Location("hedges confine you on both sides, the path is dark\n")
 passage_one.item = "hoshi no tama"
-passage_two = Location("passage_two", "a brighter path, filled with pieces of old masonry\n")
+passage_two = Location("a brighter path, filled with pieces of old masonry\n")
 passage_two.item = "bloodstained spurred boots"
-passage_three = Location("passage_three", "a muddy swamp, twinkling lights lure you forward\n")
+passage_three = Location("a muddy swamp, twinkling lights lure you forward\n")
 passage_three.gift = "nature's blessing"
-passage_four = Location("passage_four", "a dry area, the hedges are little more than thorns\n")
-passage_five = Location("passage_five", "a forest, the smell of pine surrounds you\n")
-kitsune_lair = Location("kitsune_lair", "a twisting path leading to a beautiful inari\
+passage_four = Location("a dry area, the hedges are little more than thorns\n")
+passage_five = Location("a forest, the smell of pine surrounds you\n")
+kitsune_lair = Location("a twisting path leading to a beautiful inari\
  shrine\n")
 kitsune_lair.gift = "milk"
-naga_lair = Location("naga_lair", "a stream with a tall dark cave on its opposite bank\n")
+naga_lair = Location("a stream with a tall dark cave on its opposite bank\n")
 naga_lair.gift = "gem"
-dragon_lair = Location("dragon_lair", "volcanic rock seems to glow in the darkness\n")
-surale_lair = Location("surale_lair", "massive pine trees obscure the moonlight\n")
-puca_lair = Location("puca_lair", "ancient ruins lie in pieces around you\n")
-puca_lair.item = "rusted sword"
-nokk_lair = Location("nokk_lair", "a pond of silver, the large water lilies glowing pink\n")
-sphinx_lair = Location("sphinx_lair", "glittering sand swirls as the wind rises\n")
-leave_maze = Location("leave_maze", "the air clears, the maze's hedges disintegrate\n")
+dragon_lair = Location("volcanic rock seems to glow in the darkness\n")
+surale_lair = Location("massive pine trees obscure the moonlight\n")
+puca_lair = Location("ancient ruins lie in pieces around you\n")
+puca_lair.item = "Púca"
+nokk_lair = Location("a pond of silver, the large water lilies glowing pink\n")
+sphinx_lair = Location("glittering sand swirls as the wind rises\n")
+leave_maze = Location("the air clears, the maze's hedges disintegrate\n")
 
 entrance.path = passage_one
 passage_one.path = passage_two
@@ -59,10 +60,18 @@ passage_three.follow_spider = naga_lair
 passage_four.path = sphinx_lair
 passage_five.path = surale_lair
 passage_five.follow_spider = leave_maze
+kitsune_lair.move_on = passage_three
+naga_lair.path = dragon_lair
+naga_lair.follow_spider = dragon_lair
+dragon_lair.move_on = passage_five
+surale_lair.move_on = leave_maze
+puca_lair.move_on = nokk_lair
+nokk_lair.move_on = passage_four
+sphinx_lair.move_on = leave_maze
 
 
-monster_locations = ["kitsune_lair", "naga_lair", "dragon_lair", "surale_lair",
-                     "puca_lair", "nokk_lair", "sphinx_lair"]
+monster_locations = [kitsune_lair, naga_lair, dragon_lair, surale_lair,
+                     puca_lair, nokk_lair, sphinx_lair]
 
 
 class Monster:
@@ -196,26 +205,27 @@ def location_arrival():
     """
     time.sleep(1)
     print(LOCATION.description)
-    if LOCATION.name in monster_locations:
-        conversation()
-    else:
-        player_input3 = input("What will you do?\n")
-        while player_input3.lower().strip() not in stop_game:
-            if player_input3.lower().strip() in pickup_items:
-                take_items()
-                player_input3 = input("What will you do?\n")
-            elif player_input3.lower().strip() in follow_path:
-                validate_path()
-                player_input3 = input("What will you do?\n")
-            elif player_input3.lower().strip() in follow_spider:
-                validate_spider_path()
-                player_input3 = input("What will you do?\n")
-            elif player_input3.lower().strip() in seal_your_doom:
-                game_over()
-                break
-            else:
-                print("I'm afraid I don't quite catch your meaning")
-                player_input3 = input("What will you do?\n")
+    player_input3 = input("What will you do?\n")
+    while player_input3.lower().strip() not in stop_game:
+        if LOCATION in monster_locations:
+            conversation()
+            location_arrival()
+            break
+        elif player_input3.lower().strip() in pickup_items:
+            take_items()
+            player_input3 = input("What will you do?\n")
+        elif player_input3.lower().strip() in follow_path:
+            validate_path()
+            player_input3 = input("What will you do?\n")
+        elif player_input3.lower().strip() in follow_spider:
+            validate_spider_path()
+            player_input3 = input("What will you do?\n")
+        elif player_input3.lower().strip() in seal_your_doom:
+            game_over()
+            break
+        else:
+            print("I'm afraid I don't quite catch your meaning")
+            player_input3 = input("What will you do?\n")
 
 
 def conversation():
@@ -223,14 +233,15 @@ def conversation():
     Handles conversation between player and
     the creature they've encountered
     """
-    if LOCATION.name is monster_locations[0]:
+    global LOCATION
+    if LOCATION is monster_locations[0]:
         player_talk = input("speak:\n")
         if player_talk.lower().strip() in talk:
             print(kitsune_conversation[0])
+            LOCATION = LOCATION.move_on
         else:
             print("it's not working")
     else:
-        print(f"location is {LOCATION.name}")
         print("location error")
 
 
@@ -311,5 +322,4 @@ def main():
     location_arrival()
 
 
-#main()
-conversation()
+main()
