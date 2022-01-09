@@ -18,7 +18,7 @@ class Location:
 
 
 entrance = Location("Darkness...\nA herbal scent assaults your senses,\
- sage? Or maybe thyme?\n 'you're running out of time...'\nThe sensation\
+ sage? Or maybe thyme?\nThe sensation\
  of falling jerks you awake, your eyes opening to a sea of stars as your\
  erratic heartbeat tries to stabilize.\nA sliver of a crescent moon\
  shines down on you like an unnatural, mocking grin.\nIts weak silvery\
@@ -30,16 +30,44 @@ entrance = Location("Darkness...\nA herbal scent assaults your senses,\
  behind you, you hear a twig snap loudly.\nYou freeze before you can\
  see what lies in that direction, a shiver running down your spine..\n")
 entrance.item = "rusted sword"
-passage_one = Location("hedges confine you on both sides, the path is dark\n")
+passage_one = Location("The hedges feel as if they're closing in on you,\
+ the path is dark.\nIn your haste to get away your foot catches on something\
+ and you trip, your knees and hands breaking your fall awkwardly on the uneven\
+ ground.\nAs you look back to see what tripped you, you stifle a gasp.\nA\
+ skeleton in ragged clothing is staring at you with hollow eyesockets.\nIn\
+ the pocket of its worn-away vest you see something emit an eerie\
+ glow.\nYour hand reaches for it involuntarily, but you quickly jerk it back\
+ when a shadow scuttles out from behind the skeleton.\nA spider as large as\
+ your hand crawls up the poor man's remains.\nIt hesitates when it notices\
+ you, its small head twisting as if puzzled by your presence.\nYou stare\
+ at it in bafflement when it raises a hairy leg, almost as if in\
+ greeting.\nBut before you can think it through a low growl emits from the\
+ direction of the archway you just passed and the spider scurries away\
+ through a medium-sized hole in the hedge you hadn't noticed earlier.\n")
 passage_one.item = "hoshi no tama"
 passage_two = Location("a brighter path, filled with pieces of old masonry\n")
 passage_two.item = "bloodstained spurred boots"
-passage_three = Location("a muddy swamp, twinkling lights lure you forward\n")
+passage_three = Location("Panic hits you like a wave as you raise your arms\
+ to block the fire.\nYour eyes close tightly as you feel the force of the\
+ flames lift your feet off the ground, making your world spin.\nYou barely\
+ register that your arms aren't getting burned.\nWhen the roaring sound leaves\
+ your ears, you slowly open your eyes again.\na muddy swamp, twinkling lights\
+ luring you forward, surrounds you...\n")
 passage_three.gift = "nature's blessing"
 passage_four = Location("a dry area, the hedges are little more than thorns\n")
 passage_five = Location("a forest, the smell of pine surrounds you\n")
-kitsune_lair = Location("a twisting path leading to a beautiful inari\
- shrine\n")
+kitsune_lair = Location("You emerge to see a twisting path leading to a\
+ beautiful inari shrine\nDusting off your knees and pulling twigs and leaves\
+ out of your clothes, you look up as you hear a strange sound.\nAt first you\
+ think you might be hearing things, but when you hear it again it's\
+ unmistakably the sound of a child crying.\nHaving no choice but to move\
+ forward, you follow the torchlit path.\nAs the shrine comes fully into view\
+ you notice a frail looking little girl, probably no older than six, hiding\
+ her face in her hands as she sobs.\nHer hands are dirty but her kimono looks\
+ clean.\nSomething in the girl's shadow draws your eyes, but the flickering\
+ torchlight is fickle and dances this way and that.\nBefore you can scrutinize\
+ it further the little girl hiccups and looks up as she notices\
+ you.\nsniffling, she speaks in a barely audible voice:\n'hello'.\n")
 kitsune_lair.gift = "milk"
 naga_lair = Location("a stream with a tall dark cave on its opposite bank\n")
 naga_lair.gift = "gem"
@@ -147,25 +175,51 @@ anansi = Monster("Anansi", "West-African", "Anansi is most well known\
  and is sometimes considered to be a god of all knowledge of stories")
 
 
-kitsune_conversation = ["'hello human'", "I'm just testing this",
-                        "I hope this works"]
+kitsune_conversation = ["'Are you certain? It's easy to spot, it glows and it's\
+ very pretty.'", "Tentatively she holds her shaking hands out towards you. The\
+ girl appears almost nervous, as if you might change your mind at the last\
+ second.\nWhen you drop the small glowing orb into her outstretched hands\
+ a ripple of relief seems to wash over her.\nShe clasps the little ball\
+ tightly to her chest and beneath her lowered bangs you see a grin\
+ unfurl.\n'Thank you, human.'\nShe looks up suddenly, her slit pupils\
+ belying her human disguise.\n'A favour for a favour is in order\
+ I suppose..'\nYou barely have time to notice the five fox tails\
+ unfurl from behind the girl's body before a gulf of flame consumes\
+ you.\n", "The girl's face morphs in anger and her voice takes on a\
+ menacing timbre as she stalks towards you.\nHer form shimmering and\
+ slowly changing shape.\n'You dare steal what is mine?'\nAs the girl\
+ grows in size she simultaneously seems to become transparent.\nThe\
+ last visible part of her are her slit eyes burning with a deep\
+ hatred.\n'Despicable creature.'\nYou're rooted to the spot as she lunges\
+ towards you in a formless kind of smoke.\nLifting your hands in a last\
+ attempt at defense you scream in horror as you see the smoke force its\
+ way beneath your fingernails...\n", "'Do you have it? Will you give it\
+ back to me?'", "'Hm, you don't have it with you though...\nBut if you've\
+ seen it, it must not be far. I suppose I'll track back in the direction\
+ you came from.'\nThe girl's eyes suddenly take on a ruthless sheen.\n'I'm\
+ afraid that means you are no longer of use to me human. No hard\
+ feelings.'\n", "'No?' The girl sighs, suddenly all measure of sadness\
+ seems to have left her.\nHer pupils slit as she regards you in a kind of\
+ measured boredom.\n'I'm afraid you've outstayed your usefuleness, human.'\n"]
 
 
 affirmative = ["yes", "y", "definitely", "let's go", "bring it",
-               "hell yes", "absolutely"]
+               "hell yes", "absolutely", "I might have"]
 negative = ["no", "n", "no way", "hell no", "absolutely not", "never",
             "nope"]
 follow_path = ["path", "follow path", "straight", "straight ahead",
                "keep going", "go into the maze", "enter maze", "go into maze",
-               "head deeper into maze", "run away"]
+               "head deeper into maze", "run away", "run"]
 follow_spider = ["follow spider", "spider", "after spider", "side passage"]
 stop_game = ["quit", "go home", "leave maze", "exit"]
 seal_your_doom = ["help!", "investigate noise", "investigate",
-                  "investigate sound", "go back", "turn back", "hide", "shout"]
+                  "investigate sound", "go back", "turn back", "hide", "shout",
+                  "scream"]
 pickup_items = ["search pocket", "search pockets", "pick up", "pick up item",
                 "take", "take item", "take boots", "take sword",
                 "pick up boots", "pick up sword", "investigate"]
 talk = ["hello", "can I help you?", "what are you?"]
+avoid = ["leave", "don't help", "don't listen", "go away", "sneak past"]
 
 
 def display_intro():
@@ -207,10 +261,14 @@ def location_arrival():
     print(LOCATION.description)
     player_input3 = input("What will you do?\n")
     while player_input3.lower().strip() not in stop_game:
-        if LOCATION in monster_locations:
-            conversation()
+        if LOCATION is monster_locations[0] and player_input3 not in avoid:
+            kitsune_encounter()
             location_arrival()
             break
+        elif LOCATION in monster_locations and player_input3 in avoid:
+            print("Though you want to leave, your fear and uncertainty keep\
+ you rooted to the spot.")
+            player_input3 = input("What will you do?\n")
         elif player_input3.lower().strip() in pickup_items:
             take_items()
             player_input3 = input("What will you do?\n")
@@ -228,21 +286,43 @@ def location_arrival():
             player_input3 = input("What will you do?\n")
 
 
-def conversation():
+def kitsune_encounter():
     """
-    Handles conversation between player and
-    the creature they've encountered
+    Handles interaction between player and
+    the Kitsune (when encountered)
     """
     global LOCATION
-    if LOCATION is monster_locations[0]:
-        player_talk = input("speak:\n")
-        if player_talk.lower().strip() in talk:
-            print(kitsune_conversation[0])
+    print("'I lost my marble, have you seen it?'")
+    player_talk = input("What will you say?\n")
+    if player_talk.lower().strip() in negative and\
+       "hoshi no tama" in inventory:
+        print(kitsune_conversation[0])
+        player_talk2 = input("Will you hand over the hoshi no tama?\n")
+        if player_talk2.lower().strip() in affirmative:
+            print(kitsune_conversation[1])
+            time.sleep(10)
             LOCATION = LOCATION.move_on
-        else:
-            print("it's not working")
+        elif player_talk2.lower().strip() in negative:
+            print(kitsune_conversation[2])
+            game_over()
+    elif player_talk.lower().strip() in affirmative and "hoshi no tama" in inventory:
+        print(kitsune_conversation[3])
+        player_talk2 = input("Will you hand over the hoshi no tama?\n")
+        if player_talk2.lower().strip() in affirmative:
+            print(kitsune_conversation[1])
+            time.sleep(10)
+            LOCATION = LOCATION.move_on
+        elif player_talk2.lower().strip() in negative:
+            print(kitsune_conversation[2])
+            game_over()
+    elif player_talk.lower().strip() in affirmative and "hoshi no tama" not in inventory:
+        print(kitsune_conversation[4])
+        game_over()
+    elif player_talk.lower().strip() in negative and "hoshi no tama" not in inventory:
+        print(kitsune_conversation[5])
+        game_over()
     else:
-        print("location error")
+        print("it's not working")
 
 
 def take_items():
