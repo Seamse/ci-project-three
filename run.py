@@ -52,10 +52,16 @@ passage_two = Location("a brighter path, filled with pieces of old masonry\n")
 passage_two.item = "bloodstained spurred boots"
 passage_three = Location("Panic hits you like a wave as you raise your arms\
  to block the fire.\nYour eyes close tightly as you feel the force of the\
- flames lift your feet off the ground, making your world spin.\nYou barely\
+ flames lift your feet off the ground making your world spin.\nYou barely\
  register that your arms aren't getting burned.\nWhen the roaring sound leaves\
- your ears, you slowly open your eyes again.\na muddy swamp, twinkling lights\
- luring you forward, surrounds you...\n")
+ your ears, you slowly open your eyes again.\nYou're surrounded by a muddy\
+ swamp, twinkling lights are luring you forward onto the overgrown path.\nAs\
+ you take a step forward something heavy lands on your shoulder.\nYou jump\
+ and quickly bat at yourself in a frantic attempt to get it off you.\nIt\
+ lands on the ground by your feet and you immediately recognize the spider,\
+ or maybe it's a different spider?\nThe creature raises both its front legs\
+ in affront at your rough treatment, then casually makes its way through the\
+ shallow mud on your left, away from the main path...\n")
 passage_three.gift = "nature's blessing"
 passage_four = Location("a dry area, the hedges are little more than thorns\n")
 passage_five = Location("a forest, the smell of pine surrounds you\n")
@@ -72,7 +78,11 @@ kitsune_lair = Location("You emerge to see a twisting path leading to a\
  it further the little girl hiccups and looks up as she notices\
  you.\nsniffling, she speaks in a barely audible voice:\n'hello'.\n")
 kitsune_lair.gift = "milk"
-naga_lair = Location("a stream with a tall dark cave on its opposite bank\n")
+naga_lair = Location("A temporary cloud has cast your surroudings in total\
+ darkness.\nWhen the sky clears, the weak moonlight reflects off a shallow\
+ stream and you notice a tall dark cave on its opposite bank.\nA creature\
+ slithers out of the cave.\nIts upper body is human, but his lower body is\
+ that of a snake.\nSo far, the being hasn't noticed you yet...\n")
 naga_lair.gift = "gem"
 dragon_lair = Location("volcanic rock seems to glow in the darkness\n")
 surale_lair = Location("massive pine trees obscure the moonlight\n")
@@ -93,15 +103,14 @@ passage_five.path = surale_lair
 passage_five.follow_spider = leave_maze
 kitsune_lair.move_on = passage_three
 naga_lair.path = dragon_lair
-naga_lair.follow_spider = dragon_lair
 dragon_lair.move_on = passage_five
 surale_lair.move_on = leave_maze
 puca_lair.move_on = nokk_lair
 nokk_lair.move_on = passage_four
 sphinx_lair.move_on = leave_maze
 
-monster_locations = [kitsune_lair, naga_lair, dragon_lair, surale_lair,
-                     puca_lair, nokk_lair, sphinx_lair]
+monster_locations = [kitsune_lair, passage_three, naga_lair, dragon_lair,
+                     surale_lair, puca_lair, nokk_lair, sphinx_lair]
 
 
 class Monster:
@@ -175,10 +184,16 @@ anansi = Monster("Anansi", "West-African", "Anansi is most well known\
  for his ability to outsmart and triumph over more powerful opponents through\
  his use of cunning, creativity and wit.\nHe often takes the shape of a spider\
  and is sometimes considered to be a god of all knowledge of stories")
+fairies = Monster("Fairies", "many", "Fairies are feared as dangerous and\
+ powerful beings who are sometimes friendly to humans but can also be cruel\
+ or mischievous.\nPeople believed that these fairies lived underground,\
+ in deep forests or near water areas.\nThe civilians avoided crossing such\
+ paths that were notorious as fairy residences. People even had the corners\
+ of their homes removed to avoid interfering in the fairy pathway.\n")
 
 who_is_where = {kitsune_lair: kitsune, naga_lair: naga, dragon_lair: dragon,
                 surale_lair: surale, puca_lair: puca, nokk_lair: nokk,
-                sphinx_lair: sphinx}
+                sphinx_lair: sphinx, passage_three: fairies}
 
 kitsune_conversation = ["'Are you certain? It's easy to spot, it glows and\
  it's very pretty.'", "Tentatively she holds her shaking hands out towards\
@@ -206,6 +221,7 @@ kitsune_conversation = ["'Are you certain? It's easy to spot, it glows and\
  feelings.'\n", "'No?' The girl sighs, suddenly all measure of sadness\
  seems to have left her.\nHer pupils slit as she regards you in a kind of\
  measured boredom.\n'I'm afraid you've outstayed your usefulness, human.'\n"]
+naga_conversation = ["TESTING"]
 
 
 affirmative = ["yes", "y", "definitely", "let's go", "bring it",
@@ -215,7 +231,7 @@ negative = ["no", "n", "no way", "hell no", "absolutely not", "never",
 follow_path = ["path", "follow path", "straight", "straight ahead",
                "keep going", "go into the maze", "enter maze", "go into maze",
                "head deeper into maze", "run away", "run", "forward", "move",
-               "move forward", "onward"]
+               "move forward", "onward", "continue"]
 follow_spider = ["follow spider", "spider", "after spider", "side passage",
                  "hole", "move through hole", "move through hedge"]
 stop_game = ["quit", "go home", "leave maze", "exit"]
@@ -226,8 +242,8 @@ pickup_items = ["search pocket", "search pockets", "pick up", "pick up item",
                 "take", "take item", "take boots", "take sword",
                 "pick up boots", "pick up sword", "investigate", "grab sword",
                 "grab item", "pickup sword", "pickup item", "search skeleton"]
-talk = ["hello", "can I help you?", "what are you?"]
-avoid = ["leave", "don't help", "don't listen", "go away", "sneak past"]
+avoid = ["leave", "don't help", "don't listen", "go away", "sneak past",
+         "sneak"]
 
 
 def display_intro():
@@ -236,8 +252,8 @@ def display_intro():
     """
     intro_done = False
     while intro_done is False:
-        player_input = input("Welcome to the Mythos Maze, would you like to "
-                             "\try and traverse its perils?\n")
+        player_input = input("Welcome to the Mythos Maze, would you like to\
+ try and traverse its perils?\n")
         if player_input.lower().strip() in affirmative:
             player_input2 = input("Are you sure?\n")
             if player_input2.lower().strip() in affirmative:
@@ -272,11 +288,35 @@ def location_arrival():
     if player_input3.lower().strip() in stop_game:
         print("")
     while player_input3.lower().strip() not in stop_game:
-        if LOCATION is monster_locations[0] and player_input3 not in avoid:
+        if LOCATION is monster_locations[0] and player_input3.lower().strip()\
+                not in avoid:
             kitsune_encounter()
             location_arrival()
             break
-        elif LOCATION in monster_locations and player_input3 in avoid:
+        elif LOCATION is monster_locations[1] and \
+                player_input3.lower().strip() in follow_spider:
+            take_items('gift')
+            monsters_met.append(which_monster())
+            validate_path('spider')
+            player_input3 = input("What will you do?\n")
+        elif LOCATION is monster_locations[1] and \
+                player_input3.lower().strip() == "drink milk":
+            print("The delicious milk revitalizes and refreshes you.")
+            inventory.remove("milk")
+            player_input3 = input("What will you do?\n")
+        elif LOCATION is monster_locations[2] and \
+                player_input3.lower().strip() not in avoid and \
+                player_input3.lower().strip() not in follow_path and\
+                player_input3.lower().strip() not in follow_spider:
+            naga_encounter()
+            location_arrival()
+            break
+        elif LOCATION is monster_locations[2] and \
+                player_input3.lower().strip() in avoid:
+            validate_path()
+            player_input3 = input("what will you do?\n")
+        elif LOCATION in monster_locations and player_input3.lower().strip()\
+                in avoid and LOCATION is not monster_locations[2]:
             print("Though you want to leave, your fear and uncertainty keep\
  you rooted to the spot.")
             player_input3 = input("What will you do?\n")
@@ -314,6 +354,7 @@ def kitsune_encounter():
             time.sleep(10)
             take_items('gift')
             monsters_met.append(which_monster())
+            inventory.remove("hoshi no tama")
             LOCATION = LOCATION.move_on
         elif player_talk2.lower().strip() in negative:
             print(kitsune_conversation[2])
@@ -327,6 +368,7 @@ def kitsune_encounter():
             time.sleep(10)
             take_items('gift')
             monsters_met.append(which_monster())
+            inventory.remove("hoshi no tama")
             LOCATION = LOCATION.move_on
         elif player_talk2.lower().strip() in negative:
             print(kitsune_conversation[2])
@@ -341,6 +383,14 @@ def kitsune_encounter():
         game_over()
     else:
         print("it's not working")
+
+
+def naga_encounter():
+    """
+    Handles interaction between player and
+    Naga (when encountered)
+    """
+    print(naga_conversation[0])
 
 
 def which_monster():
