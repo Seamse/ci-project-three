@@ -176,6 +176,9 @@ anansi = Monster("Anansi", "West-African", "Anansi is most well known\
  his use of cunning, creativity and wit.\nHe often takes the shape of a spider\
  and is sometimes considered to be a god of all knowledge of stories")
 
+who_is_where = {kitsune_lair: kitsune, naga_lair: naga, dragon_lair: dragon,
+                surale_lair: surale, puca_lair: puca, nokk_lair: nokk,
+                sphinx_lair: sphinx}
 
 kitsune_conversation = ["'Are you certain? It's easy to spot, it glows and\
  it's very pretty.'", "Tentatively she holds her shaking hands out towards\
@@ -211,8 +214,10 @@ negative = ["no", "n", "no way", "hell no", "absolutely not", "never",
             "nope"]
 follow_path = ["path", "follow path", "straight", "straight ahead",
                "keep going", "go into the maze", "enter maze", "go into maze",
-               "head deeper into maze", "run away", "run", "forward"]
-follow_spider = ["follow spider", "spider", "after spider", "side passage"]
+               "head deeper into maze", "run away", "run", "forward", "move",
+               "move forward", "onward"]
+follow_spider = ["follow spider", "spider", "after spider", "side passage",
+                 "hole", "move through hole", "move through hedge"]
 stop_game = ["quit", "go home", "leave maze", "exit"]
 seal_your_doom = ["help!", "investigate noise", "investigate",
                   "investigate sound", "go back", "turn back", "hide", "shout",
@@ -220,7 +225,7 @@ seal_your_doom = ["help!", "investigate noise", "investigate",
 pickup_items = ["search pocket", "search pockets", "pick up", "pick up item",
                 "take", "take item", "take boots", "take sword",
                 "pick up boots", "pick up sword", "investigate", "grab sword",
-                "grab item", "pickup sword", "pickup item"]
+                "grab item", "pickup sword", "pickup item", "search skeleton"]
 talk = ["hello", "can I help you?", "what are you?"]
 avoid = ["leave", "don't help", "don't listen", "go away", "sneak past"]
 
@@ -299,13 +304,14 @@ def kitsune_encounter():
     global LOCATION
     print("'I lost my marble, have you seen it?'")
     player_talk = input("What will you say?\n")
-    if player_talk.lower().strip() in negative and \
-            "hoshi no tama" in inventory:
+    if player_talk.lower().strip() in negative and "hoshi no tama" in \
+            inventory:
         print(kitsune_conversation[0])
         player_talk2 = input("Will you hand over the hoshi no tama?\n")
         if player_talk2.lower().strip() in affirmative:
             print(kitsune_conversation[1])
             time.sleep(10)
+            take_items('gift')
             LOCATION = LOCATION.move_on
         elif player_talk2.lower().strip() in negative:
             print(kitsune_conversation[2])
@@ -317,6 +323,7 @@ def kitsune_encounter():
         if player_talk2.lower().strip() in affirmative:
             print(kitsune_conversation[1])
             time.sleep(10)
+            take_items('gift')
             LOCATION = LOCATION.move_on
         elif player_talk2.lower().strip() in negative:
             print(kitsune_conversation[2])
@@ -333,18 +340,33 @@ def kitsune_encounter():
         print("it's not working")
 
 
-def take_items():
+def which_monster():
+    """
+    Find out which monster is in the player's
+    current location.
+    """
+    if LOCATION in who_is_where:
+        value = who_is_where.get(LOCATION).name
+        return value
+
+
+def take_items(thing='item'):
     """
     Checks if there are items in that location and
     allows player to pick up items and add them to
     their inventory.
     """
-    if LOCATION.item is not None:
-        inventory.append(LOCATION.item)
-        print(f"You have added {LOCATION.item} to your inventory\n")
-        LOCATION.item = None
-    else:
-        print("There's nothing to pick up")
+    if thing == 'item':
+        if LOCATION.item is not None:
+            inventory.append(LOCATION.item)
+            print(f"You have added {LOCATION.item} to your inventory\n")
+            LOCATION.item = None
+        else:
+            print("There's nothing to pick up")
+    elif thing == 'gift':
+        inventory.append(LOCATION.gift)
+        print(f"The {which_monster()} added {LOCATION.gift} to\
+ your inventory\n")
 
 
 def validate_path(follow='path'):
