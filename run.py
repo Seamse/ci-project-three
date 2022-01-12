@@ -167,8 +167,10 @@ class Monster:
     you can run into in the Maze.
     """
 
-    definition = "a mythical creature is a monster that is\
- unverifiable but popularly accepted as possibly factual"
+    definition = "a mythical creature is a legendary being that is\
+ unverifiable but popularly accepted as possibly factual.\nThey are\
+ described in folklore and fall in the category of the supernatural\
+ and paranormal.\n"
 
     def __init__(self, name, origin, characteristics):
         self.name = name
@@ -321,20 +323,34 @@ surale_conversation = ["The creature claps its hands.\n'Delightful!'\n before\
  before your sides seethe with a tickling sensation so fierce, all your\
  other senses seem to disappear and the world goes blank.\n"]
 
-anansi_conversation = []
+anansi_conversation = ["'Good morrow.'\nHe regards you, slowly breathing\
+ in and out in an almost meditative way.\n'You did well and kept your wits\
+ about you.\nYou have conquered the Mythos Maze.\nCongratulations are in\
+ order, as a reward I will send you home in but a moment.\nFirst though,\
+ I would like to introduce you to the mythical creatures you encountered\
+ along your way.'\n", "'I understand, it has been a trying night for\
+ you.\nPlease do visit us again sometime.'\nHe waves his leg in a sweeping\
+ motion, a wistful smile on his face.\n", "You startle awake, your head\
+ groggy from the aftermath of sleep as you try to clumsily free yourself from\
+ your tangled sheets.\nYou look around in a disoriented haze, your alarm\
+ blaring loudly enough in the background to wake the dead.\nFor a moment\
+ you think you see two glowing red eyes stare at you from the\
+ shadows.\nYou shake your head and rub your eyes, the glowing red coals\
+ have vanished by the time you look again.\nYou must've had a bad dream\
+ tonight...\n"]
 
 
 affirmative = ["yes", "y", "definitely", "let's go", "bring it",
-               "hell yes", "absolutely", "I might have"]
+               "hell yes", "absolutely", "I might have", "yea"]
 negative = ["no", "n", "no way", "hell no", "absolutely not", "never",
-            "nope"]
+            "nope", "nah"]
 follow_path = ["path", "follow path", "straight", "straight ahead",
                "keep going", "go into the maze", "enter maze", "go into maze",
                "head deeper into maze", "run away", "run", "forward", "move",
                "move forward", "onward", "continue"]
 follow_spider = ["follow spider", "spider", "after spider", "side passage",
                  "hole", "move through hole", "move through hedge"]
-stop_game = ["quit", "go home", "leave maze", "exit"]
+stop_game = ["quit", "go home", "leave maze", "exit", "i'm done"]
 seal_your_doom = ["help!", "investigate noise", "investigate",
                   "investigate sound", "go back", "turn back", "hide", "shout",
                   "scream", "attack", "use sword"]
@@ -585,7 +601,7 @@ def dragon_encounter():
         elif player_talk3.lower().strip() in affirmative:
             print(dragon_conversation[3])
             inventory.remove("a large bloodred ruby")
-            time.sleep(6)
+            time.sleep(3)
             monsters_met.append(which_monster())
             LOCATION = LOCATION.move_on
     else:
@@ -615,8 +631,68 @@ def win():
     Sequence when player wins
     the game.
     """
-    monsters_met.append(which_monster())
     print(anansi_conversation[0])
+    print(f"'They are the {', '.join(monsters_met)} and finally, myself.\nI\
+ am known as Anansi.'")
+    player_talk = input("'Would you like to know more about any of these\
+ beings?\nJust mention the name of the one who intrigues you and I shall\
+ gladly tell you more.\nOr perhaps you do not know what a mythical\
+ creature is?\nFor your achievement I shall give you any knowledge\
+ you desire.\nWould you like to expand your knowledge?\nA simple\
+ yes or no will suffice.'\n")
+    while player_talk.lower().strip() not in stop_game and \
+            player_talk.lower().strip() not in negative:
+        player_talk = input("Which being would you like to know more\
+about?\n")
+        if player_talk.lower().strip() == "mythical creature" or \
+                "mythical creatures":
+            print(Monster.definition)
+            player_talk = input("'Would you like to know more? Please\
+ mention the creature's name if you do.'\n")
+        elif player_talk.lower().strip() == "kitsune" or "the kitsune":
+            print(kitsune.description())
+            player_talk = input("'Would you like to know more? Please\
+ mention the creature's name if you do.'\n")
+        elif player_talk.lower().strip() == "naga" or "the naga":
+            print(naga.description())
+            player_talk = input("'Would you like to know more? Please\
+ mention the creature's name if you do.'\n")
+        elif player_talk.lower().strip() == "dragon" or "the dragon":
+            print(dragon.description())
+            player_talk = input("'Would you like to know more? Please\
+ mention the creature's name if you do.'\n")
+        elif player_talk.lower().strip() == "surale" or "the surale":
+            print(surale.description())
+            player_talk = input("'Would you like to know more? Please\
+ mention the creature's name if you do.'\n")
+        elif player_talk.lower().strip() == "puca" or "the puca":
+            print(puca.description())
+            player_talk = input("'Would you like to know more? Please\
+ mention the creature's name if you do.'\n")
+        elif player_talk.lower().strip() == "nokk" or "the nokk":
+            print(nokk.description())
+            player_talk = input("'Would you like to know more? Please\
+ mention the creature's name if you do.'\n")
+        elif player_talk.lower().strip() == "sphinx" or "the sphinx":
+            print(sphinx.description())
+            player_talk = input("'Would you like to know more? Please\
+ mention the creature's name if you do.'\n")
+        elif player_talk.lower().strip() == "anansi" or "you":
+            print(anansi.description())
+            player_talk = input("'Would you like to know more? Please\
+ mention the creature's name if you do.'\n")
+        else:
+            print(f"'I'm sorry, I can only tell you about the \
+                {', '.join(monsters_met)}, myself or what mythical \
+                        creatures are in general.")
+            player_talk = input("'Would you like to know more? Please\
+ mention the creature's name if you do.'\n")
+    else:
+        print(anansi_conversation[1])
+        time.sleep(6)
+        print(anansi_conversation[2])
+        time.sleep(6)
+        print("CONGRATULATIONS! YOU BEAT THE GAME")
 
 
 def which_monster():
@@ -697,3 +773,4 @@ def main():
 
 
 main()
+
