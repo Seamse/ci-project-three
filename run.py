@@ -83,7 +83,7 @@ naga_lair = Location("A temporary cloud has cast your surroudings in total\
  stream and you notice a tall dark cave on its opposite bank.\nA creature\
  slithers out of the cave.\nIts upper body is human, but his lower body is\
  that of a snake.\nSo far, the being hasn't noticed you yet...\n")
-naga_lair.gift = "gem"
+naga_lair.gift = "a large bloodred ruby"
 dragon_lair = Location("volcanic rock seems to glow in the darkness\n")
 surale_lair = Location("massive pine trees obscure the moonlight\n")
 puca_lair = Location("ancient ruins lie in pieces around you\n")
@@ -221,7 +221,28 @@ kitsune_conversation = ["'Are you certain? It's easy to spot, it glows and\
  feelings.'\n", "'No?' The girl sighs, suddenly all measure of sadness\
  seems to have left her.\nHer pupils slit as she regards you in a kind of\
  measured boredom.\n'I'm afraid you've outstayed your usefulness, human.'\n"]
-naga_conversation = ["TESTING"]
+naga_conversation = ["You tentatively approach the creature, halting by the\
+ bank of the small stream.\nIts body tenses when it notices your scent,\
+ looking up sharply, only to relax as it catches sight of you.\n'Well\
+ well, a human? How did you get lossst in here little mouse? Did you come\
+ to be my dinner?'\n", "'No? a ssshame.'\nThe creature's tongue darts out,\
+ tasting the air, its regard turning speculative as it assesses you.\n'I\
+ see you have received the Fairies' blessing.\nI suppossse I can gift\
+ you sssome of my preciousss time human.\nWhat have you brought me in\
+ offering?'\n", "The creature's gaze lights up.\n'where did you obtain thisss?\
+ I have not feasted on sssuch a treat for many a moon.'\n He looks up from\
+ his new prize, regarding you almost with kindness.\n'Here, take thisss and\
+ hurry along now, or it is not MY dinner you will become.'\n", "The creature\
+ blinks, then bursts out laughing.\nIt shows off its large, elongated\
+ canines and flexes its claws in a semi-threatening display.\n'What ussse\
+ do you imagine I could have for that rusted piece of former glory?\nUnless\
+ you plan to ssstrike me down human?'\nHe slithers closer on his long tail,\
+ looming over you in a way that makes you shift uncomfortably in place.\n'Let\
+ me advissse you againssst the latter'\n", "The creature's tongue darts out,\
+ its brow furrows in annoyance.\n'Fortunately for you I do not eat junk\
+ food.\nThough I might dispose of you in other ways.\nBegone lowly creature,\
+ before I change my mind and give you a taste of my claws.'\n"]
+dragon_conversation = [""]
 
 
 affirmative = ["yes", "y", "definitely", "let's go", "bring it",
@@ -241,7 +262,8 @@ seal_your_doom = ["help!", "investigate noise", "investigate",
 pickup_items = ["search pocket", "search pockets", "pick up", "pick up item",
                 "take", "take item", "take boots", "take sword",
                 "pick up boots", "pick up sword", "investigate", "grab sword",
-                "grab item", "pickup sword", "pickup item", "search skeleton"]
+                "grab item", "pickup sword", "pickup item", "search skeleton",
+                "search body", "search"]
 avoid = ["leave", "don't help", "don't listen", "go away", "sneak past",
          "sneak"]
 
@@ -315,6 +337,11 @@ def location_arrival():
                 player_input3.lower().strip() in avoid:
             validate_path()
             player_input3 = input("what will you do?\n")
+        elif LOCATION is monster_locations[3] and \
+                player_input3.lower().strip() not in avoid:
+            dragon_encounter()
+            location_arrival()
+            break
         elif LOCATION in monster_locations and player_input3.lower().strip()\
                 in avoid and LOCATION is not monster_locations[2]:
             print("Though you want to leave, your fear and uncertainty keep\
@@ -388,9 +415,45 @@ def kitsune_encounter():
 def naga_encounter():
     """
     Handles interaction between player and
-    Naga (when encountered)
+    the Naga (when encountered)
     """
+    global LOCATION
     print(naga_conversation[0])
+    player_talk = input("What will you say?\n")
+    if player_talk.lower().strip() in negative and "milk" in \
+            inventory and "nature's blessing" in inventory:
+        print(naga_conversation[1])
+        print("The contents of your inventory is currently: ")
+        for i in inventory:
+            print(i)
+        player_talk2 = input("What will you offer?\n")
+        while player_talk2.lower().strip() != "milk":
+            if player_talk2.lower().strip() == "rusted sword":
+                print(naga_conversation[3])
+                player_talk2 = input("What will you offer?\n")
+            elif player_talk2.lower().strip() == "nature's blessing":
+                print("You cannot gift someone else's blessing of you\
+ onto another person.")
+                player_talk2 = input("What will you offer?\n")
+            else:
+                print("'I have no ussse for sssuch a thing human'")
+                player_talk2 = input("What will you offer\n")
+        else:
+            print(naga_conversation[2])
+            inventory.remove("milk")
+            time.sleep(6)
+            take_items('gift')
+            LOCATION = LOCATION.path
+    elif "nature's blessing" or "milk" not in inventory:
+        print(naga_conversation[4])
+        LOCATION = LOCATION.path
+
+
+def dragon_encounter():
+    """
+    Handles interaction between player and
+    the Dragon (when encountered)
+    """
 
 
 def which_monster():

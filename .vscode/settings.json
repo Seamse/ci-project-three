@@ -1,7 +1,7 @@
 {
    "python.linting.pylintEnabled": true,
    "python.linting.enabled": true,
-   "python.linting.pycodestyleEnabled": true,
+   "python.linting.pycodestyleEnabled": false,
    "python.linting.flake8Enabled": true,
    "python.terminal.activateEnvironment": false,
    "python.formatting.autopep8Path": "/home/gitpod/.pyenv/shims/autopep8",
@@ -25,6 +25,5 @@
    "editor.defaultFormatter": "HookyQR.beautify",
    "[python]": {
       "editor.defaultFormatter": "ms-python.python"
-   },
-   "python.formatting.provider": "autopep8"
+   }
 }
