@@ -64,7 +64,19 @@ passage_three = Location("Panic hits you like a wave as you raise your arms\
  shallow mud on your left, away from the main path...\n")
 passage_three.gift = "nature's blessing"
 passage_four = Location("a dry area, the hedges are little more than thorns\n")
-passage_five = Location("a forest, the smell of pine surrounds you\n")
+passage_five = Location("You don't need to think twice, and though your\
+ legs quiver and your feet feel like lead, you rush past the massive creature\
+ as quickly as possible.\nThe blackened, steaming rocks soon give way to trees\
+ which give way to a forest until the smell of pine surrounds you.\nSomething\
+ rustles in the needles coating the forest floor and you tense up, only to\
+ exhale in relief when a certain spider reveals itself to you yet again.\nYou\
+ have the strangest urge to wave in greeting at the only creature you've\
+ encountered so far that hasn't tried to kill you.\nThe spider hops, you'd\
+ think he was happy to see you...\nBefore you can decide whether to pass by\
+ him, he scurries off again to your left.\nThe moonlight up ahead seems to\
+ indicate a glade of some sort, the open air inviting and perhaps leading to\
+ an exit.\nBut you notice the spider stops and turns, almost as if checking\
+ wether you're following him onto the darker path or not...\n")
 kitsune_lair = Location("You emerge to see a twisting path leading to a\
  beautiful inari shrine\nDusting off your knees and pulling twigs and leaves\
  out of your clothes, you look up as you hear a strange sound.\nAt first you\
@@ -90,20 +102,42 @@ dragon_lair = Location("You run onwards, following the main path which\
  and when you round the corner, volcanic rock glows in the\
  darkness.\nNo exit seems in sight and you fear you've hit a dead end,\
  when suddenly the large rock blocking your path starts moving.\nTalons\
- the size of your arm, scales gleaming in the orange light cast by the\
- magma flows passing between the rocks, a huge muscular tail nearly\
- sweeps you off balance and your heart freezes in your throat when eyes\
- the size of your head open to observe you.\nThe gigantic creatures huffs\
- out a puff of air so hot you fear your skin might burn.\nThen the creature\
- sniffs the air so strongly, you move an involuntary step forward to keep\
- your balance.\nFear slithers down your spine and a shiver wracks your\
- frame as you instinctively know that you are facing an apex predator.\n")
-surale_lair = Location("massive pine trees obscure the moonlight\n")
+ the size of your arm, scales gleaming in the orange light and a huge\
+ muscular tail which nearly sweeps you off balance.\nYour heart freezes\
+ in your throat when eyes the size of your head open to observe you.\nThe\
+ gigantic creature huffs out a puff of air so hot you fear your skin might\
+ burn.\nThen the creature sniffs the air so strongly, you move an\
+ involuntary step forward to keep your balance.\nFear slithers down your\
+ spine and a shiver wracks your frame as you instinctively know that you\
+ are facing an apex predator.\n")
+surale_lair = Location("Massive pine trees obscure the moonlight, the\
+ promise of an open glade seems to have vanished into thin air.\nThe\
+ idea of ever finding a way out of this mess seems further and further\
+ from your grasp.\nYou sit down on a large boulder in dejection, unsure\
+ what to do next.\nThe sound of footsteps nears you, you look up\
+ to see a woolly bipedal creature with long thin fingers and a horn on its\
+ head.\nIn your haste to get away you stumble clumsily off the boulder and\
+ fall backwards.\nIn a flash the creature is squatting on top of the boulder,\
+ looking down on you with a mischievous grin.\n'Clumsy are we?, you\
+ entered my forest, so now you must pay the tithe.\nI see the Fairies have\
+ taken a liking to you, so for their sake I will not punish you for\
+ trespassing without a test.'\nThe creature seemed to think a moment\
+ and then it snapped its lengthy fingers.\n'You shall either dance with me\
+ or we can hold a tickling competition.'\nIt leaned further forward, his\
+ nose almost touching yours.\n'Which shall it be human?'\n")
 puca_lair = Location("ancient ruins lie in pieces around you\n")
 puca_lair.item = "Púca"
 nokk_lair = Location("a pond of silver, the large water lilies glowing pink\n")
 sphinx_lair = Location("glittering sand swirls as the wind rises\n")
-leave_maze = Location("the air clears, the maze's hedges disintegrate\n")
+leave_maze = Location("The air clears, the world around you\
+ disintegrates and suddenly you find yourself in a meadow.\nMorning dew\
+ glints in the first rays of the rising sun, the grass blades bending from\
+ the water's weight.\nFor the first time that night, you feel as if\
+ you can breathe again.\nYour spider friend sits waiting for you amongst\
+ an array of sweet smelling flowers.\nHe grows larger as you approach,\
+ yet for some reason, you do not feel fear.\nBy the time you stand before\
+ him, he stands slightly taller than yourself.\nHis head has morphed into\
+ that of a human male and he smiles at you mysteriously.\n")
 
 entrance.path = passage_one
 passage_one.path = passage_two
@@ -123,7 +157,8 @@ nokk_lair.move_on = passage_four
 sphinx_lair.move_on = leave_maze
 
 monster_locations = [kitsune_lair, passage_three, naga_lair, dragon_lair,
-                     surale_lair, puca_lair, nokk_lair, sphinx_lair]
+                     surale_lair, puca_lair, nokk_lair, sphinx_lair,
+                     leave_maze]
 
 
 class Monster:
@@ -206,7 +241,8 @@ fairies = Monster("Fairies", "many", "Fairies are feared as dangerous and\
 
 who_is_where = {kitsune_lair: kitsune, naga_lair: naga, dragon_lair: dragon,
                 surale_lair: surale, puca_lair: puca, nokk_lair: nokk,
-                sphinx_lair: sphinx, passage_three: fairies}
+                sphinx_lair: sphinx, passage_three: fairies,
+                leave_maze: anansi}
 
 kitsune_conversation = ["'Are you certain? It's easy to spot, it glows and\
  it's very pretty.'", "Tentatively she holds her shaking hands out towards\
@@ -263,10 +299,29 @@ dragon_conversation = ["'Who dares enter my lair?'\n", "The beast makes a sound\
  you carry I would've eaten you for your insolence.\nGive it to me and I might\
  find myself in a more benevolent mood.'\n", "'A wise decision, such a\
  precious item belongs in a Dragon's hoard.\nI shall let you pass, this\
- time.\n", "'Hmm, humans make tiny snacks.\nThough I would've eaten you\
- already were it not for the precious cargo you carry.\nGive me the ruby\
- child of man.\n", "'You are either very brave, or very foolish.\nWhichever\
- it may be, this is the end of the line for you child of man'\n"]
+ time.'\n", "'Hmm, humans make tiny snacks.\nThough I would've eaten you\
+ already regardless, were it not for the precious cargo you carry.\nGive me\
+ the ruby, child of man.'\n", "'You are either very brave, or very\
+ foolish.\nWhichever it may be, this is the end of the line for you\
+ child of man'\n"]
+surale_conversation = ["The creature claps its hands.\n'Delightful!'\n before\
+ you have the chance to do anything he already lifted you up by your arms and\
+ placed you on your feet.\nHe regards your shoes in puzzlement for a moment,\
+ but then shrugs and drags you into a spinning motion with one strong\
+ jerk.\nYou could swear you hear faint music from somewhere accompanying your\
+ awkward movements, but the creature hops around and seems utterly pleased\
+ with himself, so you decide to focus on keeping things that way.\nSoon\
+ however you grow dizzy and tired, you fall to your knees on the soft\
+ pine bedding.\nThe creature regards you thoughtfully, then smiles.\n'I\
+ suppose you'll be wanting to go home now? This is no place for a\
+ human after all.\nThank you for the dance, child of man who received\
+ the Fairies' blessing.'\n", "'The mischievous grin slowly turns\
+ malicious.\n'You should not enter in games you are sure to lose\
+ human.'\nThe last thing you see is the creature cracking its knuckles\
+ before your sides seethe with a tickling sensation so fierce, all your\
+ other senses seem to disappear and the world goes blank.\n"]
+
+anansi_conversation = []
 
 
 affirmative = ["yes", "y", "definitely", "let's go", "bring it",
@@ -371,6 +426,18 @@ def location_arrival():
             else:
                 location_arrival()
                 break
+        elif LOCATION is monster_locations[4] and \
+                player_input3.lower().strip() not in avoid:
+            surale_encounter()
+            if STOP_AFTER_DEATH is True:
+                break
+            else:
+                location_arrival()
+                break
+        elif LOCATION is monster_locations[8] and\
+                player_input3.lower().strip() not in avoid:
+            win()
+            break
         elif LOCATION in monster_locations and player_input3.lower().strip()\
                 in avoid and LOCATION is not monster_locations[2]:
             print("Though you want to leave, your fear and uncertainty keep\
@@ -509,7 +576,7 @@ def dragon_encounter():
             time.sleep(6)
             monsters_met.append(which_monster())
             LOCATION = LOCATION.move_on
-    elif player_talk.lower().strip() in affirmative and \
+    elif player_talk2.lower().strip() in affirmative and \
             "a large bloodred ruby" in inventory:
         print(dragon_conversation[4])
         player_talk3 = input("Will you hand over the large bloodred ruby?\n")
@@ -524,6 +591,32 @@ def dragon_encounter():
     else:
         print(dragon_conversation[5])
         game_over()
+
+
+def surale_encounter():
+    """
+    Handles interaction between player and
+    the Surale (when encountered)
+    """
+    global LOCATION
+    player_talk = input("Which will you choose?\n")
+    if player_talk.lower().strip() == "dance":
+        print(surale_conversation[0])
+        time.sleep(6)
+        monsters_met.append(which_monster())
+        LOCATION = LOCATION.move_on
+    else:
+        print(surale_conversation[1])
+        game_over()
+
+
+def win():
+    """
+    Sequence when player wins
+    the game.
+    """
+    monsters_met.append(which_monster())
+    print(anansi_conversation[0])
 
 
 def which_monster():
