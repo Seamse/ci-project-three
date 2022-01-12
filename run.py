@@ -84,7 +84,20 @@ naga_lair = Location("A temporary cloud has cast your surroudings in total\
  slithers out of the cave.\nIts upper body is human, but his lower body is\
  that of a snake.\nSo far, the being hasn't noticed you yet...\n")
 naga_lair.gift = "a large bloodred ruby"
-dragon_lair = Location("volcanic rock seems to glow in the darkness\n")
+dragon_lair = Location("You run onwards, following the main path which\
+ changes from grass, to sand, to gravel to rock.\nYou fervently\
+ hope to find the exit just around the next corner.\nHeat surrounds you,\
+ and when you round the corner, volcanic rock glows in the\
+ darkness.\nNo exit seems in sight and you fear you've hit a dead end,\
+ when suddenly the large rock blocking your path starts moving.\nTalons\
+ the size of your arm, scales gleaming in the orange light cast by the\
+ magma flows passing between the rocks, a huge muscular tail nearly\
+ sweeps you off balance and your heart freezes in your throat when eyes\
+ the size of your head open to observe you.\nThe gigantic creatures huffs\
+ out a puff of air so hot you fear your skin might burn.\nThen the creature\
+ sniffs the air so strongly, you move an involuntary step forward to keep\
+ your balance.\nFear slithers down your spine and a shiver wracks your\
+ frame as you instinctively know that you are facing an apex predator.\n")
 surale_lair = Location("massive pine trees obscure the moonlight\n")
 puca_lair = Location("ancient ruins lie in pieces around you\n")
 puca_lair.item = "Púca"
@@ -220,7 +233,8 @@ kitsune_conversation = ["'Are you certain? It's easy to spot, it glows and\
  afraid that means you are no longer of use to me human. No hard\
  feelings.'\n", "'No?' The girl sighs, suddenly all measure of sadness\
  seems to have left her.\nHer pupils slit as she regards you in a kind of\
- measured boredom.\n'I'm afraid you've outstayed your usefulness, human.'\n"]
+ measured boredom.\n'I'm afraid you've outstayed your usefulness,\
+ human.'\n", "'I'm afraid I don't have time for this'\n"]
 naga_conversation = ["You tentatively approach the creature, halting by the\
  bank of the small stream.\nIts body tenses when it notices your scent,\
  looking up sharply, only to relax as it catches sight of you.\n'Well\
@@ -242,7 +256,17 @@ naga_conversation = ["You tentatively approach the creature, halting by the\
  its brow furrows in annoyance.\n'Fortunately for you I do not eat junk\
  food.\nThough I might dispose of you in other ways.\nBegone lowly creature,\
  before I change my mind and give you a taste of my claws.'\n"]
-dragon_conversation = [""]
+dragon_conversation = ["'Who dares enter my lair?'\n", "The beast makes a sound\
+ reminiscent of a chuckle, but it's so powerful it makes the ground\
+ shake.\nYou dare lie to me human?.\nNo matter, I suppose you'll do as a\
+ snack.'\n", "'Do not lie to me human! Were it not for the precious stone\
+ you carry I would've eaten you for your insolence.\nGive it to me and I might\
+ find myself in a more benevolent mood.'\n", "'A wise decision, such a\
+ precious item belongs in a Dragon's hoard.\nI shall let you pass, this\
+ time.\n", "'Hmm, humans make tiny snacks.\nThough I would've eaten you\
+ already were it not for the precious cargo you carry.\nGive me the ruby\
+ child of man.\n", "'You are either very brave, or very foolish.\nWhichever\
+ it may be, this is the end of the line for you child of man'\n"]
 
 
 affirmative = ["yes", "y", "definitely", "let's go", "bring it",
@@ -294,6 +318,7 @@ def display_intro():
 
 
 LOCATION = entrance
+STOP_AFTER_DEATH = False
 visited = ["entrance"]
 inventory = []
 monsters_met = []
@@ -307,14 +332,15 @@ def location_arrival():
     time.sleep(1)
     print(LOCATION.description)
     player_input3 = input("What will you do?\n")
-    if player_input3.lower().strip() in stop_game:
-        print("")
     while player_input3.lower().strip() not in stop_game:
         if LOCATION is monster_locations[0] and player_input3.lower().strip()\
                 not in avoid:
             kitsune_encounter()
-            location_arrival()
-            break
+            if STOP_AFTER_DEATH is True:
+                break
+            else:
+                location_arrival()
+                break
         elif LOCATION is monster_locations[1] and \
                 player_input3.lower().strip() in follow_spider:
             take_items('gift')
@@ -340,8 +366,11 @@ def location_arrival():
         elif LOCATION is monster_locations[3] and \
                 player_input3.lower().strip() not in avoid:
             dragon_encounter()
-            location_arrival()
-            break
+            if STOP_AFTER_DEATH is True:
+                break
+            else:
+                location_arrival()
+                break
         elif LOCATION in monster_locations and player_input3.lower().strip()\
                 in avoid and LOCATION is not monster_locations[2]:
             print("Though you want to leave, your fear and uncertainty keep\
@@ -362,6 +391,8 @@ def location_arrival():
         else:
             print("I'm afraid I don't quite catch your meaning")
             player_input3 = input("What will you do?\n")
+    else:
+        print("quitting...")
 
 
 def kitsune_encounter():
@@ -392,7 +423,7 @@ def kitsune_encounter():
         player_talk2 = input("Will you hand over the hoshi no tama?\n")
         if player_talk2.lower().strip() in affirmative:
             print(kitsune_conversation[1])
-            time.sleep(10)
+            time.sleep(6)
             take_items('gift')
             monsters_met.append(which_monster())
             inventory.remove("hoshi no tama")
@@ -409,7 +440,8 @@ def kitsune_encounter():
         print(kitsune_conversation[5])
         game_over()
     else:
-        print("it's not working")
+        print(kitsune_conversation[6])
+        game_over()
 
 
 def naga_encounter():
@@ -443,9 +475,11 @@ def naga_encounter():
             inventory.remove("milk")
             time.sleep(6)
             take_items('gift')
+            monsters_met.append(which_monster())
             LOCATION = LOCATION.path
     elif "nature's blessing" or "milk" not in inventory:
         print(naga_conversation[4])
+        time.sleep(2)
         LOCATION = LOCATION.path
 
 
@@ -454,6 +488,42 @@ def dragon_encounter():
     Handles interaction between player and
     the Dragon (when encountered)
     """
+    global LOCATION
+    print(dragon_conversation[0])
+    player_talk = input("What will you say?\n")
+    print(f"'{player_talk}?, you smell.. human. Are you human?'\n")
+    player_talk2 = input("What will you say?\n")
+    if player_talk2.lower().strip() in negative and \
+            "a large bloodred ruby" not in inventory:
+        print(dragon_conversation[1])
+        game_over()
+    elif player_talk2.lower().strip() in negative and \
+            "a large bloodred ruby" in inventory:
+        print(dragon_conversation[2])
+        player_talk3 = input("Will you hand over the large bloodred ruby?\n")
+        if player_talk3.lower().strip() in negative:
+            game_over()
+        elif player_talk3.lower().strip() in affirmative:
+            print(dragon_conversation[3])
+            inventory.remove("a large bloodred ruby")
+            time.sleep(6)
+            monsters_met.append(which_monster())
+            LOCATION = LOCATION.move_on
+    elif player_talk.lower().strip() in affirmative and \
+            "a large bloodred ruby" in inventory:
+        print(dragon_conversation[4])
+        player_talk3 = input("Will you hand over the large bloodred ruby?\n")
+        if player_talk3.lower().strip() in negative:
+            game_over()
+        elif player_talk3.lower().strip() in affirmative:
+            print(dragon_conversation[3])
+            inventory.remove("a large bloodred ruby")
+            time.sleep(6)
+            monsters_met.append(which_monster())
+            LOCATION = LOCATION.move_on
+    else:
+        print(dragon_conversation[5])
+        game_over()
 
 
 def which_monster():
@@ -511,6 +581,7 @@ def game_over():
     Game over sequence for when the player dies
     """
     global LOCATION
+    global STOP_AFTER_DEATH
     print("you have died\n")
     player_input4 = input("would you like to try again,\
  start over or stop playing?\n")
@@ -521,6 +592,7 @@ def game_over():
         main()
     elif player_input4.lower().strip() == "stop playing":
         print("bye bye")
+        STOP_AFTER_DEATH = True
 
 
 def main():
