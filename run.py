@@ -1037,12 +1037,9 @@ def game_over():
     print("you have died\n")
     player_input4 = input("would you like to try again,\
  start over or stop playing?\n")
-    if player_input4.lower().strip() == "try again":
-        location_arrival()
-    elif player_input4.lower().strip() == "start over":
+    if player_input4.lower().strip() == "start over":
         LOCATION = entrance
         inventory.clear()
-        main()
     elif player_input4.lower().strip() == "stop playing":
         print("bye bye")
         EXIT_GAME = True
