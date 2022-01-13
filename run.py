@@ -70,7 +70,13 @@ passage_three = Location("Panic hits you like a wave as you raise your arms\
  in affront at your rough treatment, then casually makes its way through the\
  shallow mud on your left, away from the main path...\n")
 passage_three.gift = "nature's blessing"
-passage_four = Location("a dry area, the hedges are little more than thorns\n")
+passage_four = Location("You run until you're out of breath and find yourself\
+ in a dry area, the maze's hedges here are little more than thorns\nYou notice\
+ another breach in the hedge to your right, perhaps it's better to veer off\
+ the beaten path after all?\nAs if he heard you, that big spider peeks out\
+ from that very direction.\nOr maybe it's another spider?\nEither way, he\
+ looks at you a moment, before once again scurrying off through the hole\
+ in the hedge.\n")
 passage_five = Location("You don't need to think twice, and though your\
  legs quiver and your feet feel like lead, you rush past the massive creature\
  as quickly as possible.\nThe blackened, steaming rocks soon give way to trees\
@@ -144,7 +150,18 @@ nokk_lair = Location("A massive pond of silver reveals itself to you,\
  water lilies glowing a magical pink.\nA violin can be heard over the\
  soft trickling of water from a nearby waterfall.\nTheir combined\
  music making for an enchanting melody.\n")
-sphinx_lair = Location("glittering sand swirls as the wind rises\n")
+sphinx_lair = Location("The path appears to be getting dryer and the air\
+ hotter.\nYour clothes have almost dried from the incident at the\
+ lake.\nSuddenly the dead looking hedges make way for an enormous clearing\
+ filled with hills of sand.\nGlittering kernels swirl as the wind\
+ rises.\nThe creature you see at the center is beyond anything you've\
+ ever imagined.\nA lion the size of a house, though instead of a\
+ normal lion's head, she has the upper torso and head of a human\
+ woman.\nThe creature is casually playing with a mouse, letting it\
+ escape, then catching it again right before it can reach\
+ freedom.\nSuddenly, her tail jerks excitedly and her head lifts up\
+ as her catlike gaze narrows in on you, like a hunter zoning in\
+ on its prey.\n")
 leave_maze = Location("The air clears, the world around you\
  disintegrates and suddenly you find yourself in a meadow.\nMorning dew\
  glints in the first rays of the rising sun, the grass blades bending from\
@@ -419,6 +436,32 @@ nokk_conversation = ["The music lures you forward, it fills your senses\
  land and rushing to continue on the maze's path.\n", "The water\
  closes over the top of your head, you feel like a babe protectively\
  wrapped in silk.\nAbsolute bliss fills you as your world goes dark...\n"]
+sphinx_conversation = ["The mouse runs off, forgotten in the face of\
+ more intriguing prey.\n'Well well, a human, haven't seen one of those\
+ in a long, long, looong while.\nI commend you on making it this far into\
+ the maze.'\nShe looks you over as she crosses her front paws and flicks\
+ her tail lazily in the air behind her.\n'I imagine you'll be wanting to\
+ leave here yes?'\nShe doesn't bother waiting for your answer as she\
+ continues.\n'so I'll make this easy for you, there are really only\
+ two ways to end this.\nEither you solve my riddle, and I shall\
+ point you in the right direction.\nOr, if you don't solve my riddle,\
+ you get a one way ticket into my stomach.'\nShe flexes her paws\
+ in anticipation.\n'Though you could try running of course, I haven't\
+ enjoyed a good hunt in a while.\nWhat shall it be human? Will you\
+ play?'\n", "'Very well, here's my riddle human:\nA monkey has stolen\
+ a purse containing two coins, which together are worth 30\
+ groats.\nGiven that one of the coins is not a 10-groat piece, and\
+ that the only coins that exist are 1, 5, 10 and 20 groats, can you\
+ say how much each of the two coins is worth?\n", "'How boring, I\
+ suppose I made that one too easy for you.'\nThe creature sighs in\
+ exasperation and casually motions her head in the general direction\
+ to her left.\n'Head in that direction and I reckon Anansi will\
+ lead you out.'\n", "She uncrosses her front paws, lowers her body\
+ and flexes her muscles in preparation to pounce.\n'I'm afraid that\
+ is incorrect.'\nYou barely have time to shriek before she leaps and\
+ your world becomes dark...\n", "'A grin spreads on her face as she\
+ gets up to stand on all fours.\n'Goodie, I hope you run fast\
+ human.'\nShe leaps through the air as you desperately try to get away.\n"]
 
 anansi_conversation = ["He regards you, slowly breathing\
  in and out in an almost meditative way.\nHis sharp gaze keeps you frozen\
@@ -459,6 +502,15 @@ pickup_items = ["search pocket", "search pockets", "pick up", "pick up item",
                 "search body", "search"]
 avoid = ["leave", "don't help", "don't listen", "go away", "sneak past",
          "sneak"]
+correct_answer = ["10 and 20", "20 and 10", "10 groats and 20 groats",
+                  "20 groats and 10 groats", "10, 20", "20, 10", "10 20",
+                  "20 10", "ten groats, twenty groats",
+                  "twenty groats, ten groats", "ten groats twenty groats",
+                  "twenty groats ten groats",
+                  "ten and twenty", "twenty and ten",
+                  "ten groats and twenty groats",
+                  "twenty groats and ten groats",
+                  "ten, twenty", "twenty, ten", "ten twenty", "twenty ten"]
 
 
 def display_intro():
@@ -562,9 +614,17 @@ def location_arrival():
             else:
                 location_arrival()
                 break
-        if LOCATION is monster_locations[6] and player_input3.lower().strip()\
-                not in avoid:
+        elif LOCATION is monster_locations[6] and \
+                player_input3.lower().strip() not in avoid:
             nokk_encounter()
+            if STOP_AFTER_DEATH is True:
+                break
+            else:
+                location_arrival()
+                break
+        elif LOCATION is monster_locations[7] and \
+                player_input3.lower().strip() not in avoid:
+            sphinx_encounter()
             if STOP_AFTER_DEATH is True:
                 break
             else:
@@ -814,6 +874,30 @@ def nokk_encounter():
         else:
             print(nokk_conversation[5])
             game_over()
+
+
+def sphinx_encounter():
+    """
+    Handles the interaction between player and
+    the Sphinx (when encountered)
+    """
+    global LOCATION
+    print(sphinx_conversation[0])
+    player_talk = input("What will you say?\n")
+    if player_talk.lower().strip() in affirmative:
+        print(sphinx_conversation[1])
+        player_talk2 = input("What is your answer?\n")
+        if player_talk2.lower().strip() in correct_answer:
+            print(sphinx_conversation[2])
+            monsters_met.append(which_monster())
+            time.sleep(6)
+            LOCATION = LOCATION.move_on
+        else:
+            print(sphinx_conversation[3])
+            game_over()
+    else:
+        print(sphinx_conversation[4])
+        game_over()
 
 
 def win():
