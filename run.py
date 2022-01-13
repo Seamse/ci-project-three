@@ -27,8 +27,9 @@ entrance = Location("Darkness...\nA herbal scent assaults your senses,\
  shines down on you like an unnatural, mocking grin.\nIts weak silvery\
  light glints off the edge of a rusted sword lying in the grass beside\
  you.\nYou sit up slowly, craning your neck to take in the\
- tall black hedges rising ominously on either side of you.\nAhead,\
- you see a large stone archway, weathered by time, leading the way deeper\
+ tall black hedges rising ominously on either side of you.\nStanding\
+ up, you notice your feet are bare.\nAhead, you see a large stone\
+ archway, weathered by time, leading the way deeper\
  into the darkness of the maze.\nAs you turn your head to look at what's\
  behind you, you hear a twig snap loudly.\nYou freeze before you can\
  see what lies in that direction, a shiver running down your spine..\n")
@@ -48,7 +49,13 @@ passage_one = Location("The hedges feel as if they're closing in on you,\
  direction of the archway you just passed and the spider scurries away\
  through a medium-sized hole in the hedge you hadn't noticed earlier.\n")
 passage_one.item = "hoshi no tama"
-passage_two = Location("a brighter path, filled with pieces of old masonry\n")
+passage_two = Location("You're greeted by a brighter path, filled with\
+ pieces of old looking, crumbled masonry.\nYou notice something glinting\
+ in the moonlight.\nThough you fear what that might be, you fear whatever's\
+ chasing you even more.\nSo you keep going, the breeze raising goosebumps\
+ on your skin.\nAs you get closer you realize it's a pair of spurred boots,\
+ the dark stains on them do not inspire much confidence.\nA bone chilling\
+ howl sounds from somewhere behind you in the maze...\n")
 passage_two.item = "bloodstained spurred boots"
 passage_three = Location("Panic hits you like a wave as you raise your arms\
  to block the fire.\nYour eyes close tightly as you feel the force of the\
@@ -122,9 +129,21 @@ surale_lair = Location("Massive pine trees obscure the moonlight, the\
  entered my forest, so now you must pay the tithe.\nI see the Fairies have\
  taken a liking to you, so for their sake I will not punish you for\
  trespassing without a test. Will you take my test human?'\n")
-puca_lair = Location("ancient ruins lie in pieces around you\n")
+puca_lair = Location("ancient ruins lie broken and forgotten around\
+ you.\nTheir majesty belying glorious times long past.\nThe majestic\
+ horse you see roaming among them however, grabs your full attention.\nThough\
+ its coat is black as night, the pale moonlight appears to shimmer off the\
+ creature in an enigmatic blue glow.\nHis eyes are two ovals of liquid gold,\
+ lending him an almost demonic appearance.\nIt is then you notice that\
+ those eyes are studying you as much as you were studying him.\nThe creature\
+ approaches you, and though his advance makes you take a hesitant step back,\
+ you know heading back to whatever let loose that howl is probably a worse\
+ idea.\n")
 puca_lair.item = "Púca"
-nokk_lair = Location("a pond of silver, the large water lilies glowing pink\n")
+nokk_lair = Location("A massive pond of silver reveals itself to you,\
+ water lilies glowing a magical pink.\nA violin can be heard over the\
+ soft trickling of water from a nearby waterfall.\nTheir combined\
+ music making for an enchanting melody.\n")
 sphinx_lair = Location("glittering sand swirls as the wind rises\n")
 leave_maze = Location("The air clears, the world around you\
  disintegrates and suddenly you find yourself in a meadow.\nMorning dew\
@@ -310,8 +329,8 @@ surale_conversation = ["The creature seems to think a moment\
  nose almost touching yours.\n'Which shall it be human?'\n", "The creature\
  claps its hands.\n'Delightful!'\n before\
  you have the chance to do anything he already lifted you up by your arms and\
- placed you on your feet.\nHe regards your shoes in puzzlement for a moment,\
- but then shrugs and drags you into a spinning motion with one strong\
+ placed you on your feet.\nHe regards your bare feet in puzzlement for a\
+ moment, but then shrugs and drags you into a spinning motion with one strong\
  jerk.\nYou could swear you hear faint music from somewhere accompanying your\
  awkward movements, but the creature hops around and seems utterly pleased\
  with himself, so you decide to focus on keeping things that way.\nSoon\
@@ -333,6 +352,73 @@ surale_conversation = ["The creature seems to think a moment\
  tickling you furiously.\nAt first you laugh and roll around.\nBut soon the\
  sensation becomes overwhelming.\nThe last thing you see through\
  tear-filled eyes is the manic grin of moonlight still shining down on you.\n"]
+puca_conversation = ["'Well well, are you lost traveler?\n", "'Poor thing,\
+ I understand your predicament.\nLuckily for you I know this maze like the\
+ back of my hoof, so to speak. Climb on my back and I will take you out\
+ of here. What do you say, will you ride me human?'\n", "The creature\
+ bends its knees to lower himself to the ground.\nYou walk up to him\
+ hesitantly and grasp on to his long silky mane before swinging your leg\
+ over his back.\nThe spurs flash in the moonlight and the horse neighs in\
+ dismay.\nBefore you can properly take your seat he bucks you off\
+ angrily and quickly gets back up.\n'You did not mention you have the\
+ sharp things on human, I won't go near you then. Leave quickly or you\
+ will regret having visited me.'\n", "You walk up to him hesitantly and\
+ grasp on to his long silky mane before swinging your leg over his\
+ back.\nAs you take your seat he stands back up and you marvel at the feel\
+ of this powerful animal.\nYou hear him neigh, almost like a snicker, before\
+ he suddenly shoots off like a bullet and all you can do is hold on for dear\
+ life.\nYour screams get swallowed in the maze's endless depths...\n", "You\
+ nod nervously, then hastily make your way past the dark beast to continue on\
+ the path.", "You swallow nervously, then bravely take a step forwards as you\
+ say: 'I will not use the spurs on you, if you will help me get out of this\
+ maze.'\nHe looks at you, mist blowing out of his nostrils before he replies:\
+ 'Perhaps you should remove your boots.'\nYou think it over, but something in\
+ the creature's intense gaze makes you too nervous to trust it completely and\
+ you shake your head.\n'No, but I can gift them to you once we reach our\
+ destination?'\nHe stomps his front hoof as he contemplates your offer.\nThen\
+ he bobs his head up and down saying: 'No one will be able to use the sharp\
+ things again then.\nCome human, I will take you along the path.'\n", "An\
+ evil, mocking laughter comes from the animal.\n'Are you scared human? Run\
+ along then, before the Chupa bleeds you dry...'\n"]
+nokk_conversation = ["The music lures you forward, it fills your senses\
+ until they feel like bursting.\nYour body relaxes, the stress and fear\
+ flowing out of you similar to how the water flows over the\
+ waterfall.\nWhat was there to be afraid of again? Surely you have arrived\
+ in paradise.\nNear the waterfall, you see a fallen angel half submerged\
+ in water.\nHe's the most beautiful man you've ever seen and plays the\
+ the violin with a devotion worthy of a lover.\n", "The man lifts his\
+ gaze, acknowledging you standing by the edge of the water as if he was\
+ aware of your presence all along.\nWhen he sees you, his violin playing\
+ comes to an abrupt halt as his face morphs in shock and wonder.\nYou\
+ hardly notice however, as the spell you were under is abruptly\
+ lifted.\nYou feel as if you've been dunked in an ice bath and can suddenly\
+ no longer appreciate the man's musical voice when he says:\n'Such a\
+ magnificent creature! I have yet to see a coat so black as to be the envy\
+ of the night sky.'\nHe turns his gaze to you and you look back\
+ warily.\n'Thank you, human, for bringing this magnificent creature before\
+ my eyes. As a reward, I shall free you from this maze, go home child of\
+ man.'\nHe waves his hand over the silvery water and like a mirage the\
+ world around you seems to ripple...\n", "You don't really register your\
+ your feet touching the water.\nAll you're aware of is the enchanting\
+ music and a feeling of complete contentment as you move forward, deeper\
+ into the lake...", "The water closes over the top of your head, you\
+ feel like a babe protectively wrapped in silk.\nSuddenly your peace\
+ is disrupted by an awful screech so loud you gasp.\nYour lungs instantly\
+ fill with water and panic floods you along with it.\nYou try desperately\
+ to swim to the surface, in your panic you barely know which way is\
+ up.\nSomehow your head finally breaks the surface and you gasp in\
+ lungfulls of air as you blink the water from your eyes.\nIt takes\
+ you a moment to get your bearings.\nThe handsome violinist is now\
+ sitting on top of a rock, keeping his legs tucked in as if afraid\
+ to touch the water.\nHe looks at you in anger.\n'You DARE bring filthy\
+ metal into my waters?!'\nYou look into the water to see the rusted sword\
+ you had picked up earlier, it must've floated away from you as you\
+ walked into the water.\nBarely recovered from the shock, you realize\
+ this is your chance to get away.\nAs quickly as your legs can tread\
+ the water, you make your way back to shore, clambering back onto the\
+ land and rushing to continue on the maze's path.\n", "The water\
+ closes over the top of your head, you feel like a babe protectively\
+ wrapped in silk.\nAbsolute bliss fills you as your world goes dark...\n"]
 
 anansi_conversation = ["He regards you, slowly breathing\
  in and out in an almost meditative way.\nHis sharp gaze keeps you frozen\
@@ -359,7 +445,7 @@ negative = ["no", "n", "no way", "hell no", "absolutely not", "never",
 follow_path = ["path", "follow path", "straight", "straight ahead",
                "keep going", "go into the maze", "enter maze", "go into maze",
                "head deeper into maze", "run away", "run", "forward", "move",
-               "move forward", "onward", "continue"]
+               "move forward", "onward", "continue", "move on"]
 follow_spider = ["follow spider", "spider", "after spider", "side passage",
                  "hole", "move through hole", "move through hedge"]
 stop_game = ["quit", "go home", "leave maze", "exit", "i'm done"]
@@ -468,6 +554,22 @@ def location_arrival():
             print(surale_conversation[3])
             game_over()
             break
+        elif LOCATION is monster_locations[5] and \
+                player_input3.lower().strip() not in avoid:
+            puca_encounter()
+            if STOP_AFTER_DEATH is True:
+                break
+            else:
+                location_arrival()
+                break
+        if LOCATION is monster_locations[6] and player_input3.lower().strip()\
+                not in avoid:
+            nokk_encounter()
+            if STOP_AFTER_DEATH is True:
+                break
+            else:
+                location_arrival()
+                break
         elif LOCATION is monster_locations[8] and\
                 player_input3.lower().strip() not in avoid:
             win()
@@ -510,8 +612,9 @@ def kitsune_encounter():
         player_talk2 = input("Will you hand over the hoshi no tama?\n")
         if player_talk2.lower().strip() in affirmative:
             print(kitsune_conversation[1])
-            time.sleep(10)
+            time.sleep(6)
             take_items('gift')
+            time.sleep(2)
             monsters_met.append(which_monster())
             inventory.remove("hoshi no tama")
             LOCATION = LOCATION.move_on
@@ -576,6 +679,7 @@ def naga_encounter():
             inventory.remove("milk")
             time.sleep(6)
             take_items('gift')
+            time.sleep(2)
             monsters_met.append(which_monster())
             LOCATION = LOCATION.path
     elif "nature's blessing" or "milk" not in inventory:
@@ -643,6 +747,73 @@ def surale_encounter():
     else:
         print(surale_conversation[2])
         game_over()
+
+
+def puca_encounter():
+    """
+    Handles the interaction between player and
+    the Puca (when encountered)
+    """
+    global LOCATION
+    print(puca_conversation[0])
+    player_talk = input("What will you say?\n")
+    if player_talk.lower().strip() in affirmative:
+        print(puca_conversation[1])
+        player_talk2 = input("What will you say?\n")
+        if player_talk2.lower().strip() in affirmative and \
+                "bloodstained spurred boots" in inventory:
+            print(puca_conversation[2])
+            player_talk3 = input("Will you try to convince the Puca to\
+ let you ride him? Or will you move on?\n")
+            if player_talk3.lower().strip() in follow_path:
+                print(puca_conversation[4])
+                time.sleep(6)
+                monsters_met.append(which_monster())
+                LOCATION = LOCATION.move_on
+            else:
+                print(puca_conversation[5])
+                time.sleep(6)
+                take_items()
+                time.sleep(2)
+                monsters_met.append(which_monster())
+                LOCATION = LOCATION.move_on
+                inventory.remove("bloodstained spurred boots")
+        elif player_talk2.lower().strip() in affirmative and \
+                "bloodstained spurred boots" not in inventory:
+            print(puca_conversation[3])
+            game_over()
+    else:
+        print(puca_conversation[6])
+        monsters_met.append(which_monster())
+        time.sleep(6)
+        LOCATION = LOCATION.move_on
+
+
+def nokk_encounter():
+    """
+    Handles the interaction between player and
+    the Nokk (when encountered)
+    """
+    global LOCATION
+    print(nokk_conversation[0])
+    time.sleep(3)
+    if "Púca" in inventory:
+        print(nokk_conversation[1])
+        time.sleep(6)
+        print(anansi_conversation[2])
+        time.sleep(6)
+        print("CONGRATULATIONS! YOU BEAT THE GAME VIA THE SECRET ROUTE")
+    else:
+        print(nokk_conversation[3])
+        if "rusted sword" in inventory:
+            print(nokk_conversation[4])
+            inventory.remove("rusted sword")
+            monsters_met.append(which_monster())
+            time.sleep(6)
+            LOCATION = LOCATION.move_on
+        else:
+            print(nokk_conversation[5])
+            game_over()
 
 
 def win():
