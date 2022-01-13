@@ -121,10 +121,7 @@ surale_lair = Location("Massive pine trees obscure the moonlight, the\
  looking down on you with a mischievous grin.\n'Clumsy are we?, you\
  entered my forest, so now you must pay the tithe.\nI see the Fairies have\
  taken a liking to you, so for their sake I will not punish you for\
- trespassing without a test.'\nThe creature seemed to think a moment\
- and then it snapped its lengthy fingers.\n'You shall either dance with me\
- or we can hold a tickling competition.'\nIt leaned further forward, his\
- nose almost touching yours.\n'Which shall it be human?'\n")
+ trespassing without a test. Will you take my test human?'\n")
 puca_lair = Location("ancient ruins lie in pieces around you\n")
 puca_lair.item = "Púca"
 nokk_lair = Location("a pond of silver, the large water lilies glowing pink\n")
@@ -137,7 +134,8 @@ leave_maze = Location("The air clears, the world around you\
  an array of sweet smelling flowers.\nHe grows larger as you approach,\
  yet for some reason, you do not feel fear.\nBy the time you stand before\
  him, he stands slightly taller than yourself.\nHis head has morphed into\
- that of a human male and he smiles at you mysteriously.\n")
+ that of a human male and he smiles at you mysteriously.\n'Hello young\
+ one.'\n")
 
 entrance.path = passage_one
 passage_one.path = passage_two
@@ -181,7 +179,7 @@ class Monster:
         """
         describe the creature
         """
-        return f"A {self.name} has {self.origin}\
+        return f"The {self.name} has {self.origin}\
  origin.\n{self.characteristics}."
 
 
@@ -191,36 +189,36 @@ kitsune = Monster("Kitsune", "Japanese", "Kitsune is the Japanese word\
  illusions, possession, and mind manipulation.\nThe more tails a kitsune\
  has (they may have as many as nine) the older, wiser,and more powerful it\
  is.\nBecause of their potential power and influence, some people make\
- sacrifices to them as to a deity")
+ sacrifices to them as to a deity\n")
 naga = Monster("Naga", "Hindu", "The Naga is a semidivine being,\
  they are a strong handsome species who are half human and half\
  cobra.\nNaga bite only the truly evil, or those destined to die\
  prematurely.\nThey are also associated with waters (rivers, lakes,\
- seas, and wells) and are guardians of treasure")
+ seas, and wells) and are guardians of treasure\n")
 dragon = Monster("Dragon", "European", "European dragons are\
  typically depicted as a large, fire-breathing, scaly, horned,\
  lizard-like creature.\nDragon's blood often contains unique powers,\
  keeping them alive for longer or giving them poisonous or acidic\
  properties.\nClassical European dragons are often described as\
  illuminating the air, most protect a cavern or castle filled\
- with gold and treasure")
+ with gold and treasure\n")
 surale = Monster("Şüräle", "Tatar and Bashkir", "The Şüräle are\
  forest spirits, bogeymen and shapeshifters.\nThey have a humanoid figure\
  with long bony fingers, thick fur and a single horn in their forehead.\nThe\
  Şüräle is a trickster who likes to lead travelers astray and\
  enjoys tickling its victims to death.\nIn human form\
- they have their shoes on backwards")
+ they have their shoes on backwards\n")
 puca = Monster("Púca", "Celtic", "The Púcai are considered\
  to be bringers of both good and bad fortune.\nThough shapeshifters,\
  they often come in the shape of wild colts.\nNo matter what shape the púca\
  takes, its fur is almost always dark.\nPúca are commonly said to entice\
  humans to take a ride on their back, giving the rider a wild\
- and terrifying journey")
+ and terrifying journey\n")
 nokk = Monster("Nøkk", "Scandinavian", "The Nøkken are fair male water spirits\
  who play enchanted songs on their violins.\nLegend has it they lured women\
  and children to drown in lakes or streams.\nThough many stories indicate they\
  were mostly harmless and attracted not only women and children, but men as\
- well with their sweet songs")
+ well with their sweet songs\n")
 sphinx = Monster("Sphinx", "Greek", "The Sphinx is a female monster\
  with the body of a lion, the head and breast of a woman, eagle's wings\
  and a serpent's tail.\nShe devours all who fail to solve her riddle")
@@ -229,11 +227,11 @@ chupacabra = Monster("Chupacabra", "Latin-American", "The chupacabra is a\
  descriptions of the Chupacabra vary, with some describing it as more dog-like\
  while most others describe it as reptilian and alien-like.\nSome report\
  it as being a heavy creature the size of a small bear, with a row of spines\
- reaching from the neck to the base of the tail")
-anansi = Monster("Anansi", "West-African", "Anansi is most well known\
- for his ability to outsmart and triumph over more powerful opponents through\
- his use of cunning, creativity and wit.\nHe often takes the shape of a spider\
- and is sometimes considered to be a god of all knowledge of stories")
+ reaching from the neck to the base of the tail\n")
+anansi = Monster("Anansi", "West-African", "I am most well known\
+ for my ability to outsmart and triumph over more powerful opponents through\
+ my use of cunning, creativity and wit.\nI often take the shape of a spider\
+ and am sometimes considered to be a god of all knowledge of stories\n")
 fairies = Monster("Fairies", "many", "Fairies are feared as dangerous and\
  powerful beings who are sometimes friendly to humans but can also be cruel\
  or mischievous.\nPeople believed that these fairies lived underground,\
@@ -306,7 +304,11 @@ dragon_conversation = ["'Who dares enter my lair?'\n", "The beast makes a sound\
  the ruby, child of man.'\n", "'You are either very brave, or very\
  foolish.\nWhichever it may be, this is the end of the line for you\
  child of man'\n"]
-surale_conversation = ["The creature claps its hands.\n'Delightful!'\n before\
+surale_conversation = ["The creature seems to think a moment\
+ and then it snaps its lengthy fingers.\n'You shall either dance with me\
+ or we can hold a tickling competition.'\nIt leaned further forward, his\
+ nose almost touching yours.\n'Which shall it be human?'\n", "The creature\
+ claps its hands.\n'Delightful!'\n before\
  you have the chance to do anything he already lifted you up by your arms and\
  placed you on your feet.\nHe regards your shoes in puzzlement for a moment,\
  but then shrugs and drags you into a spinning motion with one strong\
@@ -321,10 +323,20 @@ surale_conversation = ["The creature claps its hands.\n'Delightful!'\n before\
  malicious.\n'You should not enter in games you are sure to lose\
  human.'\nThe last thing you see is the creature cracking its knuckles\
  before your sides seethe with a tickling sensation so fierce, all your\
- other senses seem to disappear and the world goes blank.\n"]
+ other senses seem to disappear and the world goes blank.\n", "The creature\
+ cocks his head.\n'You tresspass in my forest, I offer you a chance at mercy,\
+ yet you refuse?'\n'Tis a wonder how long your species has\
+ survived.'\nScratching his hairy chin he regards you thoughtfully and then\
+ shrugs.\n'Ah well, to each their own I guess.'\nHe reaches out to you,\
+ you try to scramble away but he drags you back by your ankle.\nBefore\
+ you can blink his long thin fingers have latched onto your sides and started\
+ tickling you furiously.\nAt first you laugh and roll around.\nBut soon the\
+ sensation becomes overwhelming.\nThe last thing you see through\
+ tear-filled eyes is the manic grin of moonlight still shining down on you.\n"]
 
-anansi_conversation = ["'Good morrow.'\nHe regards you, slowly breathing\
- in and out in an almost meditative way.\n'You did well and kept your wits\
+anansi_conversation = ["He regards you, slowly breathing\
+ in and out in an almost meditative way.\nHis sharp gaze keeps you frozen\
+ in place.\n'You did well and kept your wits\
  about you.\nYou have conquered the Mythos Maze.\nCongratulations are in\
  order, as a reward I will send you home in but a moment.\nFirst though,\
  I would like to introduce you to the mythical creatures you encountered\
@@ -443,13 +455,19 @@ def location_arrival():
                 location_arrival()
                 break
         elif LOCATION is monster_locations[4] and \
-                player_input3.lower().strip() not in avoid:
+                player_input3.lower().strip() not in avoid and\
+                player_input3.lower().strip() not in negative:
             surale_encounter()
             if STOP_AFTER_DEATH is True:
                 break
             else:
                 location_arrival()
                 break
+        elif LOCATION is monster_locations[4] and \
+                player_input3.lower().strip() in negative:
+            print(surale_conversation[3])
+            game_over()
+            break
         elif LOCATION is monster_locations[8] and\
                 player_input3.lower().strip() not in avoid:
             win()
@@ -615,14 +633,15 @@ def surale_encounter():
     the Surale (when encountered)
     """
     global LOCATION
+    print(surale_conversation[0])
     player_talk = input("Which will you choose?\n")
     if player_talk.lower().strip() == "dance":
-        print(surale_conversation[0])
+        print(surale_conversation[1])
         time.sleep(6)
         monsters_met.append(which_monster())
         LOCATION = LOCATION.move_on
     else:
-        print(surale_conversation[1])
+        print(surale_conversation[2])
         game_over()
 
 
@@ -633,7 +652,8 @@ def win():
     """
     print(anansi_conversation[0])
     print(f"'They are the {', '.join(monsters_met)} and finally, myself.\nI\
- am known as Anansi.'")
+ am known as Anansi. The creature that was hunting you is known as a\
+ Chupacabra.\n'")
     player_talk = input("'Would you like to know more about any of these\
  beings?\nJust mention the name of the one who intrigues you and I shall\
  gladly tell you more.\nOr perhaps you do not know what a mythical\
@@ -645,42 +665,45 @@ def win():
         player_talk = input("Which being would you like to know more\
 about?\n")
         if player_talk.lower().strip() == "mythical creature" or \
-                "mythical creatures":
+                player_talk.lower().strip() == "mythical creatures":
             print(Monster.definition)
-            player_talk = input("'Would you like to know more? Please\
- mention the creature's name if you do.'\n")
-        elif player_talk.lower().strip() == "kitsune" or "the kitsune":
+            player_talk = input("'Would you like to know more?'\n")
+        elif player_talk.lower().strip() == "kitsune" or \
+                player_talk.lower().strip() == "the kitsune":
             print(kitsune.description())
-            player_talk = input("'Would you like to know more? Please\
- mention the creature's name if you do.'\n")
-        elif player_talk.lower().strip() == "naga" or "the naga":
+            player_talk = input("'Would you like to know more?'\n")
+        elif player_talk.lower().strip() == "naga" or \
+                player_talk.lower().strip() == "the naga":
             print(naga.description())
-            player_talk = input("'Would you like to know more? Please\
- mention the creature's name if you do.'\n")
-        elif player_talk.lower().strip() == "dragon" or "the dragon":
+            player_talk = input("'Would you like to know more?'\n")
+        elif player_talk.lower().strip() == "dragon" or \
+                player_talk.lower().strip() == "the dragon":
             print(dragon.description())
-            player_talk = input("'Would you like to know more? Please\
- mention the creature's name if you do.'\n")
-        elif player_talk.lower().strip() == "surale" or "the surale":
+            player_talk = input("'Would you like to know more?'\n")
+        elif player_talk.lower().strip() == "surale" or \
+                player_talk.lower().strip() == "the surale":
             print(surale.description())
-            player_talk = input("'Would you like to know more? Please\
- mention the creature's name if you do.'\n")
-        elif player_talk.lower().strip() == "puca" or "the puca":
+            player_talk = input("'Would you like to know more?\n")
+        elif player_talk.lower().strip() == "puca" or \
+                player_talk.lower().strip() == "the puca":
             print(puca.description())
-            player_talk = input("'Would you like to know more? Please\
- mention the creature's name if you do.'\n")
-        elif player_talk.lower().strip() == "nokk" or "the nokk":
+            player_talk = input("'Would you like to know more?\n")
+        elif player_talk.lower().strip() == "nokk" or \
+                player_talk.lower().strip() == "the nokk":
             print(nokk.description())
-            player_talk = input("'Would you like to know more? Please\
- mention the creature's name if you do.'\n")
-        elif player_talk.lower().strip() == "sphinx" or "the sphinx":
+            player_talk = input("'Would you like to know more?\n")
+        elif player_talk.lower().strip() == "sphinx" or \
+                player_talk.lower().strip() == "the sphinx":
             print(sphinx.description())
-            player_talk = input("'Would you like to know more? Please\
- mention the creature's name if you do.'\n")
-        elif player_talk.lower().strip() == "anansi" or "you":
+            player_talk = input("'Would you like to know more?\n")
+        elif player_talk.lower().strip() == "anansi" or \
+                player_talk.lower().strip() == "you":
             print(anansi.description())
-            player_talk = input("'Would you like to know more? Please\
- mention the creature's name if you do.'\n")
+            player_talk = input("'Would you like to know more?\n")
+        elif player_talk.lower().strip() == "chupacabra" or \
+                player_talk.lower().strip() == "the chupacabra":
+            print(chupacabra.description())
+            player_talk = input("Would you like to know more?\n")
         else:
             print(f"'I'm sorry, I can only tell you about the \
                 {', '.join(monsters_met)}, myself or what mythical \
@@ -773,4 +796,3 @@ def main():
 
 
 main()
-
