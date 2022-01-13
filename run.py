@@ -403,7 +403,7 @@ nokk_conversation = ["The music lures you forward, it fills your senses\
  waterfall.\nWhat was there to be afraid of again? Surely you have arrived\
  in paradise.\nNear the waterfall, you see a fallen angel half submerged\
  in water.\nHe's the most beautiful man you've ever seen and plays the\
- violin with a devotion worthy of a lover.\n", "The man lifts his\
+ violin with a devotion worthy of a lover.", "The man lifts his\
  gaze, acknowledging you standing by the edge of the water as if he was\
  aware of your presence all along.\nWhen he sees you, his violin playing\
  comes to an abrupt halt as his face morphs in shock and wonder.\nYou\
@@ -416,7 +416,7 @@ nokk_conversation = ["The music lures you forward, it fills your senses\
  my eyes. As a reward, I shall free you from this maze, go home child of\
  man.'\nHe waves his hand over the silvery water and like a mirage the\
  world around you seems to ripple...\n", "You don't really register your\
- your feet touching the water.\nAll you're aware of is the enchanting\
+ feet touching the water.\nAll you're aware of is the enchanting\
  music and a feeling of complete contentment as you move forward, deeper\
  into the lake...", "The water closes over the top of your head, you\
  feel like a babe protectively wrapped in silk.\nSuddenly your peace\
@@ -433,7 +433,7 @@ nokk_conversation = ["The music lures you forward, it fills your senses\
  walked into the water.\nBarely recovered from the shock, you realize\
  this is your chance to get away.\nAs quickly as your legs can tread\
  the water, you make your way back to shore, clambering back onto the\
- land and rushing to continue on the maze's path.\n", "The water\
+ land and rushing to continue on the maze's path.", "The water\
  closes over the top of your head, you feel like a babe protectively\
  wrapped in silk.\nAbsolute bliss fills you as your world goes dark...\n"]
 sphinx_conversation = ["The mouse runs off, forgotten in the face of\
@@ -539,7 +539,7 @@ def display_intro():
 
 
 LOCATION = entrance
-STOP_AFTER_DEATH = False
+EXIT_GAME = False
 visited = ["entrance"]
 inventory = []
 monsters_met = []
@@ -557,7 +557,7 @@ def location_arrival():
         if LOCATION is monster_locations[0] and player_input3.lower().strip()\
                 not in avoid:
             kitsune_encounter()
-            if STOP_AFTER_DEATH is True:
+            if EXIT_GAME is True:
                 break
             else:
                 location_arrival()
@@ -587,7 +587,7 @@ def location_arrival():
         elif LOCATION is monster_locations[3] and \
                 player_input3.lower().strip() not in avoid:
             dragon_encounter()
-            if STOP_AFTER_DEATH is True:
+            if EXIT_GAME is True:
                 break
             else:
                 location_arrival()
@@ -596,7 +596,7 @@ def location_arrival():
                 player_input3.lower().strip() not in avoid and\
                 player_input3.lower().strip() not in negative:
             surale_encounter()
-            if STOP_AFTER_DEATH is True:
+            if EXIT_GAME is True:
                 break
             else:
                 location_arrival()
@@ -609,7 +609,7 @@ def location_arrival():
         elif LOCATION is monster_locations[5] and \
                 player_input3.lower().strip() not in avoid:
             puca_encounter()
-            if STOP_AFTER_DEATH is True:
+            if EXIT_GAME is True:
                 break
             else:
                 location_arrival()
@@ -617,7 +617,7 @@ def location_arrival():
         elif LOCATION is monster_locations[6] and \
                 player_input3.lower().strip() not in avoid:
             nokk_encounter()
-            if STOP_AFTER_DEATH is True:
+            if EXIT_GAME is True:
                 break
             else:
                 location_arrival()
@@ -625,7 +625,7 @@ def location_arrival():
         elif LOCATION is monster_locations[7] and \
                 player_input3.lower().strip() not in avoid:
             sphinx_encounter()
-            if STOP_AFTER_DEATH is True:
+            if EXIT_GAME is True:
                 break
             else:
                 location_arrival()
@@ -855,6 +855,7 @@ def nokk_encounter():
     the Nokk (when encountered)
     """
     global LOCATION
+    global EXIT_GAME
     print(nokk_conversation[0])
     time.sleep(6)
     if "Púca" in inventory:
@@ -863,6 +864,7 @@ def nokk_encounter():
         print(anansi_conversation[2])
         time.sleep(6)
         print("CONGRATULATIONS! YOU BEAT THE GAME VIA THE SECRET ROUTE")
+        EXIT_GAME = True
     elif "Púca" not in inventory and "rusted sword" in inventory:
         print(nokk_conversation[2])
         time.sleep(6)
@@ -992,12 +994,13 @@ def take_items(thing='item'):
     their inventory.
     """
     if thing == 'item':
-        if LOCATION.item is not None:
+        if LOCATION.item not in inventory:
             inventory.append(LOCATION.item)
             print(f"You have added {LOCATION.item} to your inventory\n")
-            LOCATION.item = None
+        elif LOCATION.item in inventory:
+            print(f"{LOCATION.item} is already in your inventory\n")
         else:
-            print("There's nothing to pick up")
+            print("There's nothing here that you can take with you\n")
     elif thing == 'gift':
         inventory.append(LOCATION.gift)
         print(f"The {which_monster()} added {LOCATION.gift} to\
@@ -1030,7 +1033,7 @@ def game_over():
     Game over sequence for when the player dies
     """
     global LOCATION
-    global STOP_AFTER_DEATH
+    global EXIT_GAME
     print("you have died\n")
     player_input4 = input("would you like to try again,\
  start over or stop playing?\n")
@@ -1038,10 +1041,11 @@ def game_over():
         location_arrival()
     elif player_input4.lower().strip() == "start over":
         LOCATION = entrance
+        inventory.clear()
         main()
     elif player_input4.lower().strip() == "stop playing":
         print("bye bye")
-        STOP_AFTER_DEATH = True
+        EXIT_GAME = True
 
 
 def main():
