@@ -2,7 +2,6 @@
 Mythos Maze: an adventure game.
 """
 
-
 import time
 
 
@@ -180,6 +179,7 @@ passage_two.path = puca_lair
 passage_three.path = naga_lair
 passage_three.follow_spider = naga_lair
 passage_four.path = sphinx_lair
+passage_four.follow_spider = kitsune_lair
 passage_five.path = surale_lair
 passage_five.follow_spider = leave_maze
 kitsune_lair.move_on = passage_three
@@ -403,7 +403,7 @@ nokk_conversation = ["The music lures you forward, it fills your senses\
  waterfall.\nWhat was there to be afraid of again? Surely you have arrived\
  in paradise.\nNear the waterfall, you see a fallen angel half submerged\
  in water.\nHe's the most beautiful man you've ever seen and plays the\
- the violin with a devotion worthy of a lover.\n", "The man lifts his\
+ violin with a devotion worthy of a lover.\n", "The man lifts his\
  gaze, acknowledging you standing by the edge of the water as if he was\
  aware of your presence all along.\nWhen he sees you, his violin playing\
  comes to an abrupt halt as his face morphs in shock and wonder.\nYou\
@@ -462,7 +462,6 @@ sphinx_conversation = ["The mouse runs off, forgotten in the face of\
  your world becomes dark...\n", "'A grin spreads on her face as she\
  gets up to stand on all fours.\n'Goodie, I hope you run fast\
  human.'\nShe leaps through the air as you desperately try to get away.\n"]
-
 anansi_conversation = ["He regards you, slowly breathing\
  in and out in an almost meditative way.\nHis sharp gaze keeps you frozen\
  in place.\n'You did well and kept your wits\
@@ -480,7 +479,6 @@ anansi_conversation = ["He regards you, slowly breathing\
  have vanished by the time you look again.\nYou must've had a bad dream\
  tonight...\n"]
 
-
 affirmative = ["yes", "y", "definitely", "let's go", "bring it",
                "hell yes", "absolutely", "I might have", "yea"]
 negative = ["no", "n", "no way", "hell no", "absolutely not", "never",
@@ -488,18 +486,20 @@ negative = ["no", "n", "no way", "hell no", "absolutely not", "never",
 follow_path = ["path", "follow path", "straight", "straight ahead",
                "keep going", "go into the maze", "enter maze", "go into maze",
                "head deeper into maze", "run away", "run", "forward", "move",
-               "move forward", "onward", "continue", "move on"]
+               "move forward", "onward", "continue", "move on", "keep moving"]
 follow_spider = ["follow spider", "spider", "after spider", "side passage",
                  "hole", "move through hole", "move through hedge"]
 stop_game = ["quit", "go home", "leave maze", "exit", "i'm done"]
 seal_your_doom = ["help!", "investigate noise", "investigate",
                   "investigate sound", "go back", "turn back", "hide", "shout",
-                  "scream", "attack", "use sword"]
+                  "scream", "attack", "use sword", "look behind you",
+                  "turn around", "look back"]
 pickup_items = ["search pocket", "search pockets", "pick up", "pick up item",
                 "take", "take item", "take boots", "take sword",
                 "pick up boots", "pick up sword", "investigate", "grab sword",
                 "grab item", "pickup sword", "pickup item", "search skeleton",
-                "search body", "search"]
+                "search body", "search", "grab boots", "put on boots",
+                "wear boots"]
 avoid = ["leave", "don't help", "don't listen", "go away", "sneak past",
          "sneak"]
 correct_answer = ["10 and 20", "20 and 10", "10 groats and 20 groats",
@@ -845,7 +845,7 @@ def puca_encounter():
     else:
         print(puca_conversation[6])
         monsters_met.append(which_monster())
-        time.sleep(6)
+        time.sleep(2)
         LOCATION = LOCATION.move_on
 
 
@@ -856,24 +856,26 @@ def nokk_encounter():
     """
     global LOCATION
     print(nokk_conversation[0])
-    time.sleep(3)
+    time.sleep(6)
     if "Púca" in inventory:
         print(nokk_conversation[1])
         time.sleep(6)
         print(anansi_conversation[2])
         time.sleep(6)
         print("CONGRATULATIONS! YOU BEAT THE GAME VIA THE SECRET ROUTE")
-    else:
+    elif "Púca" not in inventory and "rusted sword" in inventory:
+        print(nokk_conversation[2])
+        time.sleep(6)
         print(nokk_conversation[3])
-        if "rusted sword" in inventory:
-            print(nokk_conversation[4])
-            inventory.remove("rusted sword")
-            monsters_met.append(which_monster())
-            time.sleep(6)
-            LOCATION = LOCATION.move_on
-        else:
-            print(nokk_conversation[5])
-            game_over()
+        monsters_met.append(which_monster())
+        inventory.remove("rusted sword")
+        time.sleep(6)
+        LOCATION = LOCATION.move_on
+    else:
+        print(nokk_conversation[2])
+        time.sleep(6)
+        print(nokk_conversation[4])
+        game_over()
 
 
 def sphinx_encounter():
