@@ -19,8 +19,7 @@ class Location:
         self.gift = None
 
 
-entrance = Location("Darkness...\nA herbal scent assaults your senses,\
- sage? Or maybe thyme?\nThe sensation\
+entrance = Location("Darkness...\nThe sensation\
  of falling jerks you awake, your eyes opening to a sea of stars as your\
  erratic heartbeat tries to stabilize.\nA sliver of a crescent moon\
  shines down on you like an unnatural, mocking grin.\nIts weak silvery\
@@ -472,6 +471,12 @@ anansi_conversation = ["He regards you, slowly breathing\
  along your way.'\n", "'I understand, it has been a trying night for\
  you.\nPlease do visit us again sometime.'\nHe waves his leg in a sweeping\
  motion, a wistful smile on his face.\n"]
+killed_by_chupa = ["A set of glowing red coals stare at you from the \
+ darkness.\nA low growl reverberates through the air as whatever they belong\
+ to moves closer to you.\nSharp claws scratch the earth and the\
+ moonlight reveals a heavily protruding spinal ridge on a creature that\
+ looks like an emaciated, hairless dog.\ndrool slowly slides down razor\
+ sharp canines as the creature braces itself to pounce...\n"]
 win_sequence = ["You startle awake, your head\
  groggy from the aftermath of sleep as you try to clumsily free yourself from\
  your tangled sheets.\nYou look around in a disoriented haze, your alarm\
@@ -482,7 +487,7 @@ win_sequence = ["You startle awake, your head\
  tonight...\n"]
 
 affirmative = ["yes", "y", "definitely", "let's go", "bring it",
-               "hell yes", "absolutely", "I might have", "yea"]
+               "hell yes", "absolutely", "I might have", "yea", "ye"]
 negative = ["no", "n", "no way", "hell no", "absolutely not", "never",
             "nope", "nah"]
 follow_path = ["path", "follow path", "straight", "straight ahead",
@@ -653,6 +658,7 @@ def location_arrival():
             validate_path('spider')
             player_input3 = input("What will you do?\n")
         elif player_input3.lower().strip() in seal_your_doom:
+            print(killed_by_chupa[0])
             game_over()
             break
         elif player_input3.lower().strip() in contents:
@@ -662,7 +668,7 @@ def location_arrival():
             print("I'm afraid I don't quite catch your meaning")
             player_input3 = input("What will you do?\n")
     else:
-        print("quitting...")
+        print("Returning to reality...")
 
 
 def kitsune_encounter():
@@ -1053,7 +1059,7 @@ def game_over():
         LOCATION = entrance
         inventory.clear()
     elif player_input4.lower().strip() == "stop playing":
-        print("bye bye")
+        print("We're sorry to see you go...")
         EXIT_GAME = True
 
 
