@@ -216,7 +216,7 @@ class Monster:
         describe the creature
         """
         return f"The {self.name} has {self.origin}\
- origin.\n{self.characteristics}."
+ origin.\n{self.characteristics}"
 
 
 kitsune = Monster("Kitsune", "Japanese", "Kitsune is the Japanese word\
@@ -225,49 +225,49 @@ kitsune = Monster("Kitsune", "Japanese", "Kitsune is the Japanese word\
  illusions, possession, and mind manipulation.\nThe more tails a kitsune\
  has (they may have as many as nine) the older, wiser,and more powerful it\
  is.\nBecause of their potential power and influence, some people make\
- sacrifices to them as to a deity\n")
+ sacrifices to them as to a deity.s\n")
 naga = Monster("Naga", "Hindu", "The Naga is a semidivine being,\
  they are a strong handsome species who are half human and half\
  cobra.\nNaga bite only the truly evil, or those destined to die\
  prematurely.\nThey are also associated with waters (rivers, lakes,\
- seas, and wells) and are guardians of treasure\n")
+ seas, and wells) and are guardians of treasure.\n")
 dragon = Monster("Dragon", "European", "European dragons are\
  typically depicted as a large, fire-breathing, scaly, horned,\
  lizard-like creature.\nDragon's blood often contains unique powers,\
  keeping them alive for longer or giving them poisonous or acidic\
  properties.\nClassical European dragons are often described as\
  illuminating the air, most protect a cavern or castle filled\
- with gold and treasure\n")
+ with gold and treasure.\n")
 surale = Monster("Şüräle", "Tatar and Bashkir", "The Şüräle are\
  forest spirits, bogeymen and shapeshifters.\nThey have a humanoid figure\
  with long bony fingers, thick fur and a single horn in their forehead.\nThe\
  Şüräle is a trickster who likes to lead travelers astray and\
  enjoys tickling its victims to death.\nIn human form\
- they have their shoes on backwards\n")
+ they have their shoes on backwards.\n")
 puca = Monster("Púca", "Celtic", "The Púcai are considered\
  to be bringers of both good and bad fortune.\nThough shapeshifters,\
  they often come in the shape of wild colts.\nNo matter what shape the púca\
  takes, its fur is almost always dark.\nPúca are commonly said to entice\
  humans to take a ride on their back, giving the rider a wild\
- and terrifying journey\n")
+ and terrifying journey.\n")
 nokk = Monster("Nøkk", "Scandinavian", "The Nøkken are fair male water spirits\
  who play enchanted songs on their violins.\nLegend has it they lured women\
  and children to drown in lakes or streams.\nThough many stories indicate they\
  were mostly harmless and attracted not only women and children, but men as\
- well with their sweet songs\n")
+ well with their sweet songs.\n")
 sphinx = Monster("Sphinx", "Greek", "The Sphinx is a female monster\
  with the body of a lion, the head and breast of a woman, eagle's wings\
- and a serpent's tail.\nShe devours all who fail to solve her riddle")
+ and a serpent's tail.\nShe devours all who fail to solve her riddle.")
 chupacabra = Monster("Chupacabra", "Latin-American", "The chupacabra is a\
  monstrous creature that attacks animals and consumes their blood.\nPhysical\
  descriptions of the Chupacabra vary, with some describing it as more dog-like\
  while most others describe it as reptilian and alien-like.\nSome report\
  it as being a heavy creature the size of a small bear, with a row of spines\
- reaching from the neck to the base of the tail\n")
+ reaching from the neck to the base of the tail.\n")
 anansi = Monster("Anansi", "West-African", "I am most well known\
  for my ability to outsmart and triumph over more powerful opponents through\
  my use of cunning, creativity and wit.\nI often take the shape of a spider\
- and am sometimes considered to be a god of all knowledge of stories\n")
+ and am sometimes considered to be a god of all knowledge of stories.\n")
 fairies = Monster("Fairies", "many", "Fairies are feared as dangerous and\
  powerful beings who are sometimes friendly to humans but can also be cruel\
  or mischievous.\nPeople believed that these fairies lived underground,\
@@ -371,8 +371,8 @@ surale_conversation = ["The creature seems to think a moment\
  tear-filled eyes is the manic grin of moonlight still shining down on you.\n"]
 puca_conversation = ["'Well well, are you lost traveler?\n", "'Poor thing,\
  I understand your predicament.\nLuckily for you I know this maze like the\
- back of my hoof, so to speak. Climb on my back and I will take you out\
- of here. What do you say, will you ride me human?'\n", "The creature\
+ back of my hoof, so to speak.\n Climb on my back and I will take you out\
+ of here.\n What do you say, will you ride me human?'\n", "The creature\
  bends its knees to lower himself to the ground.\nYou walk up to him\
  hesitantly and grasp on to his long silky mane before swinging your leg\
  over his back.\nThe spurs flash in the moonlight and the horse neighs in\
@@ -395,7 +395,7 @@ puca_conversation = ["'Well well, are you lost traveler?\n", "'Poor thing,\
  destination?'\nHe stomps his front hoof as he contemplates your offer.\nThen\
  he bobs his head up and down saying: 'No one will be able to use the sharp\
  things again then.\nCome human, I will take you along the path.'\n", "An\
- evil, mocking laughter comes from the animal.\n'Are you scared human? Run\
+ evil, mocking laughter comes from the animal.\n'Are you scared human?\n Run\
  along then, before the Chupa bleeds you dry...'\n"]
 nokk_conversation = ["The music lures you forward, it fills your senses\
  until they feel like bursting.\nYour body relaxes, the stress and fear\
@@ -433,7 +433,7 @@ nokk_conversation = ["The music lures you forward, it fills your senses\
  walked into the water.\nBarely recovered from the shock, you realize\
  this is your chance to get away.\nAs quickly as your legs can tread\
  the water, you make your way back to shore, clambering back onto the\
- land and rushing to continue on the maze's path.", "The water\
+ land and rushing to continue on the maze's path.\n", "The water\
  closes over the top of your head, you feel like a babe protectively\
  wrapped in silk.\nAbsolute bliss fills you as your world goes dark...\n"]
 sphinx_conversation = ["The mouse runs off, forgotten in the face of\
@@ -456,7 +456,8 @@ sphinx_conversation = ["The mouse runs off, forgotten in the face of\
  suppose I made that one too easy for you.'\nThe creature sighs in\
  exasperation and casually motions her head in the general direction\
  to her left.\n'Head in that direction and I reckon Anansi will\
- lead you out.'\n", "She uncrosses her front paws, lowers her body\
+ lead you out.'\nYou do not hesitate to do as she instructs...", "She\
+ uncrosses her front paws, lowers her body\
  and flexes her muscles in preparation to pounce.\n'I'm afraid that\
  is incorrect.'\nYou barely have time to shriek before she leaps and\
  your world becomes dark...\n", "'A grin spreads on her face as she\
@@ -470,7 +471,8 @@ anansi_conversation = ["He regards you, slowly breathing\
  I would like to introduce you to the mythical creatures you encountered\
  along your way.'\n", "'I understand, it has been a trying night for\
  you.\nPlease do visit us again sometime.'\nHe waves his leg in a sweeping\
- motion, a wistful smile on his face.\n", "You startle awake, your head\
+ motion, a wistful smile on his face.\n"]
+win_sequence = ["You startle awake, your head\
  groggy from the aftermath of sleep as you try to clumsily free yourself from\
  your tangled sheets.\nYou look around in a disoriented haze, your alarm\
  blaring loudly enough in the background to wake the dead.\nFor a moment\
@@ -511,6 +513,8 @@ correct_answer = ["10 and 20", "20 and 10", "10 groats and 20 groats",
                   "ten groats and twenty groats",
                   "twenty groats and ten groats",
                   "ten, twenty", "twenty, ten", "ten twenty", "twenty ten"]
+contents = ["inventory", "show inventory", "what's in my inventory",
+            "what's in my inventory?"]
 
 
 def display_intro():
@@ -651,6 +655,9 @@ def location_arrival():
         elif player_input3.lower().strip() in seal_your_doom:
             game_over()
             break
+        elif player_input3.lower().strip() in contents:
+            print(f"Your inventory currently contains: {', '.join(inventory)}")
+            player_input3 = input("What will you do?\n")
         else:
             print("I'm afraid I don't quite catch your meaning")
             player_input3 = input("What will you do?\n")
@@ -719,9 +726,8 @@ def naga_encounter():
     if player_talk.lower().strip() in negative and "milk" in \
             inventory and "nature's blessing" in inventory:
         print(naga_conversation[1])
-        print("The contents of your inventory is currently: ")
-        for i in inventory:
-            print(i)
+        print(f"The contents of your inventory is currently:\
+            {', '.join(inventory)}")
         player_talk2 = input("What will you offer?\n")
         while player_talk2.lower().strip() != "milk":
             if player_talk2.lower().strip() == "rusted sword":
@@ -842,6 +848,11 @@ def puca_encounter():
                 "bloodstained spurred boots" not in inventory:
             print(puca_conversation[3])
             game_over()
+        else:
+            print(puca_conversation[6])
+            monsters_met.append(which_monster())
+            time.sleep(2)
+            LOCATION = LOCATION.move_on
     else:
         print(puca_conversation[6])
         monsters_met.append(which_monster())
@@ -861,13 +872,12 @@ def nokk_encounter():
     if "Púca" in inventory:
         print(nokk_conversation[1])
         time.sleep(6)
-        print(anansi_conversation[2])
+        print(win_sequence[0])
         time.sleep(6)
         print("CONGRATULATIONS! YOU BEAT THE GAME VIA THE SECRET ROUTE")
         EXIT_GAME = True
     elif "Púca" not in inventory and "rusted sword" in inventory:
         print(nokk_conversation[2])
-        time.sleep(6)
         print(nokk_conversation[3])
         monsters_met.append(which_monster())
         inventory.remove("rusted sword")
@@ -912,17 +922,15 @@ def win():
     print(anansi_conversation[0])
     print(f"'They are the {', '.join(monsters_met)} and finally, myself.\nI\
  am known as Anansi. The creature that was hunting you is known as a\
- Chupacabra.\n'")
+ Chupacabra.'\n")
     player_talk = input("'Would you like to know more about any of these\
- beings?\nJust mention the name of the one who intrigues you and I shall\
- gladly tell you more.\nOr perhaps you do not know what a mythical\
- creature is?\nFor your achievement I shall give you any knowledge\
- you desire.\nWould you like to expand your knowledge?\nA simple\
+ beings?\nOr perhaps you do not know what a mythical\
+ creature is?\nWould you like to expand your knowledge?\nA simple\
  yes or no will suffice.'\n")
     while player_talk.lower().strip() not in stop_game and \
             player_talk.lower().strip() not in negative:
         player_talk = input("Which being would you like to know more\
-about?\n")
+ about?\n")
         if player_talk.lower().strip() == "mythical creature" or \
                 player_talk.lower().strip() == "mythical creatures":
             print(Monster.definition)
@@ -940,39 +948,43 @@ about?\n")
             print(dragon.description())
             player_talk = input("'Would you like to know more?'\n")
         elif player_talk.lower().strip() == "surale" or \
-                player_talk.lower().strip() == "the surale":
+                player_talk.lower().strip() == "the surale" or\
+                player_talk.lower().strip() == "Şüräle" or \
+                player_talk.lower().strip() == "the Şüräle":
             print(surale.description())
-            player_talk = input("'Would you like to know more?\n")
+            player_talk = input("'Would you like to know more?'\n")
         elif player_talk.lower().strip() == "puca" or \
-                player_talk.lower().strip() == "the puca":
+                player_talk.lower().strip() == "the puca" or \
+                player_talk.lower().strip() == "púca" or \
+                player_talk.lower().strip() == "the púca":
             print(puca.description())
-            player_talk = input("'Would you like to know more?\n")
+            player_talk = input("'Would you like to know more?'\n")
         elif player_talk.lower().strip() == "nokk" or \
-                player_talk.lower().strip() == "the nokk":
+                player_talk.lower().strip() == "the nokk" or \
+                player_talk.lower().strip() == "nøkk" or \
+                player_talk.lower().strip() == "the nøkk":
             print(nokk.description())
-            player_talk = input("'Would you like to know more?\n")
+            player_talk = input("'Would you like to know more?'\n")
         elif player_talk.lower().strip() == "sphinx" or \
                 player_talk.lower().strip() == "the sphinx":
             print(sphinx.description())
-            player_talk = input("'Would you like to know more?\n")
+            player_talk = input("'Would you like to know more?'\n")
         elif player_talk.lower().strip() == "anansi" or \
                 player_talk.lower().strip() == "you":
             print(anansi.description())
-            player_talk = input("'Would you like to know more?\n")
+            player_talk = input("'Would you like to know more?'\n")
         elif player_talk.lower().strip() == "chupacabra" or \
                 player_talk.lower().strip() == "the chupacabra":
             print(chupacabra.description())
-            player_talk = input("Would you like to know more?\n")
+            player_talk = input("Would you like to know more?'\n")
         else:
             print(f"'I'm sorry, I can only tell you about the \
-                {', '.join(monsters_met)}, myself or what mythical \
-                        creatures are in general.")
-            player_talk = input("'Would you like to know more? Please\
- mention the creature's name if you do.'\n")
+ {', '.join(monsters_met)}, myself or what mythical \
+ creatures are in general.'")
     else:
         print(anansi_conversation[1])
         time.sleep(6)
-        print(anansi_conversation[2])
+        print(win_sequence[0])
         time.sleep(6)
         print("CONGRATULATIONS! YOU BEAT THE GAME")
 
@@ -994,7 +1006,7 @@ def take_items(thing='item'):
     their inventory.
     """
     if thing == 'item':
-        if LOCATION.item not in inventory:
+        if LOCATION.item not in inventory and LOCATION.item is not None:
             inventory.append(LOCATION.item)
             print(f"You have added {LOCATION.item} to your inventory\n")
         elif LOCATION.item in inventory:
