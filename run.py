@@ -69,12 +69,12 @@ passage_three = Location("Panic hits you like a wave as you raise your arms\
  shallow mud on your left, away from the main path...\n")
 passage_three.gift = "nature's blessing"
 passage_four = Location("You run until you're out of breath and find yourself\
- in a dry area, the maze's hedges here are little more than thorns\nYou notice\
- another breach in the hedge to your right, perhaps it's better to veer off\
- the beaten path after all?\nAs if he heard you, that big spider peeks out\
- from that very direction.\nOr maybe it's another spider?\nEither way, he\
- looks at you a moment, before once again scurrying off through the hole\
- in the hedge.\n")
+ in a dry area, the maze's hedges here are little more than thorns.\nYou\
+ notice another breach in the hedge to your right, perhaps it's better to\
+ veer off the beaten path after all?\nAs if he heard you, that big spider\
+ peeks out from that very direction.\nOr maybe it's another spider?\nEither\
+ way, he looks at you a moment, before once again scurrying off through the\
+ hole in the hedge.\n")
 passage_five = Location("You don't need to think twice, and though your\
  legs quiver and your feet feel like lead, you rush past the massive creature\
  as quickly as possible.\nThe blackened, steaming rocks soon give way to trees\
@@ -215,7 +215,7 @@ class Monster:
         describe the creature
         """
         return f"The {self.name} has {self.origin}\
- origin.\n{self.characteristics}"
+ origins.\n{self.characteristics}"
 
 
 kitsune = Monster("Kitsune", "Japanese", "Kitsune is the Japanese word\
@@ -253,7 +253,10 @@ nokk = Monster("Nøkk", "Scandinavian", "The Nøkken are fair male water spirits
  who play enchanted songs on their violins.\nLegend has it they lured women\
  and children to drown in lakes or streams.\nThough many stories indicate they\
  were mostly harmless and attracted not only women and children, but men as\
- well with their sweet songs.\n")
+ well with their sweet songs.\nThey could be defeated by calling their name\
+ which was believed to cause their death.\nIf a person brought the nøkk three\
+ drops of blood, a black animal, scandivanian vodka or wet snuff, he would\
+ teach them his enchanting music.\n")
 sphinx = Monster("Sphinx", "Greek", "The Sphinx is a female monster\
  with the body of a lion, the head and breast of a woman, eagle's wings\
  and a serpent's tail.\nShe devours all who fail to solve her riddle.")
@@ -370,8 +373,8 @@ surale_conversation = ["The creature seems to think a moment\
  tear-filled eyes is the manic grin of moonlight still shining down on you.\n"]
 puca_conversation = ["'Well well, are you lost traveler?\n", "'Poor thing,\
  I understand your predicament.\nLuckily for you I know this maze like the\
- back of my hoof, so to speak.\n Climb on my back and I will take you out\
- of here.\n What do you say, will you ride me human?'\n", "The creature\
+ back of my hoof, so to speak.\nClimb on my back and I will take you out\
+ of here.\nWhat do you say, will you ride me human?'\n", "The creature\
  bends its knees to lower himself to the ground.\nYou walk up to him\
  hesitantly and grasp on to his long silky mane before swinging your leg\
  over his back.\nThe spurs flash in the moonlight and the horse neighs in\
@@ -689,7 +692,7 @@ def kitsune_encounter():
         player_talk2 = input("Will you hand over the hoshi no tama?\n")
         if player_talk2.lower().strip() in affirmative:
             print(kitsune_conversation[1])
-            time.sleep(6)
+            time.sleep(12)
             take_items('gift')
             time.sleep(2)
             monsters_met.append(which_monster())
@@ -891,7 +894,7 @@ def nokk_encounter():
         print(nokk_conversation[3])
         monsters_met.append(which_monster())
         inventory.remove("rusted sword")
-        time.sleep(6)
+        time.sleep(12)
         LOCATION = LOCATION.move_on
     else:
         print(nokk_conversation[2])
