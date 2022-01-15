@@ -660,7 +660,11 @@ def location_arrival():
         elif player_input3.lower().strip() in seal_your_doom:
             print(killed_by_chupa[0])
             game_over()
-            break
+            if EXIT_GAME is True:
+                break
+            else:
+                location_arrival()
+                break
         elif player_input3.lower().strip() in contents:
             print(f"Your inventory currently contains: {', '.join(inventory)}")
             player_input3 = input("What will you do?\n")
