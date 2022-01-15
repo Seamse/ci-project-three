@@ -318,7 +318,7 @@ naga_conversation = ["You tentatively approach the creature, halting by the\
  see you have received the Fairies' blessing.\nI suppossse I can gift\
  you sssome of my preciousss time human.\nWhat have you brought me in\
  offering?'\n", "The creature's gaze lights up.\n'where did you obtain thisss?\
- I have not feasted on sssuch a treat for many a moon.'\n He looks up from\
+ I have not feasted on sssuch a treat for many a moon.'\nHe looks up from\
  his new prize, regarding you almost with kindness.\n'Here, take thisss and\
  hurry along now, or it is not MY dinner you will become.'\n", "The creature\
  blinks, then bursts out laughing.\nIt shows off its large, elongated\
@@ -397,7 +397,7 @@ puca_conversation = ["'Well well, are you lost traveler?\n", "'Poor thing,\
  destination?'\nHe stomps his front hoof as he contemplates your offer.\nThen\
  he bobs his head up and down saying: 'No one will be able to use the sharp\
  things again then.\nCome human, I will take you along the path.'\n", "An\
- evil, mocking laughter comes from the animal.\n'Are you scared human?\n Run\
+ evil, mocking laughter comes from the animal.\n'Are you scared human?\nRun\
  along then, before the Chupa bleeds you dry...'\n"]
 nokk_conversation = ["The music lures you forward, it fills your senses\
  until they feel like bursting.\nYour body relaxes, the stress and fear\
@@ -532,11 +532,14 @@ def display_intro():
     intro_done = False
     while intro_done is False:
         player_input = input("Welcome to the Mythos Maze, would you like to\
- try and traverse its perils?\n")
+ try and traverse its perils?\n>")
         if player_input.lower().strip() in affirmative:
-            player_input2 = input("Are you sure?\n")
+            player_input2 = input("Are you sure?\n>")
             if player_input2.lower().strip() in affirmative:
-                print("Very well then, it's your funeral. Good luck mortal\n")
+                print("Very well then, it's your funeral. Let me give you\
+ a piece of advice:\nThe creatures you will encounter can be quite daunting\
+ to face.\nYou may not wish to face them empty handed...\nGood luck\
+ mortal.\n>")
                 intro_done = True
             else:
                 print("Indecision is the thief of opportunity you know...\n")
@@ -564,7 +567,7 @@ def location_arrival():
     """
     time.sleep(1)
     print(LOCATION.description)
-    player_input3 = input("What will you do?\n")
+    player_input3 = input("What will you do?\n>")
     while player_input3.lower().strip() not in stop_game:
         if LOCATION is monster_locations[0] and player_input3.lower().strip()\
                 not in avoid:
@@ -579,12 +582,12 @@ def location_arrival():
             take_items('gift')
             monsters_met.append(which_monster())
             validate_path('spider')
-            player_input3 = input("What will you do?\n")
+            player_input3 = input("What will you do?\n>")
         elif LOCATION is monster_locations[1] and \
                 player_input3.lower().strip() == "drink milk":
             print("The delicious milk revitalizes and refreshes you.")
             inventory.remove("milk")
-            player_input3 = input("What will you do?\n")
+            player_input3 = input("What will you do?\n>")
         elif LOCATION is monster_locations[2] and \
                 player_input3.lower().strip() not in avoid and \
                 player_input3.lower().strip() not in follow_path and\
@@ -595,7 +598,7 @@ def location_arrival():
         elif LOCATION is monster_locations[2] and \
                 player_input3.lower().strip() in avoid:
             validate_path()
-            player_input3 = input("what will you do?\n")
+            player_input3 = input("what will you do?\n>")
         elif LOCATION is monster_locations[3] and \
                 player_input3.lower().strip() not in avoid:
             dragon_encounter()
@@ -650,16 +653,16 @@ def location_arrival():
                 in avoid and LOCATION is not monster_locations[2]:
             print("Though you want to leave, your fear and uncertainty keep\
  you rooted to the spot.")
-            player_input3 = input("What will you do?\n")
+            player_input3 = input("What will you do?\n>")
         elif player_input3.lower().strip() in pickup_items:
             take_items()
-            player_input3 = input("What will you do?\n")
+            player_input3 = input("What will you do?\n>")
         elif player_input3.lower().strip() in follow_path:
             validate_path()
-            player_input3 = input("What will you do?\n")
+            player_input3 = input("What will you do?\n>")
         elif player_input3.lower().strip() in follow_spider:
             validate_path('spider')
-            player_input3 = input("What will you do?\n")
+            player_input3 = input("What will you do?\n>")
         elif player_input3.lower().strip() in seal_your_doom:
             print(killed_by_chupa[0])
             game_over()
@@ -670,10 +673,10 @@ def location_arrival():
                 break
         elif player_input3.lower().strip() in contents:
             print(f"Your inventory currently contains: {', '.join(inventory)}")
-            player_input3 = input("What will you do?\n")
+            player_input3 = input("What will you do?\n>")
         else:
             print("I'm afraid I don't quite catch your meaning")
-            player_input3 = input("What will you do?\n")
+            player_input3 = input("What will you do?\n>")
     else:
         print("Returning to reality...")
 
@@ -685,11 +688,11 @@ def kitsune_encounter():
     """
     global LOCATION
     print("'I lost my marble, have you seen it?'")
-    player_talk = input("What will you say?\n")
+    player_talk = input("What will you say?\n>")
     if player_talk.lower().strip() in negative and "hoshi no tama" in \
             inventory:
         print(kitsune_conversation[0])
-        player_talk2 = input("Will you hand over the hoshi no tama?\n")
+        player_talk2 = input("Will you hand over the hoshi no tama?\n>")
         if player_talk2.lower().strip() in affirmative:
             print(kitsune_conversation[1])
             time.sleep(12)
@@ -704,7 +707,7 @@ def kitsune_encounter():
     elif player_talk.lower().strip() in affirmative and "hoshi no tama" in \
             inventory:
         print(kitsune_conversation[3])
-        player_talk2 = input("Will you hand over the hoshi no tama?\n")
+        player_talk2 = input("Will you hand over the hoshi no tama?\n>")
         if player_talk2.lower().strip() in affirmative:
             print(kitsune_conversation[1])
             time.sleep(6)
@@ -735,24 +738,24 @@ def naga_encounter():
     """
     global LOCATION
     print(naga_conversation[0])
-    player_talk = input("What will you say?\n")
+    player_talk = input("What will you say?\n>")
     if player_talk.lower().strip() in negative and "milk" in \
             inventory and "nature's blessing" in inventory:
         print(naga_conversation[1])
         print(f"The contents of your inventory is currently:\
             {', '.join(inventory)}")
-        player_talk2 = input("What will you offer?\n")
+        player_talk2 = input("What will you offer?\n>")
         while player_talk2.lower().strip() != "milk":
             if player_talk2.lower().strip() == "rusted sword":
                 print(naga_conversation[3])
-                player_talk2 = input("What will you offer?\n")
+                player_talk2 = input("What will you offer?\n>")
             elif player_talk2.lower().strip() == "nature's blessing":
                 print("You cannot gift someone else's blessing of you\
  onto another person.")
-                player_talk2 = input("What will you offer?\n")
+                player_talk2 = input("What will you offer?\n>")
             else:
                 print("'I have no ussse for sssuch a thing human'")
-                player_talk2 = input("What will you offer\n")
+                player_talk2 = input("What will you offer\n>")
         else:
             print(naga_conversation[2])
             inventory.remove("milk")
@@ -774,9 +777,9 @@ def dragon_encounter():
     """
     global LOCATION
     print(dragon_conversation[0])
-    player_talk = input("What will you say?\n")
-    print(f"'{player_talk}?, you smell.. human. Are you human?'\n")
-    player_talk2 = input("What will you say?\n")
+    player_talk = input("What will you say?\n>")
+    print(f"'{player_talk}?, you smell.. human. Are you human?'\n>")
+    player_talk2 = input("What will you say?\n>")
     if player_talk2.lower().strip() in negative and \
             "a large bloodred ruby" not in inventory:
         print(dragon_conversation[1])
@@ -784,7 +787,7 @@ def dragon_encounter():
     elif player_talk2.lower().strip() in negative and \
             "a large bloodred ruby" in inventory:
         print(dragon_conversation[2])
-        player_talk3 = input("Will you hand over the large bloodred ruby?\n")
+        player_talk3 = input("Will you hand over the large bloodred ruby?\n>")
         if player_talk3.lower().strip() in negative:
             game_over()
         elif player_talk3.lower().strip() in affirmative:
@@ -796,7 +799,7 @@ def dragon_encounter():
     elif player_talk2.lower().strip() in affirmative and \
             "a large bloodred ruby" in inventory:
         print(dragon_conversation[4])
-        player_talk3 = input("Will you hand over the large bloodred ruby?\n")
+        player_talk3 = input("Will you hand over the large bloodred ruby?\n>")
         if player_talk3.lower().strip() in negative:
             game_over()
         elif player_talk3.lower().strip() in affirmative:
@@ -817,7 +820,7 @@ def surale_encounter():
     """
     global LOCATION
     print(surale_conversation[0])
-    player_talk = input("Which will you choose?\n")
+    player_talk = input("Which will you choose?\n>")
     if player_talk.lower().strip() == "dance":
         print(surale_conversation[1])
         time.sleep(6)
@@ -835,15 +838,15 @@ def puca_encounter():
     """
     global LOCATION
     print(puca_conversation[0])
-    player_talk = input("What will you say?\n")
+    player_talk = input("What will you say?\n>")
     if player_talk.lower().strip() in affirmative:
         print(puca_conversation[1])
-        player_talk2 = input("What will you say?\n")
+        player_talk2 = input("What will you say?\n>")
         if player_talk2.lower().strip() in affirmative and \
                 "bloodstained spurred boots" in inventory:
             print(puca_conversation[2])
             player_talk3 = input("Will you try to convince the Puca to\
- let you ride him? Or will you move on?\n")
+ let you ride him? Or will you move on?\n>")
             if player_talk3.lower().strip() in follow_path:
                 print(puca_conversation[4])
                 time.sleep(6)
@@ -910,10 +913,10 @@ def sphinx_encounter():
     """
     global LOCATION
     print(sphinx_conversation[0])
-    player_talk = input("What will you say?\n")
+    player_talk = input("What will you say?\n>")
     if player_talk.lower().strip() in affirmative:
         print(sphinx_conversation[1])
-        player_talk2 = input("What is your answer?\n")
+        player_talk2 = input("What is your answer?\n>")
         if player_talk2.lower().strip() in correct_answer:
             print(sphinx_conversation[2])
             monsters_met.append(which_monster())
@@ -939,57 +942,57 @@ def win():
     player_talk = input("'Would you like to know more about any of these\
  beings?\nOr perhaps you do not know what a mythical\
  creature is?\nWould you like to expand your knowledge?\nA simple\
- yes or no will suffice.'\n")
+ yes or no will suffice.'\n>")
     while player_talk.lower().strip() not in stop_game and \
             player_talk.lower().strip() not in negative:
         player_talk = input("Which being would you like to know more\
- about?\n")
+ about?\n>")
         if player_talk.lower().strip() == "mythical creature" or \
                 player_talk.lower().strip() == "mythical creatures":
             print(Monster.definition)
-            player_talk = input("'Would you like to know more?'\n")
+            player_talk = input("'Would you like to know more?'\n>")
         elif player_talk.lower().strip() == "kitsune" or \
                 player_talk.lower().strip() == "the kitsune":
             print(kitsune.description())
-            player_talk = input("'Would you like to know more?'\n")
+            player_talk = input("'Would you like to know more?'\n>")
         elif player_talk.lower().strip() == "naga" or \
                 player_talk.lower().strip() == "the naga":
             print(naga.description())
-            player_talk = input("'Would you like to know more?'\n")
+            player_talk = input("'Would you like to know more?'\n>")
         elif player_talk.lower().strip() == "dragon" or \
                 player_talk.lower().strip() == "the dragon":
             print(dragon.description())
-            player_talk = input("'Would you like to know more?'\n")
+            player_talk = input("'Would you like to know more?'\n>")
         elif player_talk.lower().strip() == "surale" or \
                 player_talk.lower().strip() == "the surale" or\
                 player_talk.lower().strip() == "Şüräle" or \
                 player_talk.lower().strip() == "the Şüräle":
             print(surale.description())
-            player_talk = input("'Would you like to know more?'\n")
+            player_talk = input("'Would you like to know more?'\n>")
         elif player_talk.lower().strip() == "puca" or \
                 player_talk.lower().strip() == "the puca" or \
                 player_talk.lower().strip() == "púca" or \
                 player_talk.lower().strip() == "the púca":
             print(puca.description())
-            player_talk = input("'Would you like to know more?'\n")
+            player_talk = input("'Would you like to know more?'\n>")
         elif player_talk.lower().strip() == "nokk" or \
                 player_talk.lower().strip() == "the nokk" or \
                 player_talk.lower().strip() == "nøkk" or \
                 player_talk.lower().strip() == "the nøkk":
             print(nokk.description())
-            player_talk = input("'Would you like to know more?'\n")
+            player_talk = input("'Would you like to know more?'\n>")
         elif player_talk.lower().strip() == "sphinx" or \
                 player_talk.lower().strip() == "the sphinx":
             print(sphinx.description())
-            player_talk = input("'Would you like to know more?'\n")
+            player_talk = input("'Would you like to know more?'\n>")
         elif player_talk.lower().strip() == "anansi" or \
                 player_talk.lower().strip() == "you":
             print(anansi.description())
-            player_talk = input("'Would you like to know more?'\n")
+            player_talk = input("'Would you like to know more?'\n>")
         elif player_talk.lower().strip() == "chupacabra" or \
                 player_talk.lower().strip() == "the chupacabra":
             print(chupacabra.description())
-            player_talk = input("Would you like to know more?'\n")
+            player_talk = input("Would you like to know more?'\n>")
         else:
             print(f"'I'm sorry, I can only tell you about the \
  {', '.join(monsters_met)}, myself or what mythical \
@@ -1068,6 +1071,39 @@ def game_over():
     elif player_input4.lower().strip() == "stop playing":
         print("We're sorry to see you go...")
         EXIT_GAME = True
+
+
+def limit_line_length(string: str):
+    """
+    Prints individual lines with a max line length of 150 characters
+    Checks for and prevents prepending spaces/split words
+    This function was gifted by DaveyJH
+    ---
+    Args:
+        string (str): String to be altered to fit within 80 character lines
+    """
+    lines = []
+    if len(string) <= 150:
+        lines.append(string)
+    else:
+        while len(string) > 150:
+            string = string.strip()
+            single_line = string[:150]
+            if string[150] == " ":
+                lines.append(single_line.strip())
+                string = string[150:]
+            elif " " in single_line:
+                last_space = single_line.rindex(" ")
+                single_line = string[:last_space]
+                string = string[last_space:].strip()
+                lines.append(single_line)
+            else:
+                lines.append(single_line)
+        # add last line
+        lines.append(string.strip())
+
+    for line in lines:
+        print(line)
 
 
 def main():
