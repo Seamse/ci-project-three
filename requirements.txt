@@ -1,1 +1,3 @@
-# Your requirements go here
+climage==0.1.3
+kdtree==0.16
+Pillow==9.0.0
