@@ -34,86 +34,95 @@ entrance = Location(f"{Fore.LIGHTMAGENTA_EX}Darkness...\nThe sensation\
  behind you, you hear a twig snap loudly.\nYou freeze before you can\
  see what lies in that direction,\na shiver running down your\
  spine..{Style.RESET_ALL}\n")
-entrance.item = "rusted sword"
-passage_one = Location(f"{Fore.LIGHTMAGENTA_EX}The hedges feel as if they're closing in on you,\
- the path is dark.\nIn your haste to get away your foot catches on something\
- and you trip,\nyour knees and hands breaking your fall awkwardly on the uneven\
- ground.\nAs you look back to see what tripped you, you stifle a gasp.\nA\
- skeleton in ragged clothing is staring at you with hollow eyesockets.\nIn\
- the pocket of its worn-away vest you see something emit an eerie\
- glow.\nYour hand reaches for it involuntarily,\nbut you quickly jerk it back\
- when a shadow scuttles out from behind the skeleton.\nA spider as large as\
- your hand crawls up the poor man's remains.\nIt hesitates when it notices\
- you,\nits small head twisting as if puzzled by your presence.\nYou stare\
- at it in bafflement when it raises a hairy leg,\nalmost as if in\
- greeting.\nBut before you can think it through a low growl emits from the\
- direction of\nthe archway you just passed and the spider scurries away\
- through\na medium-sized hole in the hedge you hadn't noticed earlier.{Style.RESET_ALL}\n")
-passage_one.item = "hoshi no tama"
-passage_two = Location(f"{Fore.LIGHTMAGENTA_EX}You're greeted by a brighter path,\nfilled with\
- pieces of old looking, crumbled masonry.\nYou notice something glinting\
- in the moonlight.\nThough you fear what that might be, you fear whatever's\
- chasing you even more.\nSo you keep going, the breeze raising goosebumps\
- on your skin.\nAs you get closer you realize it's a pair of spurred boots,\nthe\
- dark stains on them do not inspire much confidence.\nA bone chilling\
- howl sounds from somewhere behind you in the maze...{Style.RESET_ALL}\n")
-passage_two.item = "bloodstained spurred boots"
-passage_three = Location(f"{Fore.LIGHTMAGENTA_EX}Panic hits you like a wave as you raise your arms\
- to block the fire.\nYour eyes close tightly as you feel the force of the\
- flames lift your feet off the ground making your world spin.\nYou barely\
- register that your arms aren't getting burned.\nWhen the roaring sound leaves\
- your ears, you slowly open your eyes again.\nYou're surrounded by a muddy\
- swamp,\ntwinkling lights are luring you forward onto the overgrown path.\nAs\
- you take a step forward something heavy lands on your shoulder.\nYou jump\
- and quickly bat at yourself in a frantic attempt to get it off you.\nIt\
- lands on the ground by your feet\nand you immediately recognize the spider,\
- or maybe it's a different spider?\nThe creature raises both its front legs\
- in affront at your rough treatment,\nthen casually makes its way through the\
- shallow mud on your left,\naway from the main path...{Style.RESET_ALL}\n")
-passage_three.gift = "nature's blessing"
-passage_four = Location(f"{Fore.LIGHTMAGENTA_EX}You run until you're out of breath and find yourself\
- in a dry area,\nthe maze's hedges here are little more than thorns.\nYou\
- notice another breach in the hedge to your right,\nperhaps it's better to\
- veer off the beaten path after all?\nAs if he heard you, that big spider\
- peeks out from that very direction.\nOr maybe it's another spider?\nEither\
- way, he looks at you a moment,\nbefore once again scurrying off through the\
- hole in the hedge.{Style.RESET_ALL}\n")
-passage_five = Location(f"{Fore.LIGHTMAGENTA_EX}You don't need to think twice, and though your\
- legs quiver and your feet feel like lead,\nyou rush past the massive creature\
- as quickly as possible.\nThe blackened, steaming rocks soon give way to trees\
- which\ngive way to a forest until the smell of pine surrounds you.\nSomething\
- rustles in the needles coating the forest floor and you tense up,\nonly to\
- exhale in relief when a certain spider reveals itself to you yet again.\nYou\
- have the strangest urge to wave in greeting at\nthe only creature you've\
- encountered so far that hasn't tried to kill you.\nThe spider hops, you'd\
- think he was happy to see you...\nBefore you can decide whether to pass by\
- him, he scurries off again to your left.\nThe moonlight up ahead seems to\
- indicate a glade of some sort,\nthe open air inviting and perhaps leading to\
- an exit.\nBut you notice the spider stops and turns,\nalmost as if checking\
- wether you're following him onto the darker path or not...{Style.RESET_ALL}\n")
-kitsune_lair = Location(f"{Fore.LIGHTMAGENTA_EX}You emerge to see a twisting path leading to a\
- beautiful inari shrine.\nDusting off your knees and pulling twigs and leaves\
- out of your clothes,\nyou look up as you hear a strange sound.\nAt first you\
- think you might be hearing things,\nbut when you hear it again it's\
- unmistakably the sound of a child crying.\nHaving no choice but to move\
- forward, you follow the torchlit path.\nAs the shrine comes fully into view\
- you notice a frail looking little girl,\nprobably no older than six, hiding\
- her face in her hands as she sobs.\nHer hands are dirty but her kimono looks\
- clean.\nSomething in the girl's shadow draws your eyes,\nbut the flickering\
- torchlight is fickle and dances this way and that.\nBefore you can scrutinize\
- it further\nthe little girl hiccups and looks up as she notices\
- you.\nsniffling, she speaks in a barely audible voice:\n{Fore.LIGHTCYAN_EX}'hello'.{Style.RESET_ALL}\n")
-kitsune_lair.gift = "milk"
-naga_lair = Location(f"{Fore.LIGHTMAGENTA_EX}A temporary cloud has cast your surroudings in total\
- darkness.\nWhen the sky clears, the weak moonlight reflects off a shallow\
- stream\nand you notice a tall dark cave on its opposite bank.\nA creature\
- slithers out of the cave.\nIts upper body is human, but his lower body is\
- that of a snake.\nSo far, the being hasn't noticed you yet...{Style.RESET_ALL}\n")
-naga_lair.gift = "a large bloodred ruby"
-dragon_lair = Location(f"{Fore.LIGHTMAGENTA_EX}You run onwards, following the main path\nwhich\
- changes from grass, to sand, to gravel to rock.\nYou fervently\
- hope to find the exit just around the next corner.\nHeat surrounds you,\
- and when you round the corner,\nvolcanic rock glows in the\
+entrance.item = f"{Fore.LIGHTYELLOW_EX}rusted sword{Style.RESET_ALL}"
+passage_one = Location(f"{Fore.LIGHTMAGENTA_EX}The hedges feel as if\
+ they're closing in on you, the path is dark.\nIn your haste to get away\
+ your foot catches on something and you trip,\nyour knees and hands breaking\
+ your fall awkwardly on the uneven ground.\nAs you look back to see what\
+ tripped you, you stifle a gasp.\nA skeleton in ragged clothing is staring\
+ at you with hollow eyesockets.\nIn the pocket of its worn-away vest you see\
+ something emit an eerie glow.\nYour hand reaches for it involuntarily,\nbut\
+ you quickly jerk it back when a shadow scuttles out from behind the\
+ skeleton.\nA spider as large as your hand crawls up the poor man's\
+ remains.\nIt hesitates when it notices you,\nits small head twisting\
+ as if puzzled by your presence.\nYou stare at it in bafflement when it\
+ raises a hairy leg,\nalmost as if in greeting.\nBut before you can think\
+ it through a low growl emits from the direction of\nthe archway you just\
+ passed and the spider scurries away through\na medium-sized hole in the\
+ hedge you hadn't noticed earlier.{Style.RESET_ALL}\n")
+passage_one.item = f"{Fore.LIGHTYELLOW_EX}hoshi no tama{Style.RESET_ALL}"
+passage_two = Location(f"{Fore.LIGHTMAGENTA_EX}You're greeted by a brighter\
+ path,\nfilled with pieces of old looking, crumbled masonry.\nYou notice\
+ something glinting in the moonlight.\nThough you fear what that might be,\
+ you fear whatever's chasing you even more.\nSo you keep going, the breeze\
+ raising goosebumps on your skin.\nAs you get closer you realize it's a pair\
+ of spurred boots,\nthe dark stains on them do not inspire much\
+ confidence.\nA bone chilling howl sounds from somewhere behind you in\
+ the maze...{Style.RESET_ALL}\n")
+passage_two.item = f"{Fore.LIGHTRED_EX}bloodstained\
+ {Fore.LIGHTYELLOW_EX}spurred boots{Style.RESET_ALL}"
+passage_three = Location(f"{Fore.LIGHTMAGENTA_EX}Panic hits you like a wave\
+ as you raise your arms to block the fire.\nYour eyes close tightly as you\
+ feel the force of the flames lift your feet off the ground making your\
+ world spin.\nYou barely register that your arms aren't getting\
+ burned.\nWhen the roaring sound leaves your ears, you slowly open your\
+ eyes again.\nYou're surrounded by a muddy swamp,\ntwinkling lights are\
+ luring you forward onto the overgrown path.\nAs you take a step forward\
+ something heavy lands on your shoulder.\nYou jump and quickly bat at\
+ yourself in a frantic attempt to get it off you.\nIt lands on the ground\
+ by your feet\nand you immediately recognize the spider, or maybe it's a\
+ different spider?\nThe creature raises both its front legs in affront\
+ at your rough treatment,\nthen casually makes its way through the shallow\
+ mud on your left,\naway from the main path...{Style.RESET_ALL}\n")
+passage_three.gift = f"{Fore.LIGHTGREEN_EX}nature's blessing{Style.RESET_ALL}"
+passage_four = Location(f"{Fore.LIGHTMAGENTA_EX}You run until you're out\
+ of breath and find yourself in a dry area,\nthe maze's hedges here are\
+ little more than thorns.\nYou notice another breach in the hedge to your\
+ right,\nperhaps it's better to veer off the beaten path after all?\nAs if\
+ he heard you, that big spider peeks out from that very direction.\nOr\
+ maybe it's another spider?\nEither way, he looks at you a moment,\nbefore\
+ once again scurrying off through the hole in the hedge.{Style.RESET_ALL}\n")
+passage_five = Location(f"{Fore.LIGHTMAGENTA_EX}You don't need to think\
+ twice, and though your legs quiver and your feet feel like lead,\nyou rush\
+ past the massive creature as quickly as possible.\nThe blackened, steaming\
+ rocks soon give way to trees which\ngive way to a forest until the smell\
+ of pine surrounds you.\nSomething rustles in the needles coating the forest\
+ floor and you tense up,\nonly to exhale in relief when a certain spider\
+ reveals itself to you yet again.\nYou have the strangest urge to wave in\
+ greeting at\nthe only creature you've encountered so far that didn't appear\
+ to be trying to kill you.\nThe spider hops, you'd think he was happy to see\
+ you...\nBefore you can decide whether to pass by him, he scurries off again\
+ to your left.\nThe moonlight up ahead seems to indicate a glade of some\
+ sort,\nthe open air inviting and perhaps leading to an exit.\nBut you notice\
+ the spider stops and turns,\nalmost as if checking wether you're following\
+ him onto the darker path or not...{Style.RESET_ALL}\n")
+kitsune_lair = Location(f"{Fore.LIGHTMAGENTA_EX}You emerge to see a twisting\
+ path leading to a beautiful inari shrine.\nDusting off your knees and\
+ pulling twigs and leaves out of your clothes,\nyou look up as you hear\
+ a strange sound.\nAt first you think you might be hearing things,\nbut\
+ when you hear it again it's unmistakably the sound of a child\
+ crying.\nHaving no choice but to move forward, you follow the torchlit\
+ path.\nAs the shrine comes fully into view you notice a frail looking\
+ little girl,\nprobably no older than six, hiding her face in her hands\
+ as she sobs.\nHer hands are dirty but her kimono looks clean.\nSomething\
+ in the girl's shadow draws your eyes,\nbut the flickering torchlight is\
+ fickle and dances this way and that.\nBefore you can scrutinize it\
+ further\nthe little girl hiccups and looks up as she notices you.\nsniffling,\
+ she speaks in a barely audible\
+ voice:\n{Fore.LIGHTCYAN_EX}'hello'.{Style.RESET_ALL}\n")
+kitsune_lair.gift = f"{Fore.LIGHTYELLOW_EX}milk{Style.RESET_ALL}"
+naga_lair = Location(f"{Fore.LIGHTMAGENTA_EX}A temporary cloud has cast your\
+ surroudings in total darkness.\nWhen the sky clears, the weak moonlight\
+ reflects off a shallow stream\nand you notice a tall dark cave on its\
+ opposite bank.\nA creature slithers out of the cave.\nIts upper body is\
+ human, but his lower body is that of a snake.\nSo far, the being hasn't\
+ noticed you yet...{Style.RESET_ALL}\n")
+naga_lair.gift = f"{Fore.LIGHTYELLOW_EX}a large\
+ {Fore.LIGHTRED_EX}bloodred ruby{Style.RESET_ALL}"
+dragon_lair = Location(f"{Fore.LIGHTMAGENTA_EX}You run onwards, following\
+ the main path\nwhich changes from grass, to sand, to gravel to rock.\nYou\
+ fervently hope to find the exit just around the next corner.\nHeat\
+ surrounds you, and when you round the corner,\nvolcanic rock glows in the\
  darkness.\nNo exit seems in sight and you fear you've hit a dead end,\nwhen\
  suddenly the large rock blocking your path starts moving.\nTalons\
  the size of your arm, scales gleaming in the orange light\nand a huge\
@@ -124,38 +133,39 @@ dragon_lair = Location(f"{Fore.LIGHTMAGENTA_EX}You run onwards, following the ma
  involuntary step forward to keep your balance.\nFear slithers down your\
  spine and a shiver wracks your frame\nas you instinctively know that you\
  are facing an apex predator.{Style.RESET_ALL}\n")
-surale_lair = Location(f"{Fore.LIGHTMAGENTA_EX}Massive pine trees obscure the moonlight,\nthe\
- promise of an open glade seems to have vanished into thin air.\nThe\
- idea of ever finding a way out of\nthis mess seems further and further\
- from your grasp.\nYou sit down on a large boulder in dejection, unsure\
- what to do next.\nThe sound of footsteps nears you, you look up\
+surale_lair = Location(f"{Fore.LIGHTMAGENTA_EX}Massive pine trees obscure\
+ the moonlight,\nthe promise of an open glade seems to have vanished into\
+ thin air.\nThe idea of ever finding a way out of\nthis mess seems further\
+ and further from your grasp.\nYou sit down on a large boulder in dejection,\
+ unsure what to do next.\nThe sound of footsteps nears you, you look up\
  to see a woolly\nbipedal creature with long thin fingers and a horn on its\
  head.\nIn your haste to get away you stumble clumsily off the boulder and\
- fall backwards.\nIn a flash the creature is squatting on top of the boulder,\nlooking\
- down on you with a mischievous grin.\n{Fore.LIGHTCYAN_EX}'Clumsy are we?, you\
- entered my forest, so now you must pay the tithe.\nI see the Fairies have\
- taken a liking to you, so for their sake\nI will not punish you for\
- trespassing without a test.\nWill you take my test human?'{Style.RESET_ALL}\n")
-puca_lair = Location(f"{Fore.LIGHTMAGENTA_EX}Ancient ruins lie broken and forgotten around\
- you.\nTheir majesty belying glorious times long past.\nThe majestic\
- horse you see roaming among them however, grabs your full attention.\nThough\
- its coat is black as night,\nthe pale moonlight appears to shimmer off the\
- creature in an enigmatic blue glow.\nHis eyes are two ovals of liquid gold,\
- lending him an almost demonic appearance.\nIt is then you notice that\
- those eyes\nare studying you as much as you were studying him.\nThe creature\
- approaches you,\nand though his advance makes you take a hesitant step back,\nyou\
- know heading back to whatever let loose that howl is probably a worse\
- idea.{Style.RESET_ALL}\n")
-puca_lair.item = "Púca"
-nokk_lair = Location(f"{Fore.LIGHTMAGENTA_EX}A massive pond of silver reveals itself to you,\
- water lilies glowing a magical pink.\nA violin can be heard over the\
- soft trickling of water from a nearby waterfall.\nTheir combined\
+ fall backwards.\nIn a flash the creature is squatting on top of the\
+ boulder,\nlooking down on you with a mischievous\
+ grin.\n{Fore.LIGHTCYAN_EX}'Clumsy are we?, you entered my forest, so now\
+ you must pay the tithe.\nI see the Fairies have taken a liking to you, so\
+ for their sake\nI will not punish you for trespassing without a test.\nWill\
+ you take my test human?'{Style.RESET_ALL}\n")
+puca_lair = Location(f"{Fore.LIGHTMAGENTA_EX}Ancient ruins lie broken and\
+ forgotten around you.\nTheir majesty belying glorious times long past.\nThe\
+ magnificent horse you see roaming among them however, grabs your full\
+ attention.\nThough its coat is black as night,\nthe pale moonlight appears\
+ to shimmer off the creature in an enigmatic blue glow.\nHis eyes are two\
+ ovals of liquid gold, lending him an almost demonic appearance.\nIt is then\
+ you notice that those eyes\nare studying you as much as you were studying\
+ him.\nThe creature approaches you,\nand though his advance makes you take\
+ a hesitant step back,\nyou know heading back to whatever let loose that\
+ howl is probably a worse idea.{Style.RESET_ALL}\n")
+puca_lair.item = f"{Fore.LIGHTYELLOW_EX}Púca{Style.RESET_ALL}"
+nokk_lair = Location(f"{Fore.LIGHTMAGENTA_EX}A massive pond of silver reveals\
+ itself to you, water lilies glowing a magical pink.\nA violin can be heard\
+ over the soft trickling of water from a nearby waterfall.\nTheir combined\
  music making for an enchanting melody.{Style.RESET_ALL}\n")
-sphinx_lair = Location(f"{Fore.LIGHTMAGENTA_EX}The path appears to be getting dryer and the air\
- hotter.\nYour clothes have almost dried from the incident at the\
- lake.\nSuddenly the dead looking hedges make way for an enormous\nclearing\
- filled with hills of sand.\nGlittering kernels swirl as the wind\
- rises.\nThe creature you see at the center is beyond anything you've\
+sphinx_lair = Location(f"{Fore.LIGHTMAGENTA_EX}The path appears to be getting\
+ dryer and the air hotter.\nYour clothes have almost dried from the incident\
+ at the lake.\nSuddenly the dead looking hedges make way for an\
+ enormous\nclearing filled with hills of sand.\nGlittering kernels swirl as\
+ the wind rises.\nThe creature you see at the center is beyond anything you've\
  ever imagined.\nA lion the size of a house, though instead of a\
  normal lion's head,\nshe has the upper torso and head of a human\
  woman.\nThe creature is casually playing with a mouse, letting it\
@@ -163,15 +173,16 @@ sphinx_lair = Location(f"{Fore.LIGHTMAGENTA_EX}The path appears to be getting dr
  freedom.\nSuddenly, her tail jerks excitedly and her head lifts up\
  as her\ncatlike gaze narrows in on you, like a hunter zoning in\
  on its prey.{Style.RESET_ALL}\n")
-leave_maze = Location(f"{Fore.LIGHTMAGENTA_EX}The air clears, the world around you\
- disintegrates\nand suddenly you find yourself in a meadow.\nMorning dew\
- glints in the first rays of the rising sun,\nthe grass blades bending from\
- the water's weight.\nFor the first time that night, you feel as if\
- you can breathe again.\nYour spider friend sits waiting for you amongst\
- an array of sweet smelling flowers.\nHe grows larger as you approach,\
- yet for some reason, you do not feel fear.\nBy the time you stand before\
- him, he stands slightly taller than yourself.\nHis head has morphed into\
- that of a human male and he smiles at you mysteriously.\n{Fore.LIGHTCYAN_EX}'Hello young\
+leave_maze = Location(f"{Fore.LIGHTMAGENTA_EX}The air clears, the world\
+ around you disintegrates\nand suddenly you find yourself in a\
+ meadow.\nMorning dew glints in the first rays of the rising sun,\nthe\
+ grass blades bending from the water's weight.\nFor the first time that\
+ night, you feel as if you can breathe again.\nYour spider friend sits\
+ waiting for you amongst an array of sweet smelling flowers.\nHe grows\
+ larger as you approach, yet for some reason, you do not feel fear.\nBy\
+ the time you stand before him, he stands slightly taller than\
+ yourself.\nHis head has morphed into that of a human male and he smiles\
+ at you mysteriously.\n{Fore.LIGHTCYAN_EX}'Hello young\
  one.'{Style.RESET_ALL}\n")
 
 entrance.path = passage_one
@@ -265,10 +276,11 @@ sphinx = Monster("Sphinx", "Greek", "The Sphinx is a female monster\
  and a serpent's tail.\nShe devours all who fail to solve her riddle.\n")
 chupacabra = Monster("Chupacabra", "Latin-American", "The chupacabra is a\
  monstrous creature that attacks animals and consumes their blood.\nPhysical\
- descriptions of the Chupacabra vary, with some describing it as more\ndog-like\
- while most others describe it as reptilian and alien-like.\nSome report\
- it as being a heavy creature the size of a small bear,\nwith a row of spines\
- reaching from the neck to the base of the tail.\n")
+ descriptions of the Chupacabra vary, with some describing it as\
+ more\ndog-like while most others describe it as reptilian and\
+ alien-like.\nSome report it as being a heavy creature the size of a small\
+ bear,\nwith a row of spines reaching from the neck to the base of the\
+ tail.\n")
 anansi = Monster("Anansi", "West-African", "I am most well known\
  for my ability to outsmart and triumph\nover more powerful opponents through\
  my use of cunning, creativity and wit.\nI often take the shape of a spider\
@@ -285,61 +297,77 @@ who_is_where = {kitsune_lair: kitsune, naga_lair: naga, dragon_lair: dragon,
                 sphinx_lair: sphinx, passage_three: fairies,
                 leave_maze: anansi}
 
-kitsune_conversation = [f"{Fore.LIGHTCYAN_EX}'Are you certain? It's easy to spot, it glows and\
- it's very pretty.'{Style.RESET_ALL}", f"{Fore.LIGHTMAGENTA_EX}Tentatively she holds her shaking hands out towards\
- you.\nThe girl appears almost nervous, as if you might change your mind at\
- the last second.\nWhen you drop the small glowing orb into her outstretched\
- hands,\na ripple of relief seems to wash over her.\nShe clasps the little ball\
- tightly to her chest\nand beneath her lowered bangs you see a grin\
- unfurl.\n{Fore.LIGHTCYAN_EX}'Thank you, human.'\n{Fore.LIGHTMAGENTA_EX}She looks up suddenly, her slit pupils\
- belying her human disguise.\n{Fore.LIGHTCYAN_EX}'A favour for a favour is in order\
- I suppose..'\n{Fore.LIGHTMAGENTA_EX}You barely have time to notice the five fox tails\
- unfurl\nbehind the girl's body before a gulf of flame consumes\
- you.{Style.RESET_ALL}\n", f"{Fore.LIGHTMAGENTA_EX}The girl's face morphs in anger and her voice\ntakes on a\
- menacing timbre as she stalks towards you.\nHer form shimmering and\
- slowly changing shape.\n{Fore.LIGHTCYAN_EX}'You dare steal what is mine?'\n{Fore.LIGHTMAGENTA_EX}As the girl\
+kitsune_conversation = [f"{Fore.LIGHTCYAN_EX}'Are you certain? It's easy to\
+ spot, it glows and it's very pretty.'{Style.RESET_ALL}", f"\
+ {Fore.LIGHTMAGENTA_EX}Tentatively she holds her shaking hands out\
+ towards you.\nThe girl appears almost nervous, as if you might change your\
+ mind at the last second.\nWhen you drop the small glowing orb into her\
+ outstretched hands,\na ripple of relief seems to wash over her.\nShe clasps\
+ the little ball tightly to her chest\nand beneath her lowered bangs you see\
+ a grin unfurl.\n{Fore.LIGHTCYAN_EX}'Thank you, human.\
+ '\n{Fore.LIGHTMAGENTA_EX}She looks up suddenly, her slit pupils\
+ belying her human disguise.\n{Fore.LIGHTCYAN_EX}'A favour for a favour is in\
+ order I suppose..'\n{Fore.LIGHTMAGENTA_EX}You barely have time to notice the\
+ five fox tails unfurl\nbehind the girl's body before a gulf of flame consumes\
+ you.{Style.RESET_ALL}\n", f"{Fore.LIGHTMAGENTA_EX}The girl's face morphs in\
+ anger and her voice\ntakes on a menacing timbre as she stalks towards\
+ you.\nHer form shimmering and slowly changing shape.\n{Fore.LIGHTCYAN_EX}'You\
+ dare steal what is mine?'\n{Fore.LIGHTMAGENTA_EX}As the girl\
  grows in size she simultaneously seems to become transparent.\nThe\
  last visible part of her are her slit eyes burning with a deep\
- hatred.\n{Fore.LIGHTCYAN_EX}'Despicable creature.'\n{Fore.LIGHTMAGENTA_EX}You're rooted to the spot as she lunges\
+ hatred.\n{Fore.LIGHTCYAN_EX}'Despicable creature.\
+ '\n{Fore.LIGHTMAGENTA_EX}You're rooted to the spot as she lunges\
  towards you in a formless kind of smoke.\nLifting your hands in a last\
  attempt at defense\nyou scream in horror as you see the smoke force its\
- way beneath your fingernails...{Style.RESET_ALL}\n", f"{Fore.LIGHTCYAN_EX}'Do you have it? Will you give it\
- back to me?'{Style.RESET_ALL}", f"{Fore.LIGHTCYAN_EX}'Hm, you don't have it with you though...\nBut if you've\
+ way beneath your fingernails...{Style.RESET_ALL}\n", f"{Fore.LIGHTCYAN_EX}'Do\
+ you have it? Will you give it back to me?'{Style.RESET_ALL}", f"\
+ {Fore.LIGHTCYAN_EX}'Hm, you don't have it with you though...\nBut if you've\
  seen it, it must not be far.\nI suppose I'll track back in the direction\
- you came from.'\n{Fore.LIGHTMAGENTA_EX}The girl's eyes suddenly take on a ruthless sheen.\n{Fore.LIGHTCYAN_EX}'I'm\
- afraid that means you are no longer of use to me human.\nNo hard\
- feelings.'{Style.RESET_ALL}\n", f"{Fore.LIGHTCYAN_EX}'No?'{Fore.LIGHTMAGENTA_EX}The girl sighs, suddenly all measure of sadness\
- seems to have left her.\nHer pupils slit as she regards you in a kind of\
- measured boredom.\n{Fore.LIGHTCYAN_EX}'I'm afraid you've outstayed your usefulness,\
- human.'{Style.RESET_ALL}\n", f"{Fore.LIGHTCYAN_EX}'I'm afraid I don't have time for this'{Style.RESET_ALL}\n"]
-naga_conversation = [f"{Fore.LIGHTMAGENTA_EX}You tentatively approach the creature, halting by the\
- bank of the small stream.\nIts body tenses when it notices your scent,\
- he looks up sharply,\nonly to relax as it catches sight of you.\n{Fore.LIGHTCYAN_EX}'Well\
- well, a human? How did you get lossst in here little mouse?\nDid you come\
- to be my dinner?'{Style.RESET_ALL}\n", f"{Fore.LIGHTCYAN_EX}'No? a ssshame.'\n{Fore.LIGHTMAGENTA_EX}The creature's tongue darts out,\
- tasting the air,\nits regard turning speculative as it assesses you.\n{Fore.LIGHTCYAN_EX}'I\
- see you have received the Fairies' blessing.\nI suppossse I can gift\
- you sssome of my preciousss time human.\nWhat have you brought me in\
- offering?'{Style.RESET_ALL}\n", f"{Fore.LIGHTMAGENTA_EX}The creature's gaze lights up.\n{Fore.LIGHTCYAN_EX}'where did you obtain thisss?\
- I have not feasted on sssuch a treat for many a moon.'\n{Fore.LIGHTMAGENTA_EX}He looks up from\
- his new prize, regarding you almost with kindness.\n{Fore.LIGHTCYAN_EX}'Here, take thisss and\
- hurry along now, or it is not MY dinner you will become.'{Style.RESET_ALL}\n", f"{Fore.LIGHTMAGENTA_EX}The creature\
+ you came from.'\n{Fore.LIGHTMAGENTA_EX}The girl's eyes suddenly take on a\
+ ruthless sheen.\n{Fore.LIGHTCYAN_EX}'I'm afraid that means you are no longer\
+ of use to me human.\nNo hard feelings.'{Style.RESET_ALL}\n", f"\
+ {Fore.LIGHTCYAN_EX}'No?'{Fore.LIGHTMAGENTA_EX}The girl sighs, suddenly all\
+ measure of sadness seems to have left her.\nHer pupils slit as she regards\
+ you in a kind of measured boredom.\n{Fore.LIGHTCYAN_EX}'I'm afraid you've\
+ outstayed your usefulness, human.'{Style.RESET_ALL}\n", f"\
+ {Fore.LIGHTCYAN_EX}'I'm afraid I don't have time for\
+ this'{Style.RESET_ALL}\n"]
+naga_conversation = [f"{Fore.LIGHTMAGENTA_EX}You tentatively approach the\
+ creature, halting by the bank of the small stream.\nIts body tenses when\
+ it notices your scent, he looks up sharply,\nonly to relax as it catches\
+ sight of you.\n{Fore.LIGHTCYAN_EX}'Well well, a human? How did you get lossst\
+ in here little mouse?\nDid you come to be my dinner?'{Style.RESET_ALL}\n", f"\
+ {Fore.LIGHTCYAN_EX}'No? a ssshame.'\n{Fore.LIGHTMAGENTA_EX}The creature's\
+ tongue darts out, tasting the air,\nits regard turning speculative as it\
+ assesses you.\n{Fore.LIGHTCYAN_EX}'I see you have received the Fairies'\
+ blessing.\nI suppossse I can gift you sssome of my preciousss time\
+ human.\nWhat have you brought me in offering?'{Style.RESET_ALL}\n", f"\
+ {Fore.LIGHTMAGENTA_EX}The creature's gaze lights\
+ up.\n{Fore.LIGHTCYAN_EX}'where did you obtain thisss?\
+ I have not feasted on sssuch a treat for many a\
+ moon.'\n{Fore.LIGHTMAGENTA_EX}He looks up from\
+ his new prize, regarding you almost with kindness.\n{Fore.LIGHTCYAN_EX}'\
+ Here, take thisss and hurry along now, or it is not MY dinner you will\
+ become.'{Style.RESET_ALL}\n", f"{Fore.LIGHTMAGENTA_EX}The creature\
  blinks, then bursts out laughing.\nIt shows off its large, elongated\
- canines and\nflexes its claws in a semi-threatening display.\n{Fore.LIGHTCYAN_EX}'What ussse\
+ canines and\nflexes its claws in a semi-threatening\
+ display.\n{Fore.LIGHTCYAN_EX}'What ussse\
  do you imagine I could have for that rusted piece of former glory?\nUnless\
- you plan to ssstrike me down human?'\n{Fore.LIGHTMAGENTA_EX}He slithers closer on his long tail,\nlooming\
- over you in a way that makes you shift uncomfortably in place.\n{Fore.LIGHTCYAN_EX}'Let\
- me advissse you againssst the latter'{Style.RESET_ALL}\n", f"{Fore.LIGHTMAGENTA_EX}The creature's tongue darts out,\
- its brow furrows in annoyance.\n{Fore.LIGHTCYAN_EX}'Fortunately for you I do not eat junk\
- food.\nThough I might dispose of you in other ways.\nBegone lowly creature,\
- before I change my mind and give you a taste of my claws.'{Style.RESET_ALL}\n"]
+ you plan to ssstrike me down human?'\n{Fore.LIGHTMAGENTA_EX}He slithers\
+ closer on his long tail,\nlooming over you in a way that makes you shift\
+ uncomfortably in place.\n{Fore.LIGHTCYAN_EX}'Let me advissse you againssst\
+ the latter'{Style.RESET_ALL}\n", f"{Fore.LIGHTMAGENTA_EX}The creature's tongue\
+ darts out, its brow furrows in annoyance.\n{Fore.LIGHTCYAN_EX}'Fortunately\
+ for you I do not eat junk food.\nThough I might dispose of you in other\
+ ways.\nBegone lowly creature, before I change my mind and give you a taste\
+ of my claws.'{Style.RESET_ALL}\n"]
 dragon_conversation = ["'Who dares enter my lair?'\n", "The beast makes a sound\
  reminiscent of a chuckle,\nbut it's so powerful it makes the ground\
  shake.\nYou dare lie to me human?.\nNo matter, I suppose you'll do as a\
  snack.'\n", "'Do not lie to me human! Were it not for the precious stone\
- you carry\nI would've eaten you for your insolence.\nGive it to me and I might\
- find myself in a more benevolent mood.'\n", "'A wise decision, such a\
- precious item belongs in a Dragon's hoard.\nI shall let you pass, this\
+ you carry\nI would've eaten you for your insolence.\nGive it to me and I\
+ might find myself in a more benevolent mood.'\n", "'A wise decision, such\
+ a precious item belongs in a Dragon's hoard.\nI shall let you pass, this\
  time.'\n", "'Hmm, humans make tiny snacks.\nThough I would've eaten you\
  already regardless,\nwere it not for the precious cargo you carry.\nGive me\
  the ruby, child of man.'\n", "'You are either very brave, or very\
@@ -370,10 +398,11 @@ surale_conversation = ["The creature seems to think a moment\
  survived.'\nScratching his hairy chin he regards you thoughtfully and then\
  shrugs.\n'Ah well, to each their own I guess.'\nHe reaches out to you,\
  you try to scramble away but he drags you back by your ankle.\nBefore\
- you can blink,\nhis long thin fingers have latched onto your sides and started\
- tickling you furiously.\nAt first you laugh and roll around.\nBut soon the\
- sensation becomes overwhelming.\nThe last thing you see through\
- tear-filled eyes\nis the manic grin of moonlight still shining down on you.\n"]
+ you can blink,\nhis long thin fingers have latched onto your sides and\
+ started tickling you furiously.\nAt first you laugh and roll\
+ around.\nBut soon the sensation becomes overwhelming.\nThe last thing you\
+ see through tear-filled eyes\nis the manic grin of moonlight still shining\
+ down on you.\n"]
 puca_conversation = ["'Well well, are you lost traveler?\n", "'Poor thing,\
  I understand your predicament.\nLuckily for you I know this maze like the\
  back of my hoof, so to speak.\nClimb on my back and I will take you out\
@@ -393,15 +422,15 @@ puca_conversation = ["'Well well, are you lost traveler?\n", "'Poor thing,\
  nod nervously,\nthen hastily make your way past the dark beast to continue on\
  the path.\n", "You swallow nervously, then bravely take a step forwards as you\
  say:\n'I will not use the spurs on you, if you will help me get out of this\
- maze.'\nHe looks at you, mist blowing out of his nostrils before he replies:\n'\
- Perhaps you should remove your boots.'\nYou think it over, but something in\
- the creature's intense gaze\nmakes you too nervous to trust it completely and\
- you shake your head.\n'No, but I can gift them to you once we reach our\
- destination?'\nHe stomps his front hoof as he contemplates your offer.\nThen\
- he bobs his head up and down saying:\n'No one will be able to use the sharp\
- things again then.\nCome human, I will take you along the path.'\n", "An\
- evil, mocking laughter comes from the animal.\n'Are you scared human?\nRun\
- along then, before the Chupa bleeds you dry...'\n"]
+ maze.'\nHe looks at you, mist blowing out of his nostrils before he\
+ replies:\n' Perhaps you should remove your boots.'\nYou think it over, but\
+ something in the creature's intense gaze\nmakes you too nervous to trust it\
+ completely and you shake your head.\n'No, but I can gift them to you once we\
+ reach our destination?'\nHe stomps his front hoof as he contemplates your\
+ offer.\nThen he bobs his head up and down saying:\n'No one will be able\
+ to use the sharp things again then.\nCome human, I will take you along the\
+ path.'\n", "An evil, mocking laughter comes from the animal.\n'Are you scared\
+ human?\nRun along then, before the Chupa bleeds you dry...'\n"]
 nokk_conversation = ["The music lures you forward, it fills your senses\
  until they feel like bursting.\nYour body relaxes, the stress and fear\
  flowing out of you\nsimilar to how the water flows over the\
@@ -427,8 +456,8 @@ nokk_conversation = ["The music lures you forward, it fills your senses\
  feel like a babe protectively wrapped in silk.\nSuddenly your peace\
  is disrupted by an awful screech so loud you gasp.\nYour lungs instantly\
  fill with water and panic floods you along with it.\nYou try desperately\
- to swim to the surface.\nSomehow your head finally breaks through and you gasp\nlungfulls\
- of air as you blink the water from your eyes.\nIt takes\
+ to swim to the surface.\nSomehow your head finally breaks through and you\
+ gasp\nlungfulls of air as you blink the water from your eyes.\nIt takes\
  you a moment to get your bearings.\nThe handsome violinist is now\
  sitting on top of a rock,\nkeeping his legs tucked in as if afraid\
  to touch the water.\nHe looks at you in anger.\n'You DARE bring filthy\
@@ -1084,4 +1113,3 @@ def main():
 
 
 main()
-
