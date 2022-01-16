@@ -34,7 +34,7 @@ entrance = Location(f"{Fore.LIGHTMAGENTA_EX}Darkness...\nThe sensation\
  behind you, you hear a twig snap loudly.\nYou freeze before you can\
  see what lies in that direction,\na shiver running down your\
  spine..{Style.RESET_ALL}\n")
-entrance.item = f"{Fore.LIGHTYELLOW_EX}rusted sword{Style.RESET_ALL}"
+entrance.item = "rusted sword"
 passage_one = Location(f"{Fore.LIGHTMAGENTA_EX}The hedges feel as if\
  they're closing in on you, the path is dark.\nIn your haste to get away\
  your foot catches on something and you trip,\nyour knees and hands breaking\
@@ -50,7 +50,7 @@ passage_one = Location(f"{Fore.LIGHTMAGENTA_EX}The hedges feel as if\
  it through a low growl emits from the direction of\nthe archway you just\
  passed and the spider scurries away through\na medium-sized hole in the\
  hedge you hadn't noticed earlier.{Style.RESET_ALL}\n")
-passage_one.item = f"{Fore.LIGHTYELLOW_EX}hoshi no tama{Style.RESET_ALL}"
+passage_one.item = "hoshi no tama"
 passage_two = Location(f"{Fore.LIGHTMAGENTA_EX}You're greeted by a brighter\
  path,\nfilled with pieces of old looking, crumbled masonry.\nYou notice\
  something glinting in the moonlight.\nThough you fear what that might be,\
@@ -59,8 +59,7 @@ passage_two = Location(f"{Fore.LIGHTMAGENTA_EX}You're greeted by a brighter\
  of spurred boots,\nthe dark stains on them do not inspire much\
  confidence.\nA bone chilling howl sounds from somewhere behind you in\
  the maze...{Style.RESET_ALL}\n")
-passage_two.item = f"{Fore.LIGHTRED_EX}bloodstained\
- {Fore.LIGHTYELLOW_EX}spurred boots{Style.RESET_ALL}"
+passage_two.item = "bloodstained spurred boots"
 passage_three = Location(f"{Fore.LIGHTMAGENTA_EX}Panic hits you like a wave\
  as you raise your arms to block the fire.\nYour eyes close tightly as you\
  feel the force of the flames lift your feet off the ground making your\
@@ -74,7 +73,7 @@ passage_three = Location(f"{Fore.LIGHTMAGENTA_EX}Panic hits you like a wave\
  different spider?\nThe creature raises both its front legs in affront\
  at your rough treatment,\nthen casually makes its way through the shallow\
  mud on your left,\naway from the main path...{Style.RESET_ALL}\n")
-passage_three.gift = f"{Fore.LIGHTGREEN_EX}nature's blessing{Style.RESET_ALL}"
+passage_three.gift = "nature's blessing"
 passage_four = Location(f"{Fore.LIGHTMAGENTA_EX}You run until you're out\
  of breath and find yourself in a dry area,\nthe maze's hedges here are\
  little more than thorns.\nYou notice another breach in the hedge to your\
@@ -110,15 +109,14 @@ kitsune_lair = Location(f"{Fore.LIGHTMAGENTA_EX}You emerge to see a twisting\
  further\nthe little girl hiccups and looks up as she notices you.\nsniffling,\
  she speaks in a barely audible\
  voice:\n{Fore.LIGHTCYAN_EX}'hello'.{Style.RESET_ALL}\n")
-kitsune_lair.gift = f"{Fore.LIGHTYELLOW_EX}milk{Style.RESET_ALL}"
+kitsune_lair.gift = "milk"
 naga_lair = Location(f"{Fore.LIGHTMAGENTA_EX}A temporary cloud has cast your\
  surroudings in total darkness.\nWhen the sky clears, the weak moonlight\
  reflects off a shallow stream\nand you notice a tall dark cave on its\
  opposite bank.\nA creature slithers out of the cave.\nIts upper body is\
  human, but his lower body is that of a snake.\nSo far, the being hasn't\
  noticed you yet...{Style.RESET_ALL}\n")
-naga_lair.gift = f"{Fore.LIGHTYELLOW_EX}a large\
- {Fore.LIGHTRED_EX}bloodred ruby{Style.RESET_ALL}"
+naga_lair.gift = "a large bloodred ruby"
 dragon_lair = Location(f"{Fore.LIGHTMAGENTA_EX}You run onwards, following\
  the main path\nwhich changes from grass, to sand, to gravel to rock.\nYou\
  fervently hope to find the exit just around the next corner.\nHeat\
@@ -156,7 +154,7 @@ puca_lair = Location(f"{Fore.LIGHTMAGENTA_EX}Ancient ruins lie broken and\
  him.\nThe creature approaches you,\nand though his advance makes you take\
  a hesitant step back,\nyou know heading back to whatever let loose that\
  howl is probably a worse idea.{Style.RESET_ALL}\n")
-puca_lair.item = f"{Fore.LIGHTYELLOW_EX}Púca{Style.RESET_ALL}"
+puca_lair.item = "Púca"
 nokk_lair = Location(f"{Fore.LIGHTMAGENTA_EX}A massive pond of silver reveals\
  itself to you, water lilies glowing a magical pink.\nA violin can be heard\
  over the soft trickling of water from a nearby waterfall.\nTheir combined\
@@ -361,164 +359,192 @@ naga_conversation = [f"{Fore.LIGHTMAGENTA_EX}You tentatively approach the\
  for you I do not eat junk food.\nThough I might dispose of you in other\
  ways.\nBegone lowly creature, before I change my mind and give you a taste\
  of my claws.'{Style.RESET_ALL}\n"]
-dragon_conversation = ["'Who dares enter my lair?'\n", "The beast makes a sound\
+dragon_conversation = [f"{Fore.LIGHTCYAN_EX}'Who dares enter my\
+ lair?'{Style.RESET_ALL}\n", f"{Fore.LIGHTMAGENTA_EX}The beast makes a sound\
  reminiscent of a chuckle,\nbut it's so powerful it makes the ground\
- shake.\nYou dare lie to me human?.\nNo matter, I suppose you'll do as a\
- snack.'\n", "'Do not lie to me human! Were it not for the precious stone\
- you carry\nI would've eaten you for your insolence.\nGive it to me and I\
- might find myself in a more benevolent mood.'\n", "'A wise decision, such\
- a precious item belongs in a Dragon's hoard.\nI shall let you pass, this\
- time.'\n", "'Hmm, humans make tiny snacks.\nThough I would've eaten you\
- already regardless,\nwere it not for the precious cargo you carry.\nGive me\
- the ruby, child of man.'\n", "'You are either very brave, or very\
- foolish.\nWhichever it may be, this is the end of the line for you\
- child of man'\n"]
-surale_conversation = ["The creature seems to think a moment\
- and then it snaps its lengthy fingers.\n'You shall either dance with me\
- or we can hold a tickling competition.'\nIt leaned further forward, his\
- nose almost touching yours.\n'Which shall it be human?'\n", "The creature\
- claps its hands.\n'Delightful!'\nbefore\
- you have the chance to do anything\nhe already lifted you up by your arms and\
- placed you on your feet.\nHe regards your bare feet in puzzlement for a\
+ shake.\n{Fore.LIGHTCYAN_EX}'You dare lie to me human?.\nNo matter, I suppose\
+ you'll do as a snack.'{Style.RESET_ALL}\n", f"{Fore.LIGHTCYAN_EX}'Do not\
+ lie to me human! Were it not for the precious stone you carry\nI would've\
+ eaten you for your insolence.\nGive it to me and I might find myself in a\
+ more benevolent mood.'{Style.RESET_ALL}\n", f"{Fore.LIGHTCYAN_EX}'A wise\
+ decision, such a precious item belongs in a Dragon's hoard.\nI shall let\
+ you pass, this time.'{Style.RESET_ALL}\n", f"{Fore.LIGHTCYAN_EX}'Hmm, humans\
+ make tiny snacks.\nThough I would've eaten you already regardless,\nwere\
+ it not for the precious cargo you carry.\nGive me the ruby, child of\
+ man.'{Style.RESET_ALL}\n", f"{Fore.LIGHTCYAN_EX}'You are either very brave,\
+ or very foolish.\nWhichever it may be, this is the end of the line for you\
+ child of man'{Style.RESET_ALL}\n"]
+surale_conversation = [f"{Fore.LIGHTMAGENTA_EX}The creature seems to think a\
+ moment and then it snaps its lengthy fingers.\n{Fore.LIGHTCYAN_EX}'You shall\
+ either dance with me or we can hold a tickling competition.\
+ '\n{Fore.LIGHTMAGENTA_EX}It leaned further forward, his nose almost touching\
+ yours.\n{Fore.LIGHTCYAN_EX}'Which shall it be human?'{Style.RESET_ALL}\n", f"\
+ {Fore.LIGHTMAGENTA_EX}The creature claps its\
+ hands.\n{Fore.LIGHTCYAN_EX}'Delightful!'\n{Fore.LIGHTMAGENTA_EX}before\
+ you have the chance to do anything\nhe has already lifted you up by your arms\
+ and placed you on your feet.\nHe regards your bare feet in puzzlement for a\
  moment,\nbut then shrugs and drags you into a spinning motion with one strong\
  jerk.\nYou could swear you hear faint music from somewhere accompanying your\
  awkward\nmovements,but the creature hops around and seems utterly pleased\
  with himself,\nso you decide to focus on keeping things that way.\nSoon\
- however you grow dizzy and tired,\nyou fall to your knees on the soft\
- pine bedding.\nThe creature regards you thoughtfully, then smiles.\n'I\
- suppose you'll be wanting to go home now? This is no place for a\
- human after all.\nThank you for the dance, child of man who received\
- the Fairies' blessing.'\n", "'The mischievous grin slowly turns\
- malicious.\n'You should not enter in games you are sure to lose\
- human.'\nThe last thing you see is the creature cracking its knuckles\nbefore\
- your sides seethe with a tickling sensation so fierce,\nall your\
- other senses seem to disappear and the world goes blank.\n", "The creature\
- cocks his head.\n'You tresspass in my forest, I offer you a chance at mercy,\
- yet you refuse?'\n'Tis a wonder how long your species has\
- survived.'\nScratching his hairy chin he regards you thoughtfully and then\
- shrugs.\n'Ah well, to each their own I guess.'\nHe reaches out to you,\
+ however you grow dizzy and tired.\nYou fall to your knees on the soft\
+ pine bedding.\nThe creature regards you thoughtfully, then\
+ smiles.\n{Fore.LIGHTCYAN_EX}'I suppose you'll be wanting to go home now?\
+ This is no place for a human after all.\nThank you for the dance, child of\
+ man who received the Fairies' blessing.'{Style.RESET_ALL}\n", f"\
+ {Fore.LIGHTMAGENTA_EX}The mischievous grin slowly turns\
+ malicious.\n{Fore.LIGHTCYAN_EX}'You should not enter in games you are sure to\
+ lose human.'\n{Fore.LIGHTMAGENTA_EX}The last thing you see is the creature\
+ cracking its knuckles\nbefore your sides burn with a tickling sensation so\
+ fierce,\nall your other senses seem to disappear and the world goes\
+ blank.{Style.RESET_ALL}\n", f"{Fore.LIGHTMAGENTA_EX}The creature\
+ cocks his head.\n{Fore.LIGHTCYAN_EX}'You tresspass in my forest, I offer you\
+ a chance at mercy, yet you refuse?'\n'Tis a wonder how long your species has\
+ survived.'\n{Fore.LIGHTMAGENTA_EX}Scratching his hairy chin he regards you\
+ thoughtfully and then shrugs.\n{Fore.LIGHTCYAN_EX}'Ah well, to each their own\
+ I guess.'\n{Fore.LIGHTMAGENTA_EX}He reaches out to you,\
  you try to scramble away but he drags you back by your ankle.\nBefore\
  you can blink,\nhis long thin fingers have latched onto your sides and\
  started tickling you furiously.\nAt first you laugh and roll\
  around.\nBut soon the sensation becomes overwhelming.\nThe last thing you\
  see through tear-filled eyes\nis the manic grin of moonlight still shining\
- down on you.\n"]
-puca_conversation = ["'Well well, are you lost traveler?\n", "'Poor thing,\
+ down on you.{Style.RESET_ALL}\n"]
+puca_conversation = [f"{Fore.LIGHTCYAN_EX}'Well well, are you lost\
+ traveler?{Style.RESET_ALL}\n", f"{Fore.LIGHTCYAN_EX}'Poor thing,\
  I understand your predicament.\nLuckily for you I know this maze like the\
  back of my hoof, so to speak.\nClimb on my back and I will take you out\
- of here.\nWhat do you say, will you ride me human?'\n", "The creature\
+ of here.\nWhat do you say, will you ride me human?\
+ '{Style.RESET_ALL}\n", f"{Fore.LIGHTMAGENTA_EX}The creature\
  bends its knees to lower himself to the ground.\nYou walk up to him\
  hesitantly\nand grasp on to his long silky mane before swinging your leg\
  over his back.\nThe spurs flash in the moonlight and the horse neighs in\
  dismay.\nBefore you can properly take your seat\nhe bucks you off\
- angrily and quickly gets back up.\n'You did not mention you have the\
- sharp things on human,\nI won't go near you then. Leave quickly or you\
- will regret having visited me.'\n", "You walk up to him hesitantly and\
+ angrily and quickly gets back up.\n{Fore.LIGHTCYAN_EX}'You did not mention\
+ you have the sharp things on human,\nI won't go near you then. Leave quickly\
+ or you will regret having visited me.'{Style.RESET_ALL}\n", f"\
+ {Fore.LIGHTMAGENTA_EX}You walk up to him hesitantly and\
  grasp\non to his long silky mane before swinging your leg over his\
  back.\nAs you take your seat he stands back up and you marvel\nat the feel\
  of this powerful animal.\nYou hear him neigh, almost like a snicker, before\
  he suddenly shoots off\nlike a bullet and all you can do is hold on for dear\
- life.\nYour screams get swallowed in the maze's endless depths...\n", "You\
- nod nervously,\nthen hastily make your way past the dark beast to continue on\
- the path.\n", "You swallow nervously, then bravely take a step forwards as you\
- say:\n'I will not use the spurs on you, if you will help me get out of this\
- maze.'\nHe looks at you, mist blowing out of his nostrils before he\
- replies:\n' Perhaps you should remove your boots.'\nYou think it over, but\
+ life.\nYour screams get swallowed in the maze's endless\
+ depths...{Style.RESET_ALL}\n", f"{Fore.LIGHTMAGENTA_EX}You\
+ nod nervously,\nthen hastily make your way past the dark beast to continue\
+ on the path.{Style.RESET_ALL}\n", f"{Fore.LIGHTMAGENTA_EX}You swallow\
+ nervously, then bravely take a step forwards as you say\
+ :\n{Fore.LIGHTWHITE_EX}'I will not use the spurs on you, if you will help me\
+ get out of this maze.'\n{Fore.LIGHTMAGENTA_EX}He looks at you, mist blowing\
+ out of his nostrils before he replies:\n{Fore.LIGHTCYAN_EX}'Perhaps you\
+ should remove your boots.'\n{Fore.LIGHTMAGENTA_EX}You think it over, but\
  something in the creature's intense gaze\nmakes you too nervous to trust it\
- completely and you shake your head.\n'No, but I can gift them to you once we\
- reach our destination?'\nHe stomps his front hoof as he contemplates your\
- offer.\nThen he bobs his head up and down saying:\n'No one will be able\
+ completely and you shake your head.\n{Fore.LIGHTWHITE_EX}'No, but I can gift\
+ them to you once we reach our destination?'\n{Fore.LIGHTMAGENTA_EX}He stomps\
+ his front hoof as he contemplates your offer.\nThen he bobs his head up and\
+ down saying:\n{Fore.LIGHTCYAN_EX}'No one will be able\
  to use the sharp things again then.\nCome human, I will take you along the\
- path.'\n", "An evil, mocking laughter comes from the animal.\n'Are you scared\
- human?\nRun along then, before the Chupa bleeds you dry...'\n"]
-nokk_conversation = ["The music lures you forward, it fills your senses\
- until they feel like bursting.\nYour body relaxes, the stress and fear\
- flowing out of you\nsimilar to how the water flows over the\
- waterfall.\nWhat was there to be afraid of again? Surely you have arrived\
+ path.'{Style.RESET_ALL}\n", f"{Fore.LIGHTMAGENTA_EX}An evil, mocking laughter\
+ comes from the animal.\n{Fore.LIGHTCYAN_EX}'Are you scared\
+ human?\nRun along then, before the Chupa bleeds you\
+ dry...'{Style.RESET_ALL}\n"]
+nokk_conversation = [f"{Fore.LIGHTMAGENTA_EX}The music lures you forward,\
+ it fills your senses until they feel like bursting.\nYour body relaxes,\
+ the stress and fear flowing out of you\nsimilar to how the water flows over\
+ the waterfall.\nWhat was there to be afraid of again? Surely you have arrived\
  in paradise.\nNear the waterfall, you see a fallen angel half submerged\
  in water.\nHe's the most beautiful man you've ever seen\nand plays the\
- violin with a devotion worthy of a lover.\n", "The man lifts his\
- gaze, acknowledging you standing\nby the edge of the water as if he was\
- aware of your presence all along.\nWhen he sees you, his violin playing\
- comes to an abrupt halt\nas his face morphs in shock and wonder.\nYou\
- hardly notice however, as the spell you were under is abruptly\
- lifted.\nYou feel as if you've been dunked in an ice bath\nand can suddenly\
- no longer appreciate the man's musical voice when he says:\n'Such a\
- magnificent creature!\nI have yet to see a coat so black as to be the envy\
- of the night sky.'\nHe turns his gaze to you and you look back\
- warily.\n'Thank you, human, for bringing this magnificent creature before\
+ violin with a devotion worthy of a lover.{Style.RESET_ALL}\n", f"\
+ {Fore.LIGHTMAGENTA_EX}The man lifts his gaze, acknowledging you standing\nby\
+ the edge of the water as if he was aware of your presence all along.\nWhen\
+ he sees you, his violin playing comes to an abrupt halt\nas his face morphs\
+ in shock and wonder.\nYou hardly notice however, as the spell you were under\
+ is abruptly lifted.\nYou feel as if you've been dunked in an ice bath\nand\
+ can suddenly no longer appreciate the man's musical voice when he\
+ says:\n{Fore.LIGHTCYAN_EX}'Such a magnificent creature!\nI have yet to see a\
+ coat so black as to be the envy of the night sky.'\n{Fore.LIGHTMAGENTA_EX}He\
+ turns his gaze to you and you look back warily.\n{Fore.LIGHTCYAN_EX}'Thank\
+ you, human, for bringing this magnificent creature before\
  my eyes.\nAs a reward, I shall free you from this maze, go home child of\
- man.'\nHe waves his hand over the silvery water and\nlike a mirage the\
- world around you seems to ripple...\n", "You don't really register your\
- feet touching the water.\nAll you're aware of is the enchanting\
+ man.'\n{Fore.LIGHTMAGENTA_EX}He waves his hand over the silvery water\
+ and\nlike a mirage the world around you seems to ripple\
+ ...{Style.RESET_ALL}\n", f"{Fore.LIGHTMAGENTA_EX}You don't really register\
+ your feet touching the water.\nAll you're aware of is the enchanting\
  music\nand a feeling of complete contentment as you move forward, deeper\
- into the lake...\n", "The water closes over the top of your head,\nyou\
- feel like a babe protectively wrapped in silk.\nSuddenly your peace\
- is disrupted by an awful screech so loud you gasp.\nYour lungs instantly\
- fill with water and panic floods you along with it.\nYou try desperately\
- to swim to the surface.\nSomehow your head finally breaks through and you\
- gasp\nlungfulls of air as you blink the water from your eyes.\nIt takes\
- you a moment to get your bearings.\nThe handsome violinist is now\
- sitting on top of a rock,\nkeeping his legs tucked in as if afraid\
- to touch the water.\nHe looks at you in anger.\n'You DARE bring filthy\
- metal into my waters?!'\nYou look into the water to see the rusted sword\
- you had picked up earlier,\nit must've floated away from you as you\
- walked into the water.\nBarely recovered from the shock, you realize\
- this is your chance to get away.\nAs quickly as your legs can tread\
- the water you make your way back to shore,\nclambering back onto the\
- land and rushing to continue on the maze's path.\n", "The water\
+ into the lake...{Style.RESET_ALL}\n", f"{Fore.LIGHTMAGENTA_EX}The water\
+ closes over the top of your head,\nyou feel like a babe protectively wrapped\
+ in silk.\nSuddenly your peace is disrupted by an awful screech so loud you\
+ gasp.\nYour lungs instantly fill with water and panic floods you along with\
+ it.\nYou try desperately to swim to the surface.\nSomehow your head finally\
+ breaks through and you gasp\nlungfulls of air as you blink the water from\
+ your eyes.\nIt takes you a moment to get your bearings.\nThe handsome\
+ violinist is now sitting on top of a rock,\nkeeping his legs tucked in as if\
+ afraid to touch the water.\nHe looks at you in anger.\n{Fore.LIGHTCYAN_EX}'\
+ You DARE bring filthy metal into my waters?!'\n{Fore.LIGHTMAGENTA_EX}You\
+ look into the water to see the rusted sword you had picked up earlier,\nit\
+ must've floated away from you as you walked into the water.\nBarely\
+ recovered from the shock, you realize this is your chance to get away.\nAs\
+ quickly as your legs can tread the water you make your way back to\
+ shore,\nclambering back onto the land and rushing to continue on the maze's\
+ path.{Style.RESET_ALL}\n", f"{Fore.LIGHTMAGENTA_EX}The water\
  closes over the top of your head,\nyou feel like a babe protectively\
- wrapped in silk.\nAbsolute bliss fills you as your world goes dark...\n"]
-sphinx_conversation = ["The mouse runs off, forgotten in the face of\
- more intriguing prey.\n'Well well, a human, haven't seen one of those\
- in a long, long, looong while.\nI commend you on making it this far into\
- the maze.'\nShe looks you over as she crosses her front paws\nand flicks\
- her tail lazily in the air behind her.\n'I imagine you'll be wanting to\
- leave here yes?'\nShe doesn't bother waiting for your answer as she\
- continues.\n'so I'll make this easy for you, there are really only\
- two ways to end this.\nEither you solve my riddle, and I shall\
- point you in the right direction.\nOr, if you don't solve my riddle,\
- you get a one way ticket into my stomach.'\nShe flexes her paws\
- in anticipation.\n'Though you could try running of course, I haven't\
- enjoyed a good hunt in a while.\nWhat shall it be human? Will you\
- play?'\n", "'Very well, here's my riddle human:\nA monkey has stolen\
- a purse containing two coins,\nwhich together are worth 30\
- groats.\nGiven that one of the coins is not a 10-groat piece,\nand\
- that the only coins that exist are 1, 5, 10 and 20 groats,\ncan you\
- say how much each of the two coins is worth?\n", "'How boring, I\
- suppose I made that one too easy for you.'\nThe creature sighs in\
- exasperation and casually motions her head\nin the general direction\
- to her left.\n'Head in that direction and I reckon Anansi will\
- lead you out.'\nYou do not hesitate to do as she instructs...\n", "She\
- uncrosses her front paws,\nlowers her body\
- and flexes her muscles in preparation to pounce.\n'I'm afraid that\
- is incorrect.'\nYou barely have time to shriek before she leaps and\
- your world becomes dark...\n", "A grin spreads on her face as she\
- gets up to stand on all fours.\n'Goodie, I hope you run fast\
- human.'\nShe leaps through the air as you desperately try to get away.\n"]
-anansi_conversation = ["He regards you, slowly breathing\
+ wrapped in silk.\nAbsolute bliss fills you as your world goes\
+ dark...{Style.RESET_ALL}\n"]
+sphinx_conversation = [f"{Fore.LIGHTMAGENTA_EX}The mouse runs off,\
+ forgotten in the face of more intriguing prey.\n{Fore.LIGHTCYAN_EX}'Well\
+ well, a human, haven't seen one of those in a long, long, looong while.\nI\
+ commend you on making it this far into the maze.'\n{Fore.LIGHTMAGENTA_EX}She\
+ looks you over as she crosses her front paws\nand flicks her tail lazily in\
+ the air behind her.\n{Fore.LIGHTCYAN_EX}'I imagine you'll be wanting to\
+ leave here yes?'\n{Fore.LIGHTMAGENTA_EX}She doesn't bother waiting for your\
+ answer as she continues.\n{Fore.LIGHTCYAN_EX}'so I'll make this easy for you,\
+ there are really only two ways to end this.\nEither you solve my riddle, and\
+ I shall point you in the right direction.\nOr, if you don't solve my riddle,\
+ you get a one way ticket into my stomach.'\n{Fore.LIGHTMAGENTA_EX}She flexes\
+ her paws in anticipation.\n{Fore.LIGHTCYAN_EX}'Though you could try running\
+ of course, I haven't enjoyed a good hunt in a while.\nWhat shall it be human?\
+ Will you play?'{Style.RESET_ALL}\n", f"{Fore.LIGHTCYAN_EX}'Very well, here's\
+ my riddle human:\nA monkey has stolen a purse containing two coins,\nwhich\
+ together are worth 30 groats.\nGiven that one of the coins is not a 10-groat\
+ piece,\nand that the only coins that exist are 1, 5, 10 and 20 groats,\ncan\
+ you say how much each of the two coins is worth?'{Style.RESET_ALL}\n", f"\
+ {Fore.LIGHTCYAN_EX}'How boring, I suppose I made that one too easy for you.\
+ '\n{Fore.LIGHTMAGENTA_EX}The creature sighs in exasperation and casually\
+ motions her head\nin the general direction to her left.\n{Fore.LIGHTCYAN_EX}'\
+ Head in that direction and I reckon Anansi will lead you out.\
+ '\n{Fore.LIGHTMAGENTA_EX}You do not hesitate to do as she instructs\
+ ...{Style.RESET_ALL}\n", f"{Fore.LIGHTMAGENTA_EX}She uncrosses her front\
+ paws,\nlowers her body and flexes her muscles in preparation to pounce\
+ .\n{Fore.LIGHTCYAN_EX}'I'm afraid that is incorrect.\
+ '\n{Fore.LIGHTMAGENTA_EX}You barely have time to shriek before she leaps and\
+ your world becomes dark...{Style.RESET_ALL}\n", f"{Fore.LIGHTMAGENTA_EX}A grin\
+ spreads on her face as she gets up to stand on all\
+ fours.\n{Fore.LIGHTCYAN_EX}'Goodie, I hope you run fast human.\
+ '\n{Fore.LIGHTMAGENTA_EX}She leaps through the air as you desperately try to\
+ get away.{Style.RESET_ALL}\n"]
+anansi_conversation = [f"{Fore.LIGHTMAGENTA_EX}He regards you, slowly breathing\
  in and out in an almost meditative way.\nHis sharp gaze keeps you frozen\
- in place.\n'You did well and kept your wits\
+ in place.\n{Fore.LIGHTCYAN_EX}'You did well and kept your wits\
  about you.\nYou have conquered the Mythos Maze.\nCongratulations are in\
  order, as a reward I will send you home in but a moment.\nFirst though,\
  I would like to introduce you\nto the mythical creatures you encountered\
- along your way.'\n", "'I understand, it has been a trying night for\
- you.\nPlease do visit us again sometime.'\nHe waves his leg in a sweeping\
- motion, a wistful smile on his face.\n"]
-killed_by_chupa = ["A set of glowing red coals stare at you from the \
- darkness.\nA low growl reverberates through the air\nas whatever they belong\
- to moves closer to you.\nSharp claws scratch the earth and the\
- moonlight reveals a heavily\nprotruding spinal ridge on a creature that\
- looks like an emaciated, hairless dog.\ndrool slowly slides down razor\
- sharp canines as the creature braces itself to pounce...\n"]
-win_sequence = ["You startle awake, your head\
+ along your way.'{Style.RESET_ALL}\n", f"{Fore.LIGHTCYAN_EX}'I understand,\
+ it has been a trying night for you.\nPlease do visit us again sometime.\
+ '\n{Fore.LIGHTMAGENTA_EX}He waves his hairy leg in a sweeping\
+ motion, a wistful smile on his face.{Style.RESET_ALL}\n"]
+killed_by_chupa = [f"{Fore.LIGHTMAGENTA_EX}A set of glowing {Fore.LIGHTRED_EX}red\
+ coals stare at you from the darkness.\nA low growl reverberates through the\
+ air\nas whatever they belong to moves closer to you.\nSharp claws scratch the\
+ earth and the moonlight reveals a heavily\nprotruding spinal ridge on a\
+ creature that looks like an emaciated, hairless dog.\ndrool slowly slides\
+ down razor sharp canines as the creature braces itself to pounce\
+ ...{Style.RESET_ALL}\n"]
+win_sequence = [f"{Fore.LIGHTMAGENTA_EX}You startle awake, your head\
  groggy from the aftermath of sleep\nas you try to clumsily free yourself from\
  your tangled sheets.\nYou look around in a disoriented haze, your alarm\
  blaring\nloudly enough in the background to wake the dead.\nFor a moment\
  you think you see two glowing red eyes stare at you from the\
  shadows.\nYou shake your head and rub your eyes,\nthe glowing red coals\
  have vanished by the time you look again.\nYou must've had a bad dream\
- tonight...\n"]
+ tonight...{Style.RESET_ALL}\n"]
 
 affirmative = ["yes", "y", "definitely", "let's go", "bring it",
                "hell yes", "absolutely", "I might have", "yea", "ye"]
@@ -562,26 +588,28 @@ def display_intro():
     """
     intro_done = False
     while intro_done is False:
-        player_input = input("Welcome to the Mythos Maze, would you like to\
- try and traverse its perils?\n>")
+        player_input = input(f"{Fore.LIGHTCYAN_EX}Welcome to the Mythos Maze,\
+ would you like to try and traverse its perils?{Style.RESET_ALL}\n>")
         if player_input.lower().strip() in affirmative:
-            player_input2 = input("Are you sure?\n>")
+            player_input2 = input(f"{Fore.LIGHTCYAN_EX}Are you\
+ sure?{Style.RESET_ALL}\n>")
             if player_input2.lower().strip() in affirmative:
-                print("Very well then, it's your funeral.\nLet me give you\
- a piece of advice:\nThe creatures you will encounter can be quite daunting\
- to face.\nYou may not wish to face them empty handed...\nGood luck\
- mortal.\n>")
+                print(f"{Fore.LIGHTCYAN_EX}Very well then, it's your funeral.\nLet\
+ me give you a piece of advice:\nThe creatures you will encounter can be quite\
+ daunting to face.\nYou may not wish to face them empty handed...\nGood luck\
+ mortal.{Style.RESET_ALL}\n>")
                 intro_done = True
             else:
-                print("Indecision is the thief of opportunity you know...\n")
+                print(f"{Fore.LIGHTCYAN_EX}Indecision is the thief of opportunity\
+ you know...{Style.RESET_ALL}\n")
         elif player_input.lower().strip() in negative:
-            print("A wise choice.")
+            print(f"{Fore.LIGHTCYAN_EX}A wise choice.{Style.RESET_ALL}")
             time.sleep(1)
-            print("However, please don't hesitate to visit\
- me again should you change your mind.\n")
+            print(f"{Fore.LIGHTCYAN_EX}However, please don't hesitate to visit\
+ me again should you change your mind.{Style.RESET_ALL}\n")
         else:
-            print("Such confidence, best run back and hide behind your\
- mother's skirts child.\n")
+            print(f"{Fore.LIGHTCYAN_EX}Such confidence, best run back and hide\
+ behind your mother's skirts child.{Style.RESET_ALL}\n")
 
 
 LOCATION = entrance
@@ -616,7 +644,8 @@ def location_arrival():
             player_input3 = input("What will you do?\n>")
         elif LOCATION is monster_locations[1] and \
                 player_input3.lower().strip() == "drink milk":
-            print("The delicious milk revitalizes and refreshes you.")
+            print(f"{Fore.LIGHTMAGENTA_EX}The delicious milk revitalizes and\
+ refreshes you.{Style.RESET_ALL}")
             inventory.remove("milk")
             player_input3 = input("What will you do?\n>")
         elif LOCATION is monster_locations[2] and \
@@ -682,8 +711,8 @@ def location_arrival():
             break
         elif LOCATION in monster_locations and player_input3.lower().strip()\
                 in avoid and LOCATION is not monster_locations[2]:
-            print("Though you want to leave, your fear and uncertainty keep\
- you rooted to the spot.")
+            print(f"{Fore.LIGHTMAGENTA_EX}Though you want to leave, your fear and\
+ uncertainty keep you rooted to the spot.{Style.RESET_ALL}")
             player_input3 = input("What will you do?\n>")
         elif player_input3.lower().strip() in pickup_items:
             take_items()
@@ -703,13 +732,15 @@ def location_arrival():
                 location_arrival()
                 break
         elif player_input3.lower().strip() in contents:
-            print(f"Your inventory currently contains: {', '.join(inventory)}")
+            print(f"{Fore.LIGHTMAGENTA_EX}Your inventory currently\
+ contains:{Style.RESET_ALL} {', '.join(inventory)}")
             player_input3 = input("What will you do?\n>")
         else:
-            print("I'm afraid I don't quite catch your meaning")
+            print(f"{Fore.LIGHTMAGENTA_EX}I'm afraid I don't quite catch your\
+ meaning{Style.RESET_ALL}")
             player_input3 = input("What will you do?\n>")
     else:
-        print("Returning to reality...")
+        print(f"{Fore.LIGHTGREEN_EX}Returning to reality...{Style.RESET_ALL}")
 
 
 def kitsune_encounter():
@@ -718,12 +749,14 @@ def kitsune_encounter():
     the Kitsune (when encountered)
     """
     global LOCATION
-    print("'I lost my marble, have you seen it?'")
+    print(f"{Fore.LIGHTCYAN_EX}'I lost my marble, have you seen\
+ it?'{Style.RESET_ALL}")
     player_talk = input("What will you say?\n>")
     if player_talk.lower().strip() in negative and "hoshi no tama" in \
             inventory:
         print(kitsune_conversation[0])
-        player_talk2 = input("Will you hand over the hoshi no tama?\n>")
+        player_talk2 = input(f"{Fore.LIGHTMAGENTA_EX}Will you hand over the\
+ {Fore.LIGHTYELLOW_EX}hoshi no tama?{Style.RESET_ALL}\n>")
         if player_talk2.lower().strip() in affirmative:
             print(kitsune_conversation[1])
             time.sleep(12)
@@ -738,7 +771,8 @@ def kitsune_encounter():
     elif player_talk.lower().strip() in affirmative and "hoshi no tama" in \
             inventory:
         print(kitsune_conversation[3])
-        player_talk2 = input("Will you hand over the hoshi no tama?\n>")
+        player_talk2 = input(f"{Fore.LIGHTMAGENTA_EX}Will you hand over the\
+ {Fore.LIGHTYELLOW_EX}hoshi no tama?{Style.RESET_ALL}\n>")
         if player_talk2.lower().strip() in affirmative:
             print(kitsune_conversation[1])
             time.sleep(6)
@@ -773,19 +807,20 @@ def naga_encounter():
     if player_talk.lower().strip() in negative and "milk" in \
             inventory and "nature's blessing" in inventory:
         print(naga_conversation[1])
-        print(f"The contents of your inventory is currently:\
-            {', '.join(inventory)}")
+        print(f"{Fore.LIGHTMAGENTA_EX}The contents of your inventory is\
+ currently:{Style.RESET_ALL} {', '.join(inventory)}")
         player_talk2 = input("What will you offer?\n>")
         while player_talk2.lower().strip() != "milk":
             if player_talk2.lower().strip() == "rusted sword":
                 print(naga_conversation[3])
                 player_talk2 = input("What will you offer?\n>")
             elif player_talk2.lower().strip() == "nature's blessing":
-                print("You cannot gift someone else's blessing of you\
- onto another person.")
+                print(f"{Fore.RED}You cannot gift someone else's blessing of you\
+ onto another person.{Style.RESET_ALL}")
                 player_talk2 = input("What will you offer?\n>")
             else:
-                print("'I have no ussse for sssuch a thing human'")
+                print(f"{Fore.LIGHTCYAN_EX}'I have no ussse for sssuch a\
+ thing human'{Style.RESET_ALL}")
                 player_talk2 = input("What will you offer\n>")
         else:
             print(naga_conversation[2])
@@ -809,7 +844,8 @@ def dragon_encounter():
     global LOCATION
     print(dragon_conversation[0])
     player_talk = input("What will you say?\n>")
-    print(f"'{player_talk}?, you smell.. human. Are you human?'\n>")
+    print(f"{Fore.LIGHTCYAN_EX}'{player_talk}?, you smell.. human. Are you\
+ human?'{Style.RESET_ALL}\n>")
     player_talk2 = input("What will you say?\n>")
     if player_talk2.lower().strip() in negative and \
             "a large bloodred ruby" not in inventory:
@@ -818,7 +854,9 @@ def dragon_encounter():
     elif player_talk2.lower().strip() in negative and \
             "a large bloodred ruby" in inventory:
         print(dragon_conversation[2])
-        player_talk3 = input("Will you hand over the large bloodred ruby?\n>")
+        player_talk3 = input(f"{Fore.LIGHTMAGENTA_EX}Will you hand over the\
+ {Fore.LIGHTYELLOW_EX}large {Fore.LIGHTRED_EX}bloodred\
+ ruby?{Style.RESET_ALL}\n>")
         if player_talk3.lower().strip() in negative:
             game_over()
         elif player_talk3.lower().strip() in affirmative:
@@ -830,7 +868,9 @@ def dragon_encounter():
     elif player_talk2.lower().strip() in affirmative and \
             "a large bloodred ruby" in inventory:
         print(dragon_conversation[4])
-        player_talk3 = input("Will you hand over the large bloodred ruby?\n>")
+        player_talk3 = input(f"{Fore.LIGHTMAGENTA_EX}Will you hand over the\
+ {Fore.LIGHTYELLOW_EX}large {Fore.LIGHTRED_EX}bloodred\
+ ruby?{Style.RESET_ALL}\n>")
         if player_talk3.lower().strip() in negative:
             game_over()
         elif player_talk3.lower().strip() in affirmative:
@@ -876,8 +916,8 @@ def puca_encounter():
         if player_talk2.lower().strip() in affirmative and \
                 "bloodstained spurred boots" in inventory:
             print(puca_conversation[2])
-            player_talk3 = input("Will you try to convince the Puca to\
- let you ride him? Or will you move on?\n>")
+            player_talk3 = input(f"{Fore.LIGHTMAGENTA_EX}Will you try to convince\
+ the Púca to let you ride him? Or will you move on?{Style.RESET_ALL}\n>")
             if player_talk3.lower().strip() in follow_path:
                 print(puca_conversation[4])
                 time.sleep(6)
@@ -921,7 +961,8 @@ def nokk_encounter():
         time.sleep(6)
         print(win_sequence[0])
         time.sleep(6)
-        print("CONGRATULATIONS! YOU BEAT THE GAME VIA THE SECRET ROUTE")
+        print(f"{Fore.LIGHTGREEN_EX}CONGRATULATIONS! YOU BEAT THE GAME VIA THE\
+ SECRET ROUTE{Style.RESET_ALL}")
         EXIT_GAME = True
     elif "Púca" not in inventory and "rusted sword" in inventory:
         print(nokk_conversation[2])
@@ -967,73 +1008,84 @@ def win():
     the game.
     """
     print(anansi_conversation[0])
-    print(f"'They are the:\n{', '.join(monsters_met)}\nand finally, myself. I\
- am known as Anansi.\nThe creature that was hunting you is known as a\
- Chupacabra.'\n")
-    player_talk = input("'Would you like to know more about any of these\
- beings?\nOr perhaps you do not know what a mythical\
+    print(f"{Fore.LIGHTCYAN_EX}'They are the:\n{', '.join(monsters_met)}\nand\
+ finally, myself. I am known as Anansi.\nThe creature that was hunting you is\
+ known as a Chupacabra.'{Style.RESET_ALL}\n")
+    player_talk = input(f"{Fore.LIGHTCYAN_EX}'Would you like to know more\
+ about any of these beings?\nOr perhaps you do not know what a mythical\
  creature is?\nWould you like to expand your knowledge?\nA simple\
- yes or no will suffice.'\n>")
+ yes or no will suffice.'{Style.RESET_ALL}\n>")
     while player_talk.lower().strip() not in stop_game and \
             player_talk.lower().strip() not in negative:
-        player_talk = input("Which being would you like to know more\
- about?\n>")
+        player_talk = input(f"{Fore.LIGHTCYAN_EX}'Which being would you like\
+ to know more about?'{Style.RESET_ALL}\n>")
         if player_talk.lower().strip() == "mythical creature" or \
                 player_talk.lower().strip() == "mythical creatures":
             print(Monster.definition)
-            player_talk = input("'Would you like to know more?'\n>")
+            player_talk = input(f"{Fore.LIGHTCYAN_EX}'Would you like to know\
+ more?'{Style.RESET_ALL}\n>")
         elif player_talk.lower().strip() == "kitsune" or \
                 player_talk.lower().strip() == "the kitsune":
             print(kitsune.description())
-            player_talk = input("'Would you like to know more?'\n>")
+            player_talk = input(f"{Fore.LIGHTCYAN_EX}'Would you like to know\
+ more?'{Style.RESET_ALL}\n>")
         elif player_talk.lower().strip() == "naga" or \
                 player_talk.lower().strip() == "the naga":
             print(naga.description())
-            player_talk = input("'Would you like to know more?'\n>")
+            player_talk = input(f"{Fore.LIGHTCYAN_EX}'Would you like to know\
+ more?'{Style.RESET_ALL}\n>")
         elif player_talk.lower().strip() == "dragon" or \
                 player_talk.lower().strip() == "the dragon":
             print(dragon.description())
-            player_talk = input("'Would you like to know more?'\n>")
+            player_talk = input(f"{Fore.LIGHTCYAN_EX}'Would you like to know\
+ more?'{Style.RESET_ALL}\n>")
         elif player_talk.lower().strip() == "surale" or \
                 player_talk.lower().strip() == "the surale" or\
                 player_talk.lower().strip() == "Şüräle" or \
                 player_talk.lower().strip() == "the Şüräle":
             print(surale.description())
-            player_talk = input("'Would you like to know more?'\n>")
+            player_talk = input(f"{Fore.LIGHTCYAN_EX}'Would you like to know\
+ more?'{Style.RESET_ALL}\n>")
         elif player_talk.lower().strip() == "puca" or \
                 player_talk.lower().strip() == "the puca" or \
                 player_talk.lower().strip() == "púca" or \
                 player_talk.lower().strip() == "the púca":
             print(puca.description())
-            player_talk = input("'Would you like to know more?'\n>")
+            player_talk = input(f"{Fore.LIGHTCYAN_EX}'Would you like to know\
+ more?'{Style.RESET_ALL}\n>")
         elif player_talk.lower().strip() == "nokk" or \
                 player_talk.lower().strip() == "the nokk" or \
                 player_talk.lower().strip() == "nøkk" or \
                 player_talk.lower().strip() == "the nøkk":
             print(nokk.description())
-            player_talk = input("'Would you like to know more?'\n>")
+            player_talk = input(f"{Fore.LIGHTCYAN_EX}'Would you like to know\
+ more?'{Style.RESET_ALL}\n>")
         elif player_talk.lower().strip() == "sphinx" or \
                 player_talk.lower().strip() == "the sphinx":
             print(sphinx.description())
-            player_talk = input("'Would you like to know more?'\n>")
+            player_talk = input(f"{Fore.LIGHTCYAN_EX}'Would you like to know\
+ more?'{Style.RESET_ALL}\n>")
         elif player_talk.lower().strip() == "anansi" or \
                 player_talk.lower().strip() == "you":
             print(anansi.description())
-            player_talk = input("'Would you like to know more?'\n>")
+            player_talk = input(f"{Fore.LIGHTCYAN_EX}'Would you like to know\
+ more?'{Style.RESET_ALL}\n>")
         elif player_talk.lower().strip() == "chupacabra" or \
                 player_talk.lower().strip() == "the chupacabra":
             print(chupacabra.description())
-            player_talk = input("Would you like to know more?'\n>")
+            player_talk = input(f"{Fore.LIGHTCYAN_EX}'Would you like to know\
+ more?'{Style.RESET_ALL}\n>")
         else:
-            print(f"'I'm sorry, I can only tell you about the:\n\
- {', '.join(monsters_met)}, myself\nor what mythical \
- creatures are in general.'")
+            print(f"{Fore.LIGHTCYAN_EX}'I'm sorry, I can only tell you about\
+ the:\n{', '.join(monsters_met)}, myself\nor what mythical \
+ creatures are in general.'{Style.RESET_ALL}")
     else:
         print(anansi_conversation[1])
         time.sleep(6)
         print(win_sequence[0])
         time.sleep(6)
-        print("CONGRATULATIONS! YOU BEAT THE GAME")
+        print(f"{Fore.LIGHTGREEN_EX}CONGRATULATIONS! YOU BEAT THE\
+ GAME{Style.RESET_ALL}")
 
 
 def which_monster():
@@ -1055,15 +1107,19 @@ def take_items(thing='item'):
     if thing == 'item':
         if LOCATION.item not in inventory and LOCATION.item is not None:
             inventory.append(LOCATION.item)
-            print(f"You have added {LOCATION.item} to your inventory\n")
+            print(f"{Fore.LIGHTMAGENTA_EX}You have added{Fore.LIGHTYELLOW_EX}\
+ {LOCATION.item} {Fore.LIGHTMAGENTA_EX}to your inventory.{Style.RESET_ALL}\n")
         elif LOCATION.item in inventory:
-            print(f"{LOCATION.item} is already in your inventory\n")
+            print(f"{LOCATION.item} {Fore.LIGHTMAGENTA_EX}is already in your\
+ inventory{Style.RESET_ALL}\n")
         else:
-            print("There's nothing here that you can take with you\n")
+            print(f"{Fore.LIGHTMAGENTA_EX}There's nothing here that you can\
+ take with you.{Style.RESET_ALL}\n")
     elif thing == 'gift':
         inventory.append(LOCATION.gift)
-        print(f"The {which_monster()} added {LOCATION.gift} to\
- your inventory\n")
+        print(f"{Fore.LIGHTMAGENTA_EX}The {which_monster()} added\
+ {Fore.LIGHTYELLOW_EX}{LOCATION.gift} {Fore.LIGHTMAGENTA_EX}to your\
+ inventory{Style.RESET_ALL}\n")
 
 
 def validate_path(follow='path'):
@@ -1078,8 +1134,9 @@ def validate_path(follow='path'):
     elif follow == 'path':
         LOCATION = LOCATION.path
     if hasattr(LOCATION, "description") is False:
-        print("Although the path is ahead,\nyou cannot see\
- a way to pass by the creature without putting yourself in harm's way\n")
+        print(f"{Fore.LIGHTMAGENTA_EX}Although the path is ahead,\nyou cannot see\
+ a way to pass by the creature without putting yourself in harm's\
+ way.{Style.RESET_ALL}\n")
         LOCATION = visited[-1]
     else:
         visited.append(LOCATION)
