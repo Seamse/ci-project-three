@@ -61,8 +61,9 @@ Users can go on an adventure in the Mythos Maze filled with Mythological creatur
   All informative text is kept short and to the point, to keep the game light and fun rather than turn it into an encyclopedia at the end. When the user inputs that they don't wish to know more, the game will end with a short ending sequence and the user will be told they won the game.  
 
 ### Potential future features  
-The game can be expanded upon endlessly by offering more varied responses to different kinds of user input. Gaining feedback from many users would help a game like this evolve and become easier and more fun to play over time.  
-Aside from that more creatures could be added, more paths / directions could be added etc.  
+* The game can be expanded upon endlessly by offering more varied responses to different kinds of user input. Gaining feedback from many users would help a game like this evolve and become easier and more fun to play over time.  
+* Aside from that more creatures could be added, more paths / directions could be added etc.  
+* A help or hint command could be added, in case the game is too hard to beat for the user.
 
 ## Technologies used  
 * Python3
@@ -76,6 +77,41 @@ I have manually tested this project by doing the following:
 * Passed the code through a [Pep8](http://pep8online.com/) linter and confirmed there are no problems.
 * Played through the game many times to rout out errors or bugs.  
 * Tested in my local terminal and the Code Institute Heroku terminal.  
+
+### User testing:
+The game's introduction asks the user whether they wish to play or not. If they answer yes they will be given a hint on how to conquer the Maze.  
+* When asked if they want to play:
+  * Choosing 'no' will give the user the output that they made a wise decision and to come back anytime.
+  * Choosing 'yes' will give the user the output 'are you sure?'
+  * Choosing anything other than yes or no will give the user the output that they're lacking in confidence.  
+  <br>
+* When asked if the user is sure they want to play:  
+  * Choosing 'yes' will give the user a hint on how to win and start the game.
+  * Choosing anything other than yes will give the user the output that they are indecisive.  
+  The cycle will keep repeating until the user chooses yes (or a variant thereof) twice.
+<br>
+
+Throughout the Maze the user will be asked questions: 'What will you do?', 'What will you say?' etc. Their input can be freely given, the game will react differently depending on their feedback. Though this is riskier, I hope it will make the game more immersive.  
+* Different inputs have been tested and verified, "take item", "follow spider", "forward", "continue", "hide", "attack" etc. etc. any command that is not known will result in the user gaining feedback that the computer doesn't understand, after which they will be asked the same question again. This was tested by playing through the game, choosing to attack something at random moments, trying to pick up things at random locations, giving strange answers to questions etc.
+  * When items are picked up, a message is shown that the item was added to the user's inventory.
+  * When the user dies, a message is shown that they have died. After which they are asked if they want to try again, start over or stop playing.  
+<br>
+
+The game contains a lot of descriptive text, both to bring life to the maze and to inform the user of everything they can potentially interact with.
+* Playing through the game requires a lot of attentive reading, each phrase might contain important information about potential items the user can pick up or a different direction the user can take. Playing through the game many times should have taken care of text errors and certain sections were shortened to spare the user from having to read too much.  
+<br>
+
+The user can request to see the contents of their inventory, or quit the game, at any time. They need to discover this themselves however. Like the player character, they are 'dropped' into an unfamiliar world and have to figure things out as they go.
+* The inventory function works properly when typing in words such as "inventory", "contents", "show inventory", "what's in my inventory" etc.
+  Whether the user would intuitively find out that this function exists is to be seen, either way the function is not vital to winning the game.  
+<br>
+
+If the player reaches the official end of the game (there is also a way to leave the maze earlier, if a user manages to find it), they can ask for more information on the creatures they've encountered.  
+* This function was tested by running through different routes of the game. Each route informs the user of which creatures they encountered and they are asked if they want to know more about them as expected.  
+<br>
+
+Should the player die, they will be asked whether they wish to 'try again' (from the part where they died), 'start over' (from the beginning) or 'stop playing'.  
+* This function was tested multiple times in multiple locations, it works as expected every time and any where. Though try again is not always the best option for a user as you might redo a scene for which you require a specific item, which means the user will simply die again. On the next run it is best to choose start over in that scenario as turning back will also result in getting killed by the creature which is hunting the user through the maze.  
 
 ### Bugs
 I ran into many 'bugs' or errors while playing through the game and had to tweak the code regularly.  
@@ -108,7 +144,7 @@ This project was deployed using Code Institute's mock terminal for Heroku.
 The deployed version can be found here: [Mythos Maze](https://mythos-maze.herokuapp.com/)  
 
 ## Credits
-[Code Institute](https://www.codeinstitute.net) for the deployment terminal
+[Code Institute](https://www.codeinstitute.net) for the deployment terminal  
 The image used in the ReadMe was taken from [Pexels](https://www.pexels.com)
 
 Useful pages were:  
