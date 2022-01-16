@@ -13,7 +13,8 @@ follow_path = ["path", "follow path", "straight", "straight ahead",
                "head deeper into maze", "run away", "run", "forward", "move",
                "move forward", "onward", "continue", "move on", "keep moving"]
 follow_spider = ["follow spider", "spider", "after spider", "side passage",
-                 "hole", "move through hole", "move through hedge"]
+                 "hole", "move through hole", "move through hedge",
+                 "get to hedge", "enter hedge", "pass hedge", "hedge"]
 stop_game = ["quit", "go home", "leave maze", "exit", "i'm done"]
 seal_your_doom = ["help!", "investigate noise", "investigate",
                   "investigate sound", "go back", "turn back", "hide", "shout",
@@ -24,7 +25,7 @@ pickup_items = ["search pocket", "search pockets", "pick up", "pick up item",
                 "pick up boots", "pick up sword", "investigate", "grab sword",
                 "grab item", "pickup sword", "pickup item", "search skeleton",
                 "search body", "search", "grab boots", "put on boots",
-                "wear boots"]
+                "wear boots", "inspect", "inspect pocket", "examine"]
 avoid = ["leave", "don't help", "don't listen", "go away", "sneak past",
          "sneak"]
 correct_answer = ["10 and 20", "20 and 10", "10 groats and 20 groats",
