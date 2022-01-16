@@ -1201,6 +1201,7 @@ def game_over():
     if player_input4.lower().strip() == "start over":
         LOCATION = entrance
         inventory.clear()
+        monsters_met.clear()
     elif player_input4.lower().strip() == "stop playing":
         print(f"{Fore.LIGHTCYAN_EX}'We're sorry to see you\
  go...'{Style.RESET_ALL}")
