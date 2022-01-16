@@ -204,6 +204,9 @@ sphinx_lair.move_on = leave_maze
 monster_locations = [kitsune_lair, passage_three, naga_lair, dragon_lair,
                      surale_lair, puca_lair, nokk_lair, sphinx_lair,
                      leave_maze]
+confrontation_locations = [entrance, kitsune_lair, naga_lair,
+                           dragon_lair, surale_lair, puca_lair, sphinx_lair,
+                           leave_maze]
 
 
 class Monster:
@@ -447,9 +450,9 @@ puca_conversation = [f"{Fore.LIGHTCYAN_EX}'Well well, are you lost\
  human?\nRun along then, before the Chupa bleeds you\
  dry...'{Style.RESET_ALL}\n"]
 nokk_conversation = [f"{Fore.LIGHTMAGENTA_EX}The music lures you forward,\
- it fills your senses until they feel like bursting.\nYour body relaxes,\
+ it fills your senses.\nYour body relaxes,\
  the stress and fear flowing out of you\nsimilar to how the water flows over\
- the waterfall.\nWhat was there to be afraid of again? Surely you have arrived\
+ the waterfall.\nSurely you have arrived\
  in paradise.\nNear the waterfall, you see a fallen angel half submerged\
  in water.\nHe's the most beautiful man you've ever seen\nand plays the\
  violin with a devotion worthy of a lover.{Style.RESET_ALL}\n", f"\
@@ -510,8 +513,8 @@ sphinx_conversation = [f"{Fore.LIGHTMAGENTA_EX}The mouse runs off,\
  '\n{Fore.LIGHTMAGENTA_EX}The creature sighs in exasperation and casually\
  motions her head\nin the general direction to her left.\n{Fore.LIGHTCYAN_EX}'\
  Head in that direction and I reckon Anansi will lead you out.\
- '\n{Fore.LIGHTMAGENTA_EX}You do not hesitate to do as she instructs\
- ...{Style.RESET_ALL}\n", f"{Fore.LIGHTMAGENTA_EX}She uncrosses her front\
+ '\n{Fore.LIGHTMAGENTA_EX}You do not hesitate to do as she instructs...\
+ {Style.RESET_ALL}\n", f"{Fore.LIGHTMAGENTA_EX}She uncrosses her front\
  paws,\nlowers her body and flexes her muscles in preparation to pounce\
  .\n{Fore.LIGHTCYAN_EX}'I'm afraid that is incorrect.\
  '\n{Fore.LIGHTMAGENTA_EX}You barely have time to shriek before she leaps and\
@@ -530,19 +533,30 @@ anansi_conversation = [f"{Fore.LIGHTMAGENTA_EX}He regards you, slowly breathing\
  it has been a trying night for you.\nPlease do visit us again sometime.\
  '\n{Fore.LIGHTMAGENTA_EX}He waves his hairy leg in a sweeping\
  motion, a wistful smile on his face.{Style.RESET_ALL}\n"]
-killed_by_chupa = [f"{Fore.LIGHTMAGENTA_EX}A set of glowing {Fore.LIGHTRED_EX}red\
- coals stare at you from the darkness.\nA low growl reverberates through the\
- air\nas whatever they belong to moves closer to you.\nSharp claws scratch the\
- earth and the moonlight reveals a heavily\nprotruding spinal ridge on a\
- creature that looks like an emaciated, hairless dog.\ndrool slowly slides\
- down razor sharp canines as the creature braces itself to pounce\
+killed_by_foolishness = [f"{Fore.LIGHTMAGENTA_EX}A set of glowing\
+ {Fore.LIGHTRED_EX}red {Fore.LIGHTMAGENTA_EX}coals stare at you from the\
+ darkness.\nA low growl reverberates through the air\nas whatever they\
+ belong to moves closer to you.\nSharp claws\
+ scratch the earth and the moonlight reveals a heavily\nprotruding spinal\
+ ridge on a creature that looks like an emaciated, hairless dog.\ndrool\
+ slowly slides down razor sharp canines as the creature braces itself to\
+ pounce...{Style.RESET_ALL}\n", f"{Fore.LIGHTMAGENTA_EX}You lift the\
+ sword in shaking hands.\nWith a battlecry you charge, hoping you'll\
+ forget your fear.\nSeeing the creature up close makes you waver for\
+ a moment.\nPanic clawing its way up your body like growing\
+ vines.\nYet you refuse to go down without a fight.\nWith a single\
+ hit, the timeworn sword snaps in two and you know you're in deep\
+ trouble...{Style.RESET_ALL}\n", f"{Fore.LIGHTMAGENTA_EX}You ball\
+ your hands into fists.\nWhatever else\
+ may be said of you, you will not go down without a fight\
  ...{Style.RESET_ALL}\n"]
 win_sequence = [f"{Fore.LIGHTMAGENTA_EX}You startle awake, your head\
  groggy from the aftermath of sleep\nas you try to clumsily free yourself from\
  your tangled sheets.\nYou look around in a disoriented haze, your alarm\
  blaring\nloudly enough in the background to wake the dead.\nFor a moment\
- you think you see two glowing red eyes stare at you from the\
- shadows.\nYou shake your head and rub your eyes,\nthe glowing red coals\
+ you think you see two glowing {Fore.LIGHTRED_EX}red\
+ {Fore.LIGHTMAGENTA_EX}eyes stare at you from the shadows.\nYou shake your\
+ head and rub your eyes,\nthe glowing red coals\
  have vanished by the time you look again.\nYou must've had a bad dream\
  tonight...{Style.RESET_ALL}\n"]
 
@@ -559,8 +573,8 @@ follow_spider = ["follow spider", "spider", "after spider", "side passage",
 stop_game = ["quit", "go home", "leave maze", "exit", "i'm done"]
 seal_your_doom = ["help!", "investigate noise", "investigate",
                   "investigate sound", "go back", "turn back", "hide", "shout",
-                  "scream", "attack", "use sword", "look behind you",
-                  "turn around", "look back"]
+                  "scream", "look behind you", "turn around", "look back"]
+attack = ["attack", "use sword", "fight", "kill", "kill creature", "charge"]
 pickup_items = ["search pocket", "search pockets", "pick up", "pick up item",
                 "take", "take item", "take boots", "take sword",
                 "pick up boots", "pick up sword", "investigate", "grab sword",
@@ -629,7 +643,7 @@ def location_arrival():
     player_input3 = input("What will you do?\n>")
     while player_input3.lower().strip() not in stop_game:
         if LOCATION is monster_locations[0] and player_input3.lower().strip()\
-                not in avoid:
+                not in avoid and player_input3.lower().strip() not in attack:
             kitsune_encounter()
             if EXIT_GAME is True:
                 break
@@ -651,7 +665,8 @@ def location_arrival():
         elif LOCATION is monster_locations[2] and \
                 player_input3.lower().strip() not in avoid and \
                 player_input3.lower().strip() not in follow_path and\
-                player_input3.lower().strip() not in follow_spider:
+                player_input3.lower().strip() not in follow_spider\
+                and player_input3.lower().strip() not in attack:
             naga_encounter()
             location_arrival()
             break
@@ -660,7 +675,8 @@ def location_arrival():
             validate_path()
             player_input3 = input("what will you do?\n>")
         elif LOCATION is monster_locations[3] and \
-                player_input3.lower().strip() not in avoid:
+                player_input3.lower().strip() not in avoid and\
+                player_input3.lower().strip() not in attack:
             dragon_encounter()
             if EXIT_GAME is True:
                 break
@@ -669,7 +685,8 @@ def location_arrival():
                 break
         elif LOCATION is monster_locations[4] and \
                 player_input3.lower().strip() not in avoid and\
-                player_input3.lower().strip() not in negative:
+                player_input3.lower().strip() not in negative and\
+                player_input3.lower().strip() not in attack:
             surale_encounter()
             if EXIT_GAME is True:
                 break
@@ -682,7 +699,8 @@ def location_arrival():
             game_over()
             break
         elif LOCATION is monster_locations[5] and \
-                player_input3.lower().strip() not in avoid:
+                player_input3.lower().strip() not in avoid and\
+                player_input3.lower().strip() not in attack:
             puca_encounter()
             if EXIT_GAME is True:
                 break
@@ -698,7 +716,8 @@ def location_arrival():
                 location_arrival()
                 break
         elif LOCATION is monster_locations[7] and \
-                player_input3.lower().strip() not in avoid:
+                player_input3.lower().strip() not in avoid and\
+                player_input3.lower().strip() not in attack:
             sphinx_encounter()
             if EXIT_GAME is True:
                 break
@@ -724,16 +743,42 @@ def location_arrival():
             validate_path('spider')
             player_input3 = input("What will you do?\n>")
         elif player_input3.lower().strip() in seal_your_doom:
-            print(killed_by_chupa[0])
+            print(killed_by_foolishness[0])
             game_over()
             if EXIT_GAME is True:
                 break
             else:
                 location_arrival()
                 break
+        elif player_input3.lower().strip() in attack and\
+                LOCATION in confrontation_locations and\
+                "rusted sword" in inventory:
+            print(killed_by_foolishness[1])
+            game_over()
+            if EXIT_GAME is True:
+                break
+            else:
+                location_arrival()
+                break
+        elif player_input3.lower().strip() in attack and\
+                LOCATION in confrontation_locations and\
+                "rusted sword" not in inventory:
+            print(killed_by_foolishness[2])
+            game_over()
+            if EXIT_GAME is True:
+                break
+            else:
+                location_arrival()
+                break
+        elif player_input3.lower().strip() in attack and\
+                LOCATION not in confrontation_locations:
+            print(f"{Fore.LIGHTMAGENTA_EX}It appears your mind has devolved\
+ into madness\nto the point that you're attacking empty air.\nPerhaps a\
+ different course of action is more productive?{Style.RESET_ALL}")
+            player_input3 = input("What will you do?\n>")
         elif player_input3.lower().strip() in contents:
             print(f"{Fore.LIGHTMAGENTA_EX}Your inventory currently\
- contains:{Style.RESET_ALL} {', '.join(inventory)}")
+ contains:{Fore.LIGHTYELLOW_EX} {', '.join(inventory)}{Style.RESET_ALL}")
             player_input3 = input("What will you do?\n>")
         else:
             print(f"{Fore.LIGHTMAGENTA_EX}I'm afraid I don't quite catch your\
@@ -1150,14 +1195,15 @@ def game_over():
     """
     global LOCATION
     global EXIT_GAME
-    print("you have died\n")
+    print(f"{Fore.LIGHTRED_EX}you have died{Style.RESET_ALL}\n")
     player_input4 = input("would you like to try again,\
  start over or stop playing?\n")
     if player_input4.lower().strip() == "start over":
         LOCATION = entrance
         inventory.clear()
     elif player_input4.lower().strip() == "stop playing":
-        print("We're sorry to see you go...")
+        print(f"{Fore.LIGHTCYAN_EX}'We're sorry to see you\
+ go...'{Style.RESET_ALL}")
         EXIT_GAME = True
 
 
