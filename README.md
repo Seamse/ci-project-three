@@ -135,10 +135,18 @@ Some of the more prominent bugs were:
 ## Deployment
 This project was deployed using Code Institute's mock terminal for Heroku.  
 * Steps for deployment:
-   * Fork or clone this repository
-   * Create a new Heroku app
-   * Set the buildpacks to Python and NodeJS in that order
-   * Link the Heroku app to the repository
+   * Sign into Heroku
+   * Choose New.
+   * Choose Create new app.
+   * Type in a name for your new app.
+   * Select your region from the dropdown menu.
+   * Choose Create App.
+   * In the settings tab choose config vars.
+   * Add the key: PORT with value: 8000.
+   * Add buildpack Python followed by buildpack NodeJS.
+   * In the deploy tab, select GitHub as the deployment method and connect your GitHub profile.
+   * Search for the repository that you wish to deploy to Heroku and click "connect".
+   * Choose to automatically deploy and update your app.
    * Click on Deploy
 
 The deployed version can be found here: [Mythos Maze](https://mythos-maze.herokuapp.com/)  
